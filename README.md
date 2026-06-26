@@ -1,4 +1,4 @@
-# MassKara Festival Sentiment & Travel Surge Tracker
+# MassKara Festival Buzz & Travel Price Surge Tracker
 
 ## Problem Statement
 I want to answer: "Is there a correlation between online buzz and MNL-BCD flight/BCD hotel price surges leading up to the Bacolod MassKara Festival in October?"
