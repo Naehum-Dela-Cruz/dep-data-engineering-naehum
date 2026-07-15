@@ -25,11 +25,45 @@ The main metrics this builder wishes to track are categorized into four distinct
 - `hotel_cooldown_time`: The number of days post-festival before BCD hotel booking prices stabilize below the surge threshold.
 - `hotel_price_velocity`: The week-over-week percentage change in nightly hotel rates across listed Bacolod city accommodations.
 
-## Likely Data Source
+## Data Source Notes
+
+### Primary Source
+- Name: SERP API
+- URL: https://serpapi.com/playground
+- Format: json
+- Coverage: flight prices, hotel prices, interest over time metric
+- Why it fits the problem: SERP API directly scrapes Google Flight, Hotel, and Trends search results
+- Known limitations: free tier is limited to 250 request per month (should need around 90)
+
+### Fallback Source 1 (Hotel)
+- Name: Bright Data Google.com Scraper
+- URL: https://brightdata.com/cp/scrapers/gd_mg3gjfmg12tc2n5d4d/
+- Format: json
+- Coverage: hotel prices
+- Why it could still work: directly scrapes Google Hotel
+- Known limitations: lengthy collection time, eats up a lot of tokens (builder needs to optimize queries)
+
+### Fallback Source 2 (Flight)
+- Name: RapidAPI Google Flight API
+- URL: https://rapidapi.com/DataCrawler/api/google-flights2/playground/
+- Format: JSON
+- Coverage: flight prices
+- Why it could still work: directly scrapes google flights
+- Known limitations: 150 free requests per month, community-maintained scrapers
+
+### Fallback Source 3 (Trend)
+- Name: RapidAPI Trendly API
+- URL: https://rapidapi.com/odlica-odlica-default/api/trendly/playground
+- Format: json
+- Coverage: interest over time metric
+- Why it could still work: directly scrapes Google Trends interest over time results
+- Known limitations: 50 free requests per month, community-maintained scrapers
+
+<!-- ## Likely Data Source
 This builder will explore and integrate the following data endpoints:
 *   **Google Flights Pricing:** Timestamps, and price metrics extracted via **https://serpapi.com** free-tier.
 *   **Google Hotels Pricing:** Timestamps, and price metrics extracted via **https://serpapi.com** free-tier.
-*   **Google Trends Interest Over Time:** Timestamps, and interest metrics extracted via **https://serpapi.com** free-tier.
+*   **Google Trends Interest Over Time:** Timestamps, and interest metrics extracted via **https://serpapi.com** free-tier. -->
 
 ## Possible Final Dashboard
 The presentation layer will be built as a single-page application divided into three clear analytical modules:
@@ -49,4 +83,4 @@ The presentation layer will be built as a single-page application divided into t
 
 - This builder would've liked to do an analysis of the previous MassKara festival to contrast with the upcoming one, but SerpApi's Google Hotels and Google Flights scraper cannot view historical prices. 
 
-- This builder doesn't like being completely at the mercy of SerpApi. Alternative sources would be appreciated for redundancy.
+<!-- - This builder doesn't like being completely at the mercy of SerpApi. Alternative sources would be appreciated for redundancy. -->
