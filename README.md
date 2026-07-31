@@ -27,6 +27,8 @@ The main metrics this builder wishes to track are categorized into four distinct
 
 ## Data Source Notes
 
+All ingestion scripts are placed under the `scripts/ingest.py` under `ingest()` function. To run the script, use the command `python scripts/ingest.py`.
+
 ### Primary Source
 - Name: SERP API
 - URL: https://serpapi.com/playground
