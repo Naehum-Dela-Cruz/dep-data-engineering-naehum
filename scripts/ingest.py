@@ -38,7 +38,7 @@ def ingest():
             "geo": "PH",                # Geographical location (Philippines)
             "data_type": "TIMESERIES",  # Fetch Interest Over Time data
             "hl": "en",                 # Host language
-            "tz": "480",               # Timezone offset
+            "tz": "-480",               # Timezone offset
             "date": "now 1-d"           # Date range (Past day)
         })
 
