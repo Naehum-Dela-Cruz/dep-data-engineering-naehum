@@ -1,8 +1,9 @@
 """
 Phase 2 — Data Ingestion
-Replace this template with your own ingestion logic.
+This script fetches Google Trends data for a specific query ("Masskara") in the Philippines
+using the SerpApi service, and saves the resulting JSON response to the local data/raw directory.
 """
-
+import json
 import os
 import serpapi
 import json
