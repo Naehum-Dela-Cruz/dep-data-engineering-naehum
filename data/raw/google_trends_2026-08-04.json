@@ -1,0 +1,26 @@
+{
+    "search_metadata": {
+        "id": "6a724da19f8abc854a5b6e6f",
+        "status": "Success",
+        "json_endpoint": "https://serpapi.com/searches/dWAXz2WSlNV4eV4Nj8mACA/6a724da19f8abc854a5b6e6f.json",
+        "created_at": "2026-08-04 20:37:53 UTC",
+        "processed_at": "2026-08-04 20:37:53 UTC",
+        "google_trends_url": "https://trends.google.com/trends/embed/explore/TIMESERIES?hl=en&tz=-480&req=%7B%22comparisonItem%22%3A%5B%7B%22keyword%22%3A%22masskara%22%2C%22geo%22%3A%22PH%22%2C%22time%22%3A%22now+1-d%22%7D%5D%2C%22category%22%3A0%2C%22property%22%3A%22%22%7D",
+        "raw_html_file": "https://serpapi.com/searches/dWAXz2WSlNV4eV4Nj8mACA/6a724da19f8abc854a5b6e6f.html",
+        "prettify_html_file": "https://serpapi.com/searches/dWAXz2WSlNV4eV4Nj8mACA/6a724da19f8abc854a5b6e6f.prettify",
+        "total_time_taken": 7.44
+    },
+    "search_parameters": {
+        "engine": "google_trends",
+        "q": "masskara",
+        "hl": "en",
+        "geo": "PH",
+        "date": "now 1-d",
+        "tz": "-480",
+        "data_type": "TIMESERIES"
+    },
+    "search_information": {
+        "organic_results_state": "Fully empty"
+    },
+    "error": "Google Trends hasn't returned any results for this query."
+}
