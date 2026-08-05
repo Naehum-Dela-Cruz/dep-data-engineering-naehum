@@ -1,10 +1,10 @@
 """
 Phase 2 — Data Ingestion
-This script fetches Google Trends data for "masskara" in the Philippines
-primarily using the SerpApi service, and saves the resulting JSON response to the local data/raw directory.
+Replace this template with your own ingestion logic.
 """
-import json
+
 import os
+import json
 import serpapi
 import json
 from datetime import datetime, timedelta
@@ -20,13 +20,13 @@ def primary_google_trends():
 
     client = serpapi.Client(api_key=os.getenv('SERPAPI_API_KEY'))
     results = client.search({
-    "engine": "google_trends",
-    "q": "masskara",
-    "data_type": "TIMESERIES",
-    "hl": "en",
-    "geo": "PH",
-    "tz": "-480",
-    "date": "now 1-d"
+        "engine": "google_trends",
+        "q": "masskara",
+        "data_type": "TIMESERIES",
+        "hl": "en",
+        "geo": "PH",
+        "tz": "-480",
+        "date": "now 1-d"
     })
 
     with open(os.path.join(RAW_DATA_DIR, f'google_trends_{dateTimeNow}.json'), 'w', encoding="utf-8") as f:
@@ -36,31 +36,14 @@ def primary_google_hotels():
 
     client = serpapi.Client(api_key=os.getenv('SERPAPI_API_KEY'))
     results = client.search({
-    "engine": "google_hotels",
-    "q": "Bacolod Hotels",
-    "hl": "en",
-    "gl": "ph",
-    "check_in_date": f"{dateTimeNow}",
-    "check_out_date": f"{dateTimeTommorow}",
-    "currency": "PHP",
-    "adults": "1"
-    })
-
-    with open(os.path.join(RAW_DATA_DIR, f'google_hotel_{dateTimeNow}.json'), 'w', encoding='utf=8') as f:
-        json.dump(results.as_dict(), f, indent=4, ensure_ascii=False)
-
-def primary_google_hotels():
-
-    client = serpapi.Client(api_key=os.getenv('SERPAPI_API_KEY'))
-    results = client.search({
-    "engine": "google_hotels",
-    "q": "Bacolod Hotels",
-    "hl": "en",
-    "gl": "ph",
-    "check_in_date": f"{dateTimeNow}",
-    "check_out_date": f"{dateTimeTommorow}",
-    "currency": "PHP",
-    "adults": "1"
+        "engine": "google_hotels",
+        "q": "Bacolod Hotels",
+        "hl": "en",
+        "gl": "ph",
+        "check_in_date": f"{dateTimeNow}",
+        "check_out_date": f"{dateTimeTommorow}",
+        "currency": "PHP",
+        "adults": "1"
     })
 
     with open(os.path.join(RAW_DATA_DIR, f'google_hotel_{dateTimeNow}.json'), 'w', encoding='utf=8') as f:
@@ -70,17 +53,17 @@ def primary_google_flights():
 
     client = serpapi.Client(api_key=os.getenv('SERPAPI_API_KEY'))
     results = client.search({
-    "engine": "google_flights",
-    "hl": "en",
-    "gl": "ph",
-    "departure_id": "MNL",
-    "arrival_id": "BCD",
-    "outbound_date": f"{dateTimeNow}",
-    "currency": "PHP",
-    "type": "2",
-    "travel_class": "1",
-    "adults": "1",
-    "sort_by": "2"
+        "engine": "google_flights",
+        "hl": "en",
+        "gl": "ph",
+        "departure_id": "MNL",
+        "arrival_id": "BCD",
+        "outbound_date": f"{dateTimeNow}",
+        "currency": "PHP",
+        "type": "2",
+        "travel_class": "1",
+        "adults": "1",
+        "sort_by": "2"
     })
     
 
