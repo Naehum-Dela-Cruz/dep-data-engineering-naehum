@@ -33,7 +33,7 @@ All ingestion scripts are placed under the `scripts/ingest.py` under `ingest()` 
 - Name: SERP API
 - URL: https://serpapi.com/playground
 - Format: json
-- Coverage: flight prices, hotel prices, interest over time metric
+- Coverage: flight prices (by cheapest), hotel prices (by Google Search 'relevance'), interest over time metric
 - Why it fits the problem: SERP API directly scrapes Google Flight, Hotel, and Trends search results
 - Known limitations: free tier is limited to 250 request per month (should need around 90)
 

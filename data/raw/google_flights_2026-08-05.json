@@ -1,0 +1,60 @@
+{
+    "search_metadata": {
+        "id": "6a73b131a68855c23369f088",
+        "status": "Success",
+        "json_endpoint": "https://serpapi.com/searches/mkJ89Q_7OCeebj33kURVNQ/6a73b131a68855c23369f088.json",
+        "created_at": "2026-08-05 21:54:57 UTC",
+        "processed_at": "2026-08-05 21:54:57 UTC",
+        "google_flights_url": "https://www.google.com/travel/flights?hl=en&gl=ph&curr=PHP&tfs=CBwQAhoeEgoyMDI2LTA4LTA1agcIARIDTU5McgcIARIDQkNEQAFIAXABmAEC&tfu=EgIIAg",
+        "raw_html_file": "https://serpapi.com/searches/mkJ89Q_7OCeebj33kURVNQ/6a73b131a68855c23369f088.html",
+        "prettify_html_file": "https://serpapi.com/searches/mkJ89Q_7OCeebj33kURVNQ/6a73b131a68855c23369f088.prettify",
+        "total_time_taken": 1.18
+    },
+    "search_parameters": {
+        "engine": "google_flights",
+        "hl": "en",
+        "gl": "ph",
+        "type": "2",
+        "departure_id": "MNL",
+        "arrival_id": "BCD",
+        "outbound_date": "2026-08-05",
+        "travel_class": 1,
+        "adults": 1,
+        "currency": "PHP",
+        "sort_by": "2"
+    },
+    "airports": [
+        {
+            "departure": [
+                {
+                    "airport": {
+                        "id": "MNL",
+                        "name": "Ninoy Aquino International Airport"
+                    },
+                    "city": "Manila",
+                    "country": "Philippines",
+                    "country_code": "PH",
+                    "image": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTJf81418Q0PkWchFc6cPvdjnVcAaZivEOoiVOkLtOXQ7I5YOBUcmLKmsYUi3ZcQqR51fhBYFiS46XRWA",
+                    "thumbnail": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQC7Bb2H3NrQpJM3YoHJkpvMGwYpCoYblptbYVAZ-2BkTgghoiODXxnA9Q33aylCHHY93N7850izEJuZ11FAI3tv4bcLCgZgkbZD7HpTFs"
+                }
+            ],
+            "arrival": [
+                {
+                    "airport": {
+                        "id": "BCD",
+                        "name": "Bacolod–Silay International Airport"
+                    },
+                    "city": "Bacolod",
+                    "country": "Philippines",
+                    "country_code": "PH",
+                    "image": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcS0_jFJ3evvYPmiT0QbXN6Mq53xy73GOGOSXHOGLr5l9sFTQRnmATtqc0_HxcfdTYZ2hYsfH_7jUhbwBA",
+                    "thumbnail": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTo0CFoMCreGRz6W1BlDZzRF0Xv0hxfIJoZd5d0wCgZGQCG3h7x8t7ZHkfqHjVHpD8X6iOfXzFRxox1AVDdgFRU_CKhNBNYTDLWODhNKwY"
+                }
+            ]
+        }
+    ],
+    "search_information": {
+        "flights_results_state": "Fully empty"
+    },
+    "error": "Google Flights hasn't returned any results for this query."
+}
