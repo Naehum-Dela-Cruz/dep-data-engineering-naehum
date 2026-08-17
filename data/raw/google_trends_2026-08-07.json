@@ -1,0 +1,2007 @@
+{
+    "search_metadata": {
+        "id": "6a764e1580a078db27eb4616",
+        "status": "Success",
+        "json_endpoint": "https://serpapi.com/searches/dWAXz2WSlNV4eV4Nj8mACA/6a764e1580a078db27eb4616.json",
+        "created_at": "2026-08-07 21:28:53 UTC",
+        "processed_at": "2026-08-07 21:28:53 UTC",
+        "google_trends_url": "https://trends.google.com/trends/embed/explore/TIMESERIES?hl=en&tz=-480&req=%7B%22comparisonItem%22%3A%5B%7B%22keyword%22%3A%22masskara%22%2C%22geo%22%3A%22PH%22%2C%22time%22%3A%22now+1-d%22%7D%5D%2C%22category%22%3A0%2C%22property%22%3A%22%22%7D",
+        "raw_html_file": "https://serpapi.com/searches/dWAXz2WSlNV4eV4Nj8mACA/6a764e1580a078db27eb4616.html",
+        "prettify_html_file": "https://serpapi.com/searches/dWAXz2WSlNV4eV4Nj8mACA/6a764e1580a078db27eb4616.prettify",
+        "total_time_taken": 2.59
+    },
+    "search_parameters": {
+        "engine": "google_trends",
+        "q": "masskara",
+        "hl": "en",
+        "geo": "PH",
+        "date": "now 1-d",
+        "tz": "-480",
+        "data_type": "TIMESERIES"
+    },
+    "interest_over_time": {
+        "timeline_data": [
+            {
+                "date": "Aug 7, 2026 at 5:28 AM",
+                "timestamp": "1786051680",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 5:36 AM",
+                "timestamp": "1786052160",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 5:44 AM",
+                "timestamp": "1786052640",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 5:52 AM",
+                "timestamp": "1786053120",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 6:00 AM",
+                "timestamp": "1786053600",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 6:08 AM",
+                "timestamp": "1786054080",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 6:16 AM",
+                "timestamp": "1786054560",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 6:24 AM",
+                "timestamp": "1786055040",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 6:32 AM",
+                "timestamp": "1786055520",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 6:40 AM",
+                "timestamp": "1786056000",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 6:48 AM",
+                "timestamp": "1786056480",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 6:56 AM",
+                "timestamp": "1786056960",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 7:04 AM",
+                "timestamp": "1786057440",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 7:12 AM",
+                "timestamp": "1786057920",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 7:20 AM",
+                "timestamp": "1786058400",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 7:28 AM",
+                "timestamp": "1786058880",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 7:36 AM",
+                "timestamp": "1786059360",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 7:44 AM",
+                "timestamp": "1786059840",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 7:52 AM",
+                "timestamp": "1786060320",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 8:00 AM",
+                "timestamp": "1786060800",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 8:08 AM",
+                "timestamp": "1786061280",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 8:16 AM",
+                "timestamp": "1786061760",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 8:24 AM",
+                "timestamp": "1786062240",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 8:32 AM",
+                "timestamp": "1786062720",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 8:40 AM",
+                "timestamp": "1786063200",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 8:48 AM",
+                "timestamp": "1786063680",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 8:56 AM",
+                "timestamp": "1786064160",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 9:04 AM",
+                "timestamp": "1786064640",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 9:12 AM",
+                "timestamp": "1786065120",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 9:20 AM",
+                "timestamp": "1786065600",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 9:28 AM",
+                "timestamp": "1786066080",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 9:36 AM",
+                "timestamp": "1786066560",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 9:44 AM",
+                "timestamp": "1786067040",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 9:52 AM",
+                "timestamp": "1786067520",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 10:00 AM",
+                "timestamp": "1786068000",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 10:08 AM",
+                "timestamp": "1786068480",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 10:16 AM",
+                "timestamp": "1786068960",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 10:24 AM",
+                "timestamp": "1786069440",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 10:32 AM",
+                "timestamp": "1786069920",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 10:40 AM",
+                "timestamp": "1786070400",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 10:48 AM",
+                "timestamp": "1786070880",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 10:56 AM",
+                "timestamp": "1786071360",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 11:04 AM",
+                "timestamp": "1786071840",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 11:12 AM",
+                "timestamp": "1786072320",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 11:20 AM",
+                "timestamp": "1786072800",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 11:28 AM",
+                "timestamp": "1786073280",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 11:36 AM",
+                "timestamp": "1786073760",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 11:44 AM",
+                "timestamp": "1786074240",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 11:52 AM",
+                "timestamp": "1786074720",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 12:00 PM",
+                "timestamp": "1786075200",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 12:08 PM",
+                "timestamp": "1786075680",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 12:16 PM",
+                "timestamp": "1786076160",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 12:24 PM",
+                "timestamp": "1786076640",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 12:32 PM",
+                "timestamp": "1786077120",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 12:40 PM",
+                "timestamp": "1786077600",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 12:48 PM",
+                "timestamp": "1786078080",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 12:56 PM",
+                "timestamp": "1786078560",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 1:04 PM",
+                "timestamp": "1786079040",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 1:12 PM",
+                "timestamp": "1786079520",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 1:20 PM",
+                "timestamp": "1786080000",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 1:28 PM",
+                "timestamp": "1786080480",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 1:36 PM",
+                "timestamp": "1786080960",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 1:44 PM",
+                "timestamp": "1786081440",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 1:52 PM",
+                "timestamp": "1786081920",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 2:00 PM",
+                "timestamp": "1786082400",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 2:08 PM",
+                "timestamp": "1786082880",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 2:16 PM",
+                "timestamp": "1786083360",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 2:24 PM",
+                "timestamp": "1786083840",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 2:32 PM",
+                "timestamp": "1786084320",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 2:40 PM",
+                "timestamp": "1786084800",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 2:48 PM",
+                "timestamp": "1786085280",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 2:56 PM",
+                "timestamp": "1786085760",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 3:04 PM",
+                "timestamp": "1786086240",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 3:12 PM",
+                "timestamp": "1786086720",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 3:20 PM",
+                "timestamp": "1786087200",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 3:28 PM",
+                "timestamp": "1786087680",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 3:36 PM",
+                "timestamp": "1786088160",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 3:44 PM",
+                "timestamp": "1786088640",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 3:52 PM",
+                "timestamp": "1786089120",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 4:00 PM",
+                "timestamp": "1786089600",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 4:08 PM",
+                "timestamp": "1786090080",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 4:16 PM",
+                "timestamp": "1786090560",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 4:24 PM",
+                "timestamp": "1786091040",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 4:32 PM",
+                "timestamp": "1786091520",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 4:40 PM",
+                "timestamp": "1786092000",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 4:48 PM",
+                "timestamp": "1786092480",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 4:56 PM",
+                "timestamp": "1786092960",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 5:04 PM",
+                "timestamp": "1786093440",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 5:12 PM",
+                "timestamp": "1786093920",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 5:20 PM",
+                "timestamp": "1786094400",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 5:28 PM",
+                "timestamp": "1786094880",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 5:36 PM",
+                "timestamp": "1786095360",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 5:44 PM",
+                "timestamp": "1786095840",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 5:52 PM",
+                "timestamp": "1786096320",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "100",
+                        "extracted_value": 100
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 6:00 PM",
+                "timestamp": "1786096800",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 6:08 PM",
+                "timestamp": "1786097280",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 6:16 PM",
+                "timestamp": "1786097760",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 6:24 PM",
+                "timestamp": "1786098240",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 6:32 PM",
+                "timestamp": "1786098720",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 6:40 PM",
+                "timestamp": "1786099200",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 6:48 PM",
+                "timestamp": "1786099680",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 6:56 PM",
+                "timestamp": "1786100160",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 7:04 PM",
+                "timestamp": "1786100640",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 7:12 PM",
+                "timestamp": "1786101120",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 7:20 PM",
+                "timestamp": "1786101600",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 7:28 PM",
+                "timestamp": "1786102080",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 7:36 PM",
+                "timestamp": "1786102560",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 7:44 PM",
+                "timestamp": "1786103040",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 7:52 PM",
+                "timestamp": "1786103520",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 8:00 PM",
+                "timestamp": "1786104000",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 8:08 PM",
+                "timestamp": "1786104480",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 8:16 PM",
+                "timestamp": "1786104960",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 8:24 PM",
+                "timestamp": "1786105440",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 8:32 PM",
+                "timestamp": "1786105920",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 8:40 PM",
+                "timestamp": "1786106400",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 8:48 PM",
+                "timestamp": "1786106880",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 8:56 PM",
+                "timestamp": "1786107360",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 9:04 PM",
+                "timestamp": "1786107840",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 9:12 PM",
+                "timestamp": "1786108320",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 9:20 PM",
+                "timestamp": "1786108800",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 9:28 PM",
+                "timestamp": "1786109280",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 9:36 PM",
+                "timestamp": "1786109760",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 9:44 PM",
+                "timestamp": "1786110240",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 9:52 PM",
+                "timestamp": "1786110720",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 10:00 PM",
+                "timestamp": "1786111200",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 10:08 PM",
+                "timestamp": "1786111680",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 10:16 PM",
+                "timestamp": "1786112160",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 10:24 PM",
+                "timestamp": "1786112640",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 10:32 PM",
+                "timestamp": "1786113120",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 10:40 PM",
+                "timestamp": "1786113600",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 10:48 PM",
+                "timestamp": "1786114080",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 10:56 PM",
+                "timestamp": "1786114560",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 11:04 PM",
+                "timestamp": "1786115040",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 11:12 PM",
+                "timestamp": "1786115520",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 11:20 PM",
+                "timestamp": "1786116000",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 11:28 PM",
+                "timestamp": "1786116480",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 11:36 PM",
+                "timestamp": "1786116960",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 11:44 PM",
+                "timestamp": "1786117440",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 7, 2026 at 11:52 PM",
+                "timestamp": "1786117920",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 8, 2026 at 12:00 AM",
+                "timestamp": "1786118400",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 8, 2026 at 12:08 AM",
+                "timestamp": "1786118880",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 8, 2026 at 12:16 AM",
+                "timestamp": "1786119360",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 8, 2026 at 12:24 AM",
+                "timestamp": "1786119840",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 8, 2026 at 12:32 AM",
+                "timestamp": "1786120320",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 8, 2026 at 12:40 AM",
+                "timestamp": "1786120800",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 8, 2026 at 12:48 AM",
+                "timestamp": "1786121280",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 8, 2026 at 12:56 AM",
+                "timestamp": "1786121760",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 8, 2026 at 1:04 AM",
+                "timestamp": "1786122240",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 8, 2026 at 1:12 AM",
+                "timestamp": "1786122720",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 8, 2026 at 1:20 AM",
+                "timestamp": "1786123200",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 8, 2026 at 1:28 AM",
+                "timestamp": "1786123680",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 8, 2026 at 1:36 AM",
+                "timestamp": "1786124160",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 8, 2026 at 1:44 AM",
+                "timestamp": "1786124640",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 8, 2026 at 1:52 AM",
+                "timestamp": "1786125120",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 8, 2026 at 2:00 AM",
+                "timestamp": "1786125600",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 8, 2026 at 2:08 AM",
+                "timestamp": "1786126080",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 8, 2026 at 2:16 AM",
+                "timestamp": "1786126560",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 8, 2026 at 2:24 AM",
+                "timestamp": "1786127040",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 8, 2026 at 2:32 AM",
+                "timestamp": "1786127520",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 8, 2026 at 2:40 AM",
+                "timestamp": "1786128000",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 8, 2026 at 2:48 AM",
+                "timestamp": "1786128480",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 8, 2026 at 2:56 AM",
+                "timestamp": "1786128960",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 8, 2026 at 3:04 AM",
+                "timestamp": "1786129440",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 8, 2026 at 3:12 AM",
+                "timestamp": "1786129920",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 8, 2026 at 3:20 AM",
+                "timestamp": "1786130400",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 8, 2026 at 3:28 AM",
+                "timestamp": "1786130880",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 8, 2026 at 3:36 AM",
+                "timestamp": "1786131360",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 8, 2026 at 3:44 AM",
+                "timestamp": "1786131840",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 8, 2026 at 3:52 AM",
+                "timestamp": "1786132320",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 8, 2026 at 4:00 AM",
+                "timestamp": "1786132800",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 8, 2026 at 4:08 AM",
+                "timestamp": "1786133280",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 8, 2026 at 4:16 AM",
+                "timestamp": "1786133760",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 8, 2026 at 4:24 AM",
+                "timestamp": "1786134240",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 8, 2026 at 4:32 AM",
+                "timestamp": "1786134720",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 8, 2026 at 4:40 AM",
+                "timestamp": "1786135200",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 8, 2026 at 4:48 AM",
+                "timestamp": "1786135680",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 8, 2026 at 4:56 AM",
+                "timestamp": "1786136160",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 8, 2026 at 5:04 AM",
+                "timestamp": "1786136640",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 8, 2026 at 5:12 AM",
+                "timestamp": "1786137120",
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            },
+            {
+                "date": "Aug 8, 2026 at 5:20 AM",
+                "timestamp": "1786137600",
+                "partial_data": true,
+                "values": [
+                    {
+                        "query": "masskara",
+                        "value": "0",
+                        "extracted_value": 0
+                    }
+                ]
+            }
+        ]
+    }
+}

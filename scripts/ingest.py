@@ -16,9 +16,15 @@ RAW_DATA_DIR = os.path.join(os.path.dirname(__file__), "..", "data", "raw")
 dateTimeNow = datetime.now().strftime("%Y-%m-%d")
 dateTimeTommorow = (datetime.now() + timedelta(days=1)).strftime("%Y-%m-%d")
 
-def primary_google_trends():
+client = serpapi.Client(api_key=os.getenv('SERPAPI_API_KEY'))
 
-    client = serpapi.Client(api_key=os.getenv('SERPAPI_API_KEY'))
+
+def write_to_json(title, results):
+
+    with open(os.path.join(RAW_DATA_DIR, title), 'w', encoding="utf-8") as f:
+        json.dump(results.as_dict(), f, indent=4, ensure_ascii=False)
+
+def primary_google_trends():
     results = client.search({
         "engine": "google_trends",
         "q": "masskara",
@@ -29,12 +35,9 @@ def primary_google_trends():
         "date": "now 1-d"
     })
 
-    with open(os.path.join(RAW_DATA_DIR, f'google_trends_{dateTimeNow}.json'), 'w', encoding="utf-8") as f:
-        json.dump(results.as_dict(), f, indent=4, ensure_ascii=False)
+    write_to_json(f'google_trends_{dateTimeNow}.json', results)
 
 def primary_google_hotels():
-
-    client = serpapi.Client(api_key=os.getenv('SERPAPI_API_KEY'))
     results = client.search({
         "engine": "google_hotels",
         "q": "Bacolod Hotels",
@@ -46,12 +49,9 @@ def primary_google_hotels():
         "adults": "1"
     })
 
-    with open(os.path.join(RAW_DATA_DIR, f'google_hotel_{dateTimeNow}.json'), 'w', encoding='utf=8') as f:
-        json.dump(results.as_dict(), f, indent=4, ensure_ascii=False)
+    write_to_json(f'google_hotel_{dateTimeNow}.json', results)
 
 def primary_google_flights():
-
-    client = serpapi.Client(api_key=os.getenv('SERPAPI_API_KEY'))
     results = client.search({
         "engine": "google_flights",
         "hl": "en",
@@ -65,10 +65,8 @@ def primary_google_flights():
         "adults": "1",
         "sort_by": "2"
     })
-    
 
-    with open(os.path.join(RAW_DATA_DIR, f'google_flights_{dateTimeNow}.json'), 'w', encoding='utf=8') as f:
-        json.dump(results.as_dict(), f, indent=4, ensure_ascii=False)
+    write_to_json(f'google_flights_{dateTimeNow}.json', results)
 
 if __name__ == "__main__":
     os.makedirs(RAW_DATA_DIR, exist_ok=True)
