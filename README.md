@@ -38,12 +38,12 @@ All ingestion scripts are placed under the `scripts/ingest.py` under `ingest()` 
 - Known limitations: free tier is limited to 250 request per month (should need around 90)
 
 ### Fallback Source 1 (Hotel)
-- Name: Bright Data Google.com Scraper
-- URL: https://brightdata.com/cp/scrapers/gd_mg3gjfmg12tc2n5d4d/
-- Format: json
+- Name: APIFY - Google Hotels & Vacation Scraper - Most Comprehensive
+- URL: https://console.apify.com/actors/H1scmbaCSREtaQDQU
+- Format: jsonl
 - Coverage: hotel prices
 - Why it could still work: directly scrapes Google Hotel
-- Known limitations: lengthy collection time, eats up a lot of tokens (builder needs to optimize queries)
+- Known limitations: $5 Free limit. ~$0.1/1k Hotels
 
 ### Fallback Source 2 (Flight)
 - Name: RapidAPI Google Flight API
