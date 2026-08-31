@@ -32,35 +32,6 @@ def write_to_jsonl(status, primary_source, title, results):
     with open(os.path.join(RAW_DATA_DIR, title), 'a', encoding="utf-8") as f:
         f.write(json.dumps(data_to_write, ensure_ascii=False) + "\n")
 
-# NOTE: Done for now ☑️ (don't forget to change if needed)
-def backup_google_trends():
-    run_input = {
-        "mode": "keyword",
-        "keyword": "Masskara",
-        "predefinedTimeframe": "now 1-d",
-        "geo": "PH",
-        "fetchRegionalData": False,
-        "proxyConfiguration": { "useApifyProxy": True },
-    }
-
-    # Run the Actor and wait for it to finish
-    run = client_Apify.actor("nWhM7vTPu16lcwuIg").call(run_input=run_input)
-
-    dataset_id = run.default_dataset_id
-    hasResults = False
-
-    if dataset_id:
-        for results in client_Apify.dataset(dataset_id).iterate_items():
-            # print(results.keys())
-            for timestamp, value in results.get("timeline_data", {}).get("Masskara", {}).items():
-                hasResults = True
-                write_to_jsonl("success", False, f'google_trends.jsonl', {"timestamp": timestamp, "value": value})
-    if not hasResults:
-        write_to_jsonl("noResults", False, f'google_trends.jsonl', 
-            {
-                "lookup_date": dateTimeTommorow,
-            }
-        )
 
 # NOTE: Done for now ☑️ (don't forget to change if needed)
 def backup_google_hotels():
@@ -124,6 +95,37 @@ def backup_google_flights():
             }
         )
  
+# NOTE: Done for now ☑️ (don't forget to change if needed)
+def backup_google_trends():
+    run_input = {
+        "mode": "keyword",
+        "keyword": "Masskara",
+        "predefinedTimeframe": "now 1-d",
+        "geo": "PH",
+        "fetchRegionalData": False,
+        "proxyConfiguration": { "useApifyProxy": True },
+    }
+
+    # Run the Actor and wait for it to finish
+    run = client_Apify.actor("nWhM7vTPu16lcwuIg").call(run_input=run_input)
+
+    dataset_id = run.default_dataset_id
+    hasResults = False
+
+    if dataset_id:
+        for results in client_Apify.dataset(dataset_id).iterate_items():
+            # print(results.keys())
+            for timestamp, value in results.get("timeline_data", {}).get("Masskara", {}).items():
+                hasResults = True
+                write_to_jsonl("success", False, f'google_trends.jsonl', {"timestamp": timestamp, "value": value})
+    if not hasResults:
+        write_to_jsonl("noResults", False, f'google_trends.jsonl', 
+            {
+                "lookup_date": dateTimeTommorow,
+            }
+        )
+
+
 def primary_google_trends():
     results = client_serpApi.search({
         "engine": "google_trends",
