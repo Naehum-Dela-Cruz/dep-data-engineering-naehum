@@ -1,361 +1,93 @@
-{"status": "success", "primary_source": false, "timestamp": "2026-08-27 20:24", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-27 20:32", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-27 20:40", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-27 20:48", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-27 20:56", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-27 21:04", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-27 21:12", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-27 21:20", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-27 21:28", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-27 21:36", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-27 21:44", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-27 21:52", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-27 22:00", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-27 22:08", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-27 22:16", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-27 22:24", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-27 22:32", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-27 22:40", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-27 22:48", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-27 22:56", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-27 23:04", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-27 23:12", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-27 23:20", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-27 23:28", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-27 23:36", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-27 23:44", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-27 23:52", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 00:00", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 00:08", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 00:16", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 00:24", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 00:32", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 00:40", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 00:48", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 00:56", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 01:04", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 01:12", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 01:20", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 01:28", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 01:36", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 01:44", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 01:52", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 02:00", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 02:08", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 02:16", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 02:24", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 02:32", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 02:40", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 02:48", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 02:56", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 03:04", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 03:12", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 03:20", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 03:28", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 03:36", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 03:44", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 03:52", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 04:00", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 04:08", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 04:16", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 04:24", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 04:32", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 04:40", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 04:48", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 04:56", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 05:04", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 05:12", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 05:20", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 05:28", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 05:36", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 05:44", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 05:52", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 06:00", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 06:08", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 06:16", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 06:24", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 06:32", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 06:40", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 06:48", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 06:56", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 07:04", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 07:12", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 07:20", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 07:28", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 07:36", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 07:44", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 07:52", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 08:00", "value": 82}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 08:08", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 08:16", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 08:24", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 08:32", "value": 100}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 08:40", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 08:48", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 08:56", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 09:04", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 09:12", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 09:20", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 09:28", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 09:36", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 09:44", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 09:52", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 10:00", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 10:08", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 10:16", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 10:24", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 10:32", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 10:40", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 10:48", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 10:56", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 11:04", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 11:12", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 11:20", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 11:28", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 11:36", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 11:44", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 11:52", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 12:00", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 12:08", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 12:16", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 12:24", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 12:32", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 12:40", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 12:48", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 12:56", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 13:04", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 13:12", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 13:20", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 13:28", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 13:36", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 13:44", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 13:52", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 14:00", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 14:08", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 14:16", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 14:24", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 14:32", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 14:40", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 14:48", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 14:56", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 15:04", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 15:12", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 15:20", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 15:28", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 15:36", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 15:44", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 15:52", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 16:00", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 16:08", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 16:16", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 16:24", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 16:32", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 16:40", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 16:48", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 16:56", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 17:04", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 17:12", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 17:20", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 17:28", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 17:36", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 17:44", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 17:52", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 18:00", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 18:08", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 18:16", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 18:24", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 18:32", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 18:40", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 18:48", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 18:56", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 19:04", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 19:12", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 19:20", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 19:28", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 19:36", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 19:44", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 19:52", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 20:00", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 20:08", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-28 20:16", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-30 15:12", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-30 15:20", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-30 15:28", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-30 15:36", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-30 15:44", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-30 15:52", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-30 16:00", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-30 16:08", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-30 16:16", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-30 16:24", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-30 16:32", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-30 16:40", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-30 16:48", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-30 16:56", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-30 17:04", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-30 17:12", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-30 17:20", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-30 17:28", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-30 17:36", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-30 17:44", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-30 17:52", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-30 18:00", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-30 18:08", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-30 18:16", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-30 18:24", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-30 18:32", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-30 18:40", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-30 18:48", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-30 18:56", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-30 19:04", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-30 19:12", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-30 19:20", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-30 19:28", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-30 19:36", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-30 19:44", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-30 19:52", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-30 20:00", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-30 20:08", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-30 20:16", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-30 20:24", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-30 20:32", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-30 20:40", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-30 20:48", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-30 20:56", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-30 21:04", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-30 21:12", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-30 21:20", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-30 21:28", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-30 21:36", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-30 21:44", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-30 21:52", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-30 22:00", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-30 22:08", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-30 22:16", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-30 22:24", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-30 22:32", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-30 22:40", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-30 22:48", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-30 22:56", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-30 23:04", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-30 23:12", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-30 23:20", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-30 23:28", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-30 23:36", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-30 23:44", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-30 23:52", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-31 00:00", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-31 00:08", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-31 00:16", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-31 00:24", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-31 00:32", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-31 00:40", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-31 00:48", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-31 00:56", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-31 01:04", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-31 01:12", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-31 01:20", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-31 01:28", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-31 01:36", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-31 01:44", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-31 01:52", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-31 02:00", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-31 02:08", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-31 02:16", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-31 02:24", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-31 02:32", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-31 02:40", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-31 02:48", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-31 02:56", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-31 03:04", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-31 03:12", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-31 03:20", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-31 03:28", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-31 03:36", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-31 03:44", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-31 03:52", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-31 04:00", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-31 04:08", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-31 04:16", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-31 04:24", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-31 04:32", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-31 04:40", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-31 04:48", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-31 04:56", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-31 05:04", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-31 05:12", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-31 05:20", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-31 05:28", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-31 05:36", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-31 05:44", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-31 05:52", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-31 06:00", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-31 06:08", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-31 06:16", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-31 06:24", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-31 06:32", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-31 06:40", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-31 06:48", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-31 06:56", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-31 07:04", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-31 07:12", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-31 07:20", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-31 07:28", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-31 07:36", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-31 07:44", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-31 07:52", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-31 08:00", "value": 100}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-31 08:08", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-31 08:16", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-31 08:24", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-31 08:32", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-31 08:40", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-31 08:48", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-31 08:56", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-31 09:04", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-31 09:12", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-31 09:20", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-31 09:28", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-31 09:36", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-31 09:44", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-31 09:52", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-31 10:00", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-31 10:08", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-31 10:16", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-31 10:24", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-31 10:32", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-31 10:40", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-31 10:48", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-31 10:56", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-31 11:04", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-31 11:12", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-31 11:20", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-31 11:28", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-31 11:36", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-31 11:44", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-31 11:52", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-31 12:00", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-31 12:08", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-31 12:16", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-31 12:24", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-31 12:32", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-31 12:40", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-31 12:48", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-31 12:56", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-31 13:04", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-31 13:12", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-31 13:20", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-31 13:28", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-31 13:36", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-31 13:44", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-31 13:52", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-31 14:00", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-31 14:08", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-31 14:16", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-31 14:24", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-31 14:32", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-31 14:40", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-31 14:48", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-31 14:56", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-31 15:04", "value": 0}
-{"status": "success", "primary_source": false, "timestamp": "2026-08-31 15:12", "value": 0}
+{"dateTime_collected": "2026-08-31", "status": "success", "primary_source": true, "collection_mode": "rolling", "timestamp": "1780185600", "value": 0}
+{"dateTime_collected": "2026-08-31", "status": "success", "primary_source": true, "collection_mode": "rolling", "timestamp": "1780272000", "value": 0}
+{"dateTime_collected": "2026-08-31", "status": "success", "primary_source": true, "collection_mode": "rolling", "timestamp": "1780358400", "value": 0}
+{"dateTime_collected": "2026-08-31", "status": "success", "primary_source": true, "collection_mode": "rolling", "timestamp": "1780444800", "value": 0}
+{"dateTime_collected": "2026-08-31", "status": "success", "primary_source": true, "collection_mode": "rolling", "timestamp": "1780531200", "value": 0}
+{"dateTime_collected": "2026-08-31", "status": "success", "primary_source": true, "collection_mode": "rolling", "timestamp": "1780617600", "value": 0}
+{"dateTime_collected": "2026-08-31", "status": "success", "primary_source": true, "collection_mode": "rolling", "timestamp": "1780704000", "value": 0}
+{"dateTime_collected": "2026-08-31", "status": "success", "primary_source": true, "collection_mode": "rolling", "timestamp": "1780790400", "value": 0}
+{"dateTime_collected": "2026-08-31", "status": "success", "primary_source": true, "collection_mode": "rolling", "timestamp": "1780876800", "value": 0}
+{"dateTime_collected": "2026-08-31", "status": "success", "primary_source": true, "collection_mode": "rolling", "timestamp": "1780963200", "value": 0}
+{"dateTime_collected": "2026-08-31", "status": "success", "primary_source": true, "collection_mode": "rolling", "timestamp": "1781049600", "value": 0}
+{"dateTime_collected": "2026-08-31", "status": "success", "primary_source": true, "collection_mode": "rolling", "timestamp": "1781136000", "value": 0}
+{"dateTime_collected": "2026-08-31", "status": "success", "primary_source": true, "collection_mode": "rolling", "timestamp": "1781222400", "value": 0}
+{"dateTime_collected": "2026-08-31", "status": "success", "primary_source": true, "collection_mode": "rolling", "timestamp": "1781308800", "value": 0}
+{"dateTime_collected": "2026-08-31", "status": "success", "primary_source": true, "collection_mode": "rolling", "timestamp": "1781395200", "value": 0}
+{"dateTime_collected": "2026-08-31", "status": "success", "primary_source": true, "collection_mode": "rolling", "timestamp": "1781481600", "value": 45}
+{"dateTime_collected": "2026-08-31", "status": "success", "primary_source": true, "collection_mode": "rolling", "timestamp": "1781568000", "value": 0}
+{"dateTime_collected": "2026-08-31", "status": "success", "primary_source": true, "collection_mode": "rolling", "timestamp": "1781654400", "value": 0}
+{"dateTime_collected": "2026-08-31", "status": "success", "primary_source": true, "collection_mode": "rolling", "timestamp": "1781740800", "value": 0}
+{"dateTime_collected": "2026-08-31", "status": "success", "primary_source": true, "collection_mode": "rolling", "timestamp": "1781827200", "value": 0}
+{"dateTime_collected": "2026-08-31", "status": "success", "primary_source": true, "collection_mode": "rolling", "timestamp": "1781913600", "value": 0}
+{"dateTime_collected": "2026-08-31", "status": "success", "primary_source": true, "collection_mode": "rolling", "timestamp": "1782000000", "value": 0}
+{"dateTime_collected": "2026-08-31", "status": "success", "primary_source": true, "collection_mode": "rolling", "timestamp": "1782086400", "value": 57}
+{"dateTime_collected": "2026-08-31", "status": "success", "primary_source": true, "collection_mode": "rolling", "timestamp": "1782172800", "value": 0}
+{"dateTime_collected": "2026-08-31", "status": "success", "primary_source": true, "collection_mode": "rolling", "timestamp": "1782259200", "value": 0}
+{"dateTime_collected": "2026-08-31", "status": "success", "primary_source": true, "collection_mode": "rolling", "timestamp": "1782345600", "value": 49}
+{"dateTime_collected": "2026-08-31", "status": "success", "primary_source": true, "collection_mode": "rolling", "timestamp": "1782432000", "value": 0}
+{"dateTime_collected": "2026-08-31", "status": "success", "primary_source": true, "collection_mode": "rolling", "timestamp": "1782518400", "value": 0}
+{"dateTime_collected": "2026-08-31", "status": "success", "primary_source": true, "collection_mode": "rolling", "timestamp": "1782604800", "value": 0}
+{"dateTime_collected": "2026-08-31", "status": "success", "primary_source": true, "collection_mode": "rolling", "timestamp": "1782691200", "value": 45}
+{"dateTime_collected": "2026-08-31", "status": "success", "primary_source": true, "collection_mode": "rolling", "timestamp": "1782777600", "value": 0}
+{"dateTime_collected": "2026-08-31", "status": "success", "primary_source": true, "collection_mode": "rolling", "timestamp": "1782864000", "value": 0}
+{"dateTime_collected": "2026-08-31", "status": "success", "primary_source": true, "collection_mode": "rolling", "timestamp": "1782950400", "value": 54}
+{"dateTime_collected": "2026-08-31", "status": "success", "primary_source": true, "collection_mode": "rolling", "timestamp": "1783036800", "value": 0}
+{"dateTime_collected": "2026-08-31", "status": "success", "primary_source": true, "collection_mode": "rolling", "timestamp": "1783123200", "value": 0}
+{"dateTime_collected": "2026-08-31", "status": "success", "primary_source": true, "collection_mode": "rolling", "timestamp": "1783209600", "value": 0}
+{"dateTime_collected": "2026-08-31", "status": "success", "primary_source": true, "collection_mode": "rolling", "timestamp": "1783296000", "value": 0}
+{"dateTime_collected": "2026-08-31", "status": "success", "primary_source": true, "collection_mode": "rolling", "timestamp": "1783382400", "value": 58}
+{"dateTime_collected": "2026-08-31", "status": "success", "primary_source": true, "collection_mode": "rolling", "timestamp": "1783468800", "value": 67}
+{"dateTime_collected": "2026-08-31", "status": "success", "primary_source": true, "collection_mode": "rolling", "timestamp": "1783555200", "value": 55}
+{"dateTime_collected": "2026-08-31", "status": "success", "primary_source": true, "collection_mode": "rolling", "timestamp": "1783641600", "value": 0}
+{"dateTime_collected": "2026-08-31", "status": "success", "primary_source": true, "collection_mode": "rolling", "timestamp": "1783728000", "value": 0}
+{"dateTime_collected": "2026-08-31", "status": "success", "primary_source": true, "collection_mode": "rolling", "timestamp": "1783814400", "value": 0}
+{"dateTime_collected": "2026-08-31", "status": "success", "primary_source": true, "collection_mode": "rolling", "timestamp": "1783900800", "value": 63}
+{"dateTime_collected": "2026-08-31", "status": "success", "primary_source": true, "collection_mode": "rolling", "timestamp": "1783987200", "value": 59}
+{"dateTime_collected": "2026-08-31", "status": "success", "primary_source": true, "collection_mode": "rolling", "timestamp": "1784073600", "value": 43}
+{"dateTime_collected": "2026-08-31", "status": "success", "primary_source": true, "collection_mode": "rolling", "timestamp": "1784160000", "value": 0}
+{"dateTime_collected": "2026-08-31", "status": "success", "primary_source": true, "collection_mode": "rolling", "timestamp": "1784246400", "value": 0}
+{"dateTime_collected": "2026-08-31", "status": "success", "primary_source": true, "collection_mode": "rolling", "timestamp": "1784332800", "value": 0}
+{"dateTime_collected": "2026-08-31", "status": "success", "primary_source": true, "collection_mode": "rolling", "timestamp": "1784419200", "value": 0}
+{"dateTime_collected": "2026-08-31", "status": "success", "primary_source": true, "collection_mode": "rolling", "timestamp": "1784505600", "value": 0}
+{"dateTime_collected": "2026-08-31", "status": "success", "primary_source": true, "collection_mode": "rolling", "timestamp": "1784592000", "value": 0}
+{"dateTime_collected": "2026-08-31", "status": "success", "primary_source": true, "collection_mode": "rolling", "timestamp": "1784678400", "value": 0}
+{"dateTime_collected": "2026-08-31", "status": "success", "primary_source": true, "collection_mode": "rolling", "timestamp": "1784764800", "value": 0}
+{"dateTime_collected": "2026-08-31", "status": "success", "primary_source": true, "collection_mode": "rolling", "timestamp": "1784851200", "value": 0}
+{"dateTime_collected": "2026-08-31", "status": "success", "primary_source": true, "collection_mode": "rolling", "timestamp": "1784937600", "value": 0}
+{"dateTime_collected": "2026-08-31", "status": "success", "primary_source": true, "collection_mode": "rolling", "timestamp": "1785024000", "value": 48}
+{"dateTime_collected": "2026-08-31", "status": "success", "primary_source": true, "collection_mode": "rolling", "timestamp": "1785110400", "value": 46}
+{"dateTime_collected": "2026-08-31", "status": "success", "primary_source": true, "collection_mode": "rolling", "timestamp": "1785196800", "value": 58}
+{"dateTime_collected": "2026-08-31", "status": "success", "primary_source": true, "collection_mode": "rolling", "timestamp": "1785283200", "value": 0}
+{"dateTime_collected": "2026-08-31", "status": "success", "primary_source": true, "collection_mode": "rolling", "timestamp": "1785369600", "value": 100}
+{"dateTime_collected": "2026-08-31", "status": "success", "primary_source": true, "collection_mode": "rolling", "timestamp": "1785456000", "value": 72}
+{"dateTime_collected": "2026-08-31", "status": "success", "primary_source": true, "collection_mode": "rolling", "timestamp": "1785542400", "value": 59}
+{"dateTime_collected": "2026-08-31", "status": "success", "primary_source": true, "collection_mode": "rolling", "timestamp": "1785628800", "value": 67}
+{"dateTime_collected": "2026-08-31", "status": "success", "primary_source": true, "collection_mode": "rolling", "timestamp": "1785715200", "value": 65}
+{"dateTime_collected": "2026-08-31", "status": "success", "primary_source": true, "collection_mode": "rolling", "timestamp": "1785801600", "value": 54}
+{"dateTime_collected": "2026-08-31", "status": "success", "primary_source": true, "collection_mode": "rolling", "timestamp": "1785888000", "value": 65}
+{"dateTime_collected": "2026-08-31", "status": "success", "primary_source": true, "collection_mode": "rolling", "timestamp": "1785974400", "value": 38}
+{"dateTime_collected": "2026-08-31", "status": "success", "primary_source": true, "collection_mode": "rolling", "timestamp": "1786060800", "value": 0}
+{"dateTime_collected": "2026-08-31", "status": "success", "primary_source": true, "collection_mode": "rolling", "timestamp": "1786147200", "value": 0}
+{"dateTime_collected": "2026-08-31", "status": "success", "primary_source": true, "collection_mode": "rolling", "timestamp": "1786233600", "value": 0}
+{"dateTime_collected": "2026-08-31", "status": "success", "primary_source": true, "collection_mode": "rolling", "timestamp": "1786320000", "value": 37}
+{"dateTime_collected": "2026-08-31", "status": "success", "primary_source": true, "collection_mode": "rolling", "timestamp": "1786406400", "value": 55}
+{"dateTime_collected": "2026-08-31", "status": "success", "primary_source": true, "collection_mode": "rolling", "timestamp": "1786492800", "value": 0}
+{"dateTime_collected": "2026-08-31", "status": "success", "primary_source": true, "collection_mode": "rolling", "timestamp": "1786579200", "value": 67}
+{"dateTime_collected": "2026-08-31", "status": "success", "primary_source": true, "collection_mode": "rolling", "timestamp": "1786665600", "value": 64}
+{"dateTime_collected": "2026-08-31", "status": "success", "primary_source": true, "collection_mode": "rolling", "timestamp": "1786752000", "value": 45}
+{"dateTime_collected": "2026-08-31", "status": "success", "primary_source": true, "collection_mode": "rolling", "timestamp": "1786838400", "value": 0}
+{"dateTime_collected": "2026-08-31", "status": "success", "primary_source": true, "collection_mode": "rolling", "timestamp": "1786924800", "value": 47}
+{"dateTime_collected": "2026-08-31", "status": "success", "primary_source": true, "collection_mode": "rolling", "timestamp": "1787011200", "value": 43}
+{"dateTime_collected": "2026-08-31", "status": "success", "primary_source": true, "collection_mode": "rolling", "timestamp": "1787097600", "value": 40}
+{"dateTime_collected": "2026-08-31", "status": "success", "primary_source": true, "collection_mode": "rolling", "timestamp": "1787184000", "value": 39}
+{"dateTime_collected": "2026-08-31", "status": "success", "primary_source": true, "collection_mode": "rolling", "timestamp": "1787270400", "value": 33}
+{"dateTime_collected": "2026-08-31", "status": "success", "primary_source": true, "collection_mode": "rolling", "timestamp": "1787356800", "value": 36}
+{"dateTime_collected": "2026-08-31", "status": "success", "primary_source": true, "collection_mode": "rolling", "timestamp": "1787443200", "value": 42}
+{"dateTime_collected": "2026-08-31", "status": "success", "primary_source": true, "collection_mode": "rolling", "timestamp": "1787529600", "value": 51}
+{"dateTime_collected": "2026-08-31", "status": "success", "primary_source": true, "collection_mode": "rolling", "timestamp": "1787616000", "value": 53}
+{"dateTime_collected": "2026-08-31", "status": "success", "primary_source": true, "collection_mode": "rolling", "timestamp": "1787702400", "value": 55}
+{"dateTime_collected": "2026-08-31", "status": "success", "primary_source": true, "collection_mode": "rolling", "timestamp": "1787788800", "value": 53}
+{"dateTime_collected": "2026-08-31", "status": "success", "primary_source": true, "collection_mode": "rolling", "timestamp": "1787875200", "value": 47}
+{"dateTime_collected": "2026-08-31", "status": "success", "primary_source": true, "collection_mode": "rolling", "timestamp": "1787961600", "value": 33}
+{"dateTime_collected": "2026-08-31", "status": "success", "primary_source": true, "collection_mode": "rolling", "timestamp": "1788048000", "value": 38}
+{"dateTime_collected": "2026-08-31", "status": "success", "primary_source": true, "collection_mode": "rolling", "timestamp": "1788134400", "value": 41}

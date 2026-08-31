@@ -279,11 +279,11 @@ def backup_google_hotels_festival():
 
 
 # =========================================================================
-# PRIMARY SOURCES (SerpApi) — currently out of credits, unverified.
-# Fixed the bugs I could find by inspection; treat as untested until credits
-# are topped up. No primary_*_festival() versions yet — add them later,
-# mirroring the backup_*_festival() pattern above, once primary is confirmed
-# working again.
+# PRIMARY SOURCES (SerpApi) — credits reset, back in the rotation.
+# primary_google_trends()'s parsing was fixed by inspection (see bug note
+# below) but has NOT yet been run against a live response — the first real
+# run of primary_google_trends() should be checked by hand against
+# data/raw/google_trends.jsonl before you trust it unattended.
 # =========================================================================
 
 def primary_google_hotels():
@@ -406,22 +406,116 @@ def primary_google_trends():
         backup_google_trends()
 
 
+# =========================================================================
+# PRIMARY SOURCES — FESTIVAL TARGET (fixed Oct 9-12 dates)
+# NEWLY IMPLEMENTED now that SerpApi credits reset. Mirrors the
+# backup_*_festival() pattern, but fallback on failure is coarse: any
+# exception mid-loop falls back to re-running the ENTIRE
+# backup_google_*_festival() sweep, not just the date that failed. That
+# means a failure on date 3 of 4 wastes the primary credits already spent
+# on dates 1-2 and re-queries all 4 dates via backup. Fine for vibecode
+# phase given how few calls/day this is, but worth tightening to per-date
+# fallback when you refactor by hand.
+# =========================================================================
+
+def primary_google_flights_festival():
+    try:
+        for target_date in FESTIVAL_DATES:
+            data = client_serpApi.search({
+                "engine": "google_flights",
+                "hl": "en",
+                "gl": "ph",
+                "departure_id": "MNL",
+                "arrival_id": "BCD",
+                "outbound_date": target_date,
+                "currency": "PHP",
+                "type": "2",
+                "travel_class": "1",
+                "adults": "1",
+                "sort_by": "2",
+            })
+
+            has_error = "error" in data
+            has_flights = "best_flights" in data or "other_flights" in data
+
+            if not has_error and has_flights:
+                flights = data.get("best_flights", []) + data.get("other_flights", [])
+                for flight in flights:
+                    write_to_jsonl(
+                        "success", True, "festival_target", "google_flights.jsonl",
+                        {**flight, "target_date": target_date},
+                    )
+            else:
+                write_to_jsonl(
+                    "error", True, "festival_target", "google_flights.jsonl",
+                    {"outbound_date": target_date, "target_date": target_date},
+                )
+    except Exception as e:
+        print(f"!!! primary_google_flights_festival() error ({e}), switching to backup !!!")
+        backup_google_flights_festival()
+
+
+def primary_google_hotels_festival():
+    try:
+        for check_in in FESTIVAL_DATES:
+            check_out = (datetime.strptime(check_in, "%Y-%m-%d") + timedelta(days=1)).strftime("%Y-%m-%d")
+            data = client_serpApi.search({
+                "engine": "google_hotels",
+                "q": "Bacolod Hotels",
+                "hl": "en",
+                "gl": "ph",
+                "check_in_date": check_in,
+                "check_out_date": check_out,
+                "currency": "PHP",
+                "adults": "1",
+            })
+
+            has_error = "error" in data
+            has_hotels = "properties" in data
+
+            if not has_error and has_hotels:
+                for hotel in data.get("properties", []):
+                    write_to_jsonl(
+                        "success", True, "festival_target", "google_hotels.jsonl",
+                        {
+                            "hotel_name": hotel.get("name", "Unknown Hotel"),
+                            "lowest_Rate": (hotel.get("rate_per_night") or {}).get("lowest", "N/A"),
+                            "check_in": check_in,
+                            "check_out": check_out,
+                            "target_date": check_in,
+                        },
+                    )
+            else:
+                write_to_jsonl(
+                    "error", True, "festival_target", "google_hotels.jsonl",
+                    {"check_in_date": check_in, "check_out_date": check_out, "target_date": check_in},
+                )
+    except Exception as e:
+        print(f"!!! primary_google_hotels_festival() error ({e}), switching to backup !!!")
+        backup_google_hotels_festival()
+
+
 if __name__ == "__main__":
     os.makedirs(RAW_DATA_DIR, exist_ok=True)
 
-    # primary_google_hotels()
-    # primary_google_flights()
-    # primary_google_trends()
+    # SerpApi credits reset -- primaries are back in the rotation. Each
+    # primary_* function already falls back to its backup_* counterpart
+    # internally on failure, so do NOT also call backup_* unconditionally
+    # below -- that would double-write rolling data every run.
+    primary_google_hotels()
+    primary_google_flights()
+    primary_google_trends()
 
-    # comment these once the primary sources are no longer kaput
+    primary_google_flights_festival()
+    primary_google_hotels_festival()
 
-    backup_google_hotels()
-    backup_google_flights()
-    backup_google_trends()
-
-    # newly implemented: fixed festival-date tracking (Oct 9-12)
-    backup_google_flights_festival()
-    backup_google_hotels_festival()
+    # comment primary_* back out and uncomment these if SerpApi credits run
+    # out again before Oct 11
+    # backup_google_hotels()
+    # backup_google_flights()
+    # backup_google_trends()
+    # backup_google_flights_festival()
+    # backup_google_hotels_festival()
 
     print("Ingestion complete. Check data/raw/ for output.")
     print("Make sure you didn't edit the primary ingestions while they're\ncommented out like a dum-dum")
