@@ -34,135 +34,120 @@ def write_to_jsonl(status, primary_source, title, results):
 
 # NOTE: Done for now ☑️ (don't forget to change if needed)
 def backup_google_hotels():
-    run_input = {
-        "adults": 1,
-        "currency": "PHP",
-        "rooms": 1,
-        "searches": [
-            {
-                "location": "Bacolod",
-                "checkInDate": dateTimeTommorow,
-                "checkOutDate": dateTimeDayAfterTommorow
-            }
-        ],
-        "sortBy": "relevance",
-        "type": "hotels"
-    }
-    
-    run = client_Apify.actor("H1scmbaCSREtaQDQU").call(run_input=run_input)
+    try:
+        run_input = {
+            "adults": 1,
+            "currency": "PHP",
+            "rooms": 1,
+            "searches": [
+                {
+                    "location": "Bacolod",
+                    "checkInDate": dateTimeTommorow,
+                    "checkOutDate": dateTimeDayAfterTommorow
+                }
+            ],
+            "sortBy": "relevance",
+            "type": "hotels"
+        }
+        
+        run = client_Apify.actor("H1scmbaCSREtaQDQU").call(run_input=run_input)
 
-    dataset_id = run.default_dataset_id
-    hasResults = False
-    if dataset_id:
-        for results in client_Apify.dataset(dataset_id).iterate_items():
-            hasResults = True
-            write_to_jsonl("success", False, f'google_hotels.jsonl', results)
-    if not hasResults:
-        write_to_jsonl("noResults", False, f'google_hotels.jsonl', 
-            {
-                "checkInDate": dateTimeTommorow,
-                "checkOutDate": dateTimeDayAfterTommorow
-            }
-        )
+        dataset_id = run.default_dataset_id
+        hasResults = False
+        if dataset_id:
+            for results in client_Apify.dataset(dataset_id).iterate_items():
+                hasResults = True
+                write_to_jsonl("success", False, f'google_hotels.jsonl', results)
+        if not hasResults:
+            write_to_jsonl("noResults", False, f'google_hotels.jsonl', 
+                {
+                    "checkInDate": dateTimeTommorow,
+                    "checkOutDate": dateTimeDayAfterTommorow
+                }
+            )
+    except:
+        write_to_jsonl("ingestion_totalFail", False, f'google_hotels.jsonl', 
+                {
+                    "checkInDate": dateTimeTommorow,
+                    "checkOutDate": dateTimeDayAfterTommorow
+                }
+            )
+        primary_google_flights()
+
 # NOTE: Done for now ☑️ (don't forget to change if needed)
 # DONE: have each flight show as a seperate .jsonl        
 def backup_google_flights():
-    run_input = {
-        "arrival_id": "BCD",
-        "currency": "PHP",
-        "departure_id": "MNL",
-        "exclude_basic": False,
-        "fetch_booking_options": False,
-        "gl": "ph",
-        "hl": "en",
-        "outbound_date": dateTimeTommorow,
-    }
-    
-    run = client_Apify.actor("1dYHRKkEBHBPd0JM7").call(run_input=run_input)
-
-    dataset_id = run.default_dataset_id
-    hasResults = False
-    if dataset_id:
-        for results in client_Apify.dataset(dataset_id).iterate_items():
-            for flight in results.get("all_flights", []):
-                hasResults = True
-                write_to_jsonl("success", False, f'google_flights.jsonl', flight)                
-    if not hasResults:
-        write_to_jsonl("noResults", False, f'google_flights.jsonl', 
-            {
-                "outbound_date": dateTimeTommorow,
-            }
-        )
- 
-# NOTE: Done for now ☑️ (don't forget to change if needed)
-def backup_google_trends():
-    run_input = {
-        "mode": "keyword",
-        "keyword": "Masskara",
-        "predefinedTimeframe": "now 1-d",
-        "geo": "PH",
-        "fetchRegionalData": False,
-        "proxyConfiguration": { "useApifyProxy": True },
-    }
-
-    # Run the Actor and wait for it to finish
-    run = client_Apify.actor("nWhM7vTPu16lcwuIg").call(run_input=run_input)
-
-    dataset_id = run.default_dataset_id
-    hasResults = False
-
-    if dataset_id:
-        for results in client_Apify.dataset(dataset_id).iterate_items():
-            # print(results.keys())
-            for timestamp, value in results.get("timeline_data", {}).get("Masskara", {}).items():
-                hasResults = True
-                write_to_jsonl("success", False, f'google_trends.jsonl', {"timestamp": timestamp, "value": value})
-    if not hasResults:
-        write_to_jsonl("noResults", False, f'google_trends.jsonl', 
-            {
-                "lookup_date": dateTimeTommorow,
-            }
-        )
-
-# NOTE: DON'T FORGET TO NOT EXPOSE YOUR .ENV AGAIN
-# TODO: THIS NEEDS TO OUTPUT EACH FLIGHT TO A JSONL LINE
-# CHECK HOTEL EXAMPLE JSONL
-# THIS IS THE PRIMARY FUNCTION, DUM
-def primary_google_flights():
     try:
-        data = client_serpApi.search({
-            "engine": "google_flights",
-            "hl": "en",
-            "gl": "ph",
-            "departure_id": "MNL",
+        run_input = {
             "arrival_id": "BCD",
-            "outbound_date": dateTimeTommorow,
             "currency": "PHP",
-            "type": "2",
-            "travel_class": "1",
-            "adults": "1",
-            "sort_by": "2"
-        })
+            "departure_id": "MNL",
+            "exclude_basic": False,
+            "fetch_booking_options": False,
+            "gl": "ph",
+            "hl": "en",
+            "outbound_date": dateTimeTommorow,
+        }
         
-        # TODO: SELECTIVELY INGEST ONLY RESULTS. REFERENCE PRIMARY HOTEL KEEP IN MIND [] and {}
-        # THIS IS THE PRIMARY FUNCTION, DUM
-        has_error = "error" in data
-        # results_state = data.get("search_information", {}).get("flight_results_State")
-        has_flights = "best_flights" in data or "other_flights" in data
+        run = client_Apify.actor("1dYHRKkEBHBPd0JM7").call(run_input=run_input)
 
-        if not has_error and has_flights:
-            flights = data.get("best_flights", []) + data.get("other_flights", [])
-            for flight in flights:
-                write_to_jsonl("success", True,  f'google_flights.jsonl', flight)
-
-        else:
-            write_to_jsonl("error", True, f'google_flights.jsonl', 
+        dataset_id = run.default_dataset_id
+        hasResults = False
+        if dataset_id:
+            for results in client_Apify.dataset(dataset_id).iterate_items():
+                for flight in results.get("all_flights", []):
+                    hasResults = True
+                    write_to_jsonl("success", False, f'google_flights.jsonl', flight)                
+        if not hasResults:
+            write_to_jsonl("noResults", False, f'google_flights.jsonl', 
                 {
                     "outbound_date": dateTimeTommorow,
                 }
             )
     except:
-        backup_google_flights()
+        write_to_jsonl("ingestion_totalFail", False, f'google_flights.jsonl', 
+                {
+                    "outbound_date": dateTimeTommorow,
+                }
+            )
+        primary_google_trends()
+
+# NOTE: Done for now ☑️ (don't forget to change if needed)
+def backup_google_trends():
+    try:
+        run_input = {
+            "mode": "keyword",
+            "keyword": "Masskara",
+            "predefinedTimeframe": "now 1-d",
+            "geo": "PH",
+            "fetchRegionalData": False,
+            "proxyConfiguration": { "useApifyProxy": True },
+        }
+
+        # Run the Actor and wait for it to finish
+        run = client_Apify.actor("nWhM7vTPu16lcwuIg").call(run_input=run_input)
+
+        dataset_id = run.default_dataset_id
+        hasResults = False
+
+        if dataset_id:
+            for results in client_Apify.dataset(dataset_id).iterate_items():
+                # print(results.keys())
+                for timestamp, value in results.get("timeline_data", {}).get("Masskara", {}).items():
+                    hasResults = True
+                    write_to_jsonl("success", False, f'google_trends.jsonl', {"timestamp": timestamp, "value": value})
+        if not hasResults:
+            write_to_jsonl("noResults", False, f'google_trends.jsonl', 
+                {
+                    "lookup_date": dateTimeTommorow,
+                }
+            )
+    except:
+        write_to_jsonl("ingestion_totalFail", False, f'google_trends.jsonl', 
+                {
+                    "lookup_date": dateTimeTommorow,
+                }
+            )
 
 # NOTE: LEFT .env EXPOSED, CURRENTLY USELESS—NO CREDITS LEFT
 def primary_google_hotels():
@@ -203,6 +188,46 @@ def primary_google_hotels():
             )
     except:
         backup_google_hotels()
+
+# NOTE: DON'T FORGET TO NOT EXPOSE YOUR .ENV AGAIN
+# TODO: THIS NEEDS TO OUTPUT EACH FLIGHT TO A JSONL LINE
+# CHECK HOTEL EXAMPLE JSONL
+# THIS IS THE PRIMARY FUNCTION, DUM
+def primary_google_flights():
+    try:
+        data = client_serpApi.search({
+            "engine": "google_flights",
+            "hl": "en",
+            "gl": "ph",
+            "departure_id": "MNL",
+            "arrival_id": "BCD",
+            "outbound_date": dateTimeTommorow,
+            "currency": "PHP",
+            "type": "2",
+            "travel_class": "1",
+            "adults": "1",
+            "sort_by": "2"
+        })
+        
+        # TODO: SELECTIVELY INGEST ONLY RESULTS. REFERENCE PRIMARY HOTEL KEEP IN MIND [] and {}
+        # THIS IS THE PRIMARY FUNCTION, DUM
+        has_error = "error" in data
+        # results_state = data.get("search_information", {}).get("flight_results_State")
+        has_flights = "best_flights" in data or "other_flights" in data
+
+        if not has_error and has_flights:
+            flights = data.get("best_flights", []) + data.get("other_flights", [])
+            for flight in flights:
+                write_to_jsonl("success", True,  f'google_flights.jsonl', flight)
+
+        else:
+            write_to_jsonl("error", True, f'google_flights.jsonl', 
+                {
+                    "outbound_date": dateTimeTommorow,
+                }
+            )
+    except:
+        backup_google_flights()
 
 def primary_google_trends():
     results = client_serpApi.search({
