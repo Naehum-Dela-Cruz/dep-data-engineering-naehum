@@ -22,15 +22,13 @@ client_serpApi = serpapi.Client(api_key=os.getenv('SERPAPI_API_KEY'))
 client_Apify = ApifyClient(os.getenv('APIFY_API_KEY'))
 
 
-def write_to_json(title, results):
-
-    with open(os.path.join(RAW_DATA_DIR, title), 'w', encoding="utf-8") as f:
-        json.dump(results.as_dict(), f, indent=4, ensure_ascii=False)
 
 def write_to_jsonl(status, primary_source, title, results):
     data_to_write = {"dateTime_collected" : dateTimeToday, "status" : status, "primary_source" : primary_source, **results}
     with open(os.path.join(RAW_DATA_DIR, title), 'a', encoding="utf-8") as f:
         f.write(json.dumps(data_to_write, ensure_ascii=False) + "\n")
+
+
 
 # NOTE: Done for now ☑️ (don't forget to change if needed)
 def backup_google_hotels():
@@ -74,6 +72,8 @@ def backup_google_hotels():
             )
         primary_google_flights()
 
+
+
 # NOTE: Done for now ☑️ (don't forget to change if needed)
 # DONE: have each flight show as a seperate .jsonl        
 def backup_google_flights():
@@ -112,13 +112,15 @@ def backup_google_flights():
             )
         primary_google_trends()
 
+
+
 # NOTE: Done for now ☑️ (don't forget to change if needed)
 def backup_google_trends():
     try:
         run_input = {
             "mode": "keyword",
             "keyword": "Masskara",
-            "predefinedTimeframe": "now 1-d",
+            "predefinedTimeframe": "now 7-d",
             "geo": "PH",
             "fetchRegionalData": False,
             "proxyConfiguration": { "useApifyProxy": True },
@@ -139,15 +141,17 @@ def backup_google_trends():
         if not hasResults:
             write_to_jsonl("noResults", False, f'google_trends.jsonl', 
                 {
-                    "lookup_date": dateTimeTommorow,
+                    "lookup_date": dateTimeToday,
                 }
             )
     except:
         write_to_jsonl("ingestion_totalFail", False, f'google_trends.jsonl', 
                 {
-                    "lookup_date": dateTimeTommorow,
+                    "lookup_date": dateTimeToday,
                 }
             )
+
+
 
 # NOTE: LEFT .env EXPOSED, CURRENTLY USELESS—NO CREDITS LEFT
 def primary_google_hotels():
@@ -189,6 +193,8 @@ def primary_google_hotels():
     except:
         backup_google_hotels()
 
+
+
 # NOTE: DON'T FORGET TO NOT EXPOSE YOUR .ENV AGAIN
 # TODO: THIS NEEDS TO OUTPUT EACH FLIGHT TO A JSONL LINE
 # CHECK HOTEL EXAMPLE JSONL
@@ -229,6 +235,8 @@ def primary_google_flights():
     except:
         backup_google_flights()
 
+
+
 def primary_google_trends():
     try:
         results = client_serpApi.search({
@@ -238,11 +246,21 @@ def primary_google_trends():
             "hl": "en",
             "geo": "PH",
             "tz": "-480",
-            "date": "now 1-d"
+            "date": "today 3-m"
         })
 
-        write_to_json(f'google_trends_{dateTimeTommorow}.json', results)
+        if "error" or "Error" in results:
+            write_to_jsonl("noResults", True, f'google_trends.jsonl', 
+                {
+                    "lookup_date": dateTimeToday,
+                }
+            )
+        else:
+            for result in results.iterate_items():
+                for timestamp, value in result.get("interest_over_time", {}).get("timeline_Data", []).items():
+                    write_to_jsonl("success", True, f'google_trends.jsonl', {"timestamp": timestamp, "value": value})
     except:
+        print("!!! primary_google_trends() error, switching to backup !!!")
         backup_google_trends()
     
 
@@ -256,8 +274,9 @@ if __name__ == "__main__":
 
     # comment these once the primary sources are no longer kaput
     
-    backup_google_hotels()
-    backup_google_flights()
-    backup_google_trends()
+    # backup_google_hotels()
+    # backup_google_flights()
+    # backup_google_trends()
+    
     print("Ingestion complete. Check data/raw/ for output.")
     print("Make sure you didn't edit the primary ingestions while they're\ncommented out like a dum-dum")
