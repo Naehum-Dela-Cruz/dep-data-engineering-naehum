@@ -230,17 +230,20 @@ def primary_google_flights():
         backup_google_flights()
 
 def primary_google_trends():
-    results = client_serpApi.search({
-        "engine": "google_trends",
-        "q": "masskara",
-        "data_type": "TIMESERIES",
-        "hl": "en",
-        "geo": "PH",
-        "tz": "-480",
-        "date": "now 1-d"
-    })
+    try:
+        results = client_serpApi.search({
+            "engine": "google_trends",
+            "q": "masskara",
+            "data_type": "TIMESERIES",
+            "hl": "en",
+            "geo": "PH",
+            "tz": "-480",
+            "date": "now 1-d"
+        })
 
-    write_to_json(f'google_trends_{dateTimeTommorow}.json', results)
+        write_to_json(f'google_trends_{dateTimeTommorow}.json', results)
+    except:
+        backup_google_trends()
     
 
 
