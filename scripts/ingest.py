@@ -32,7 +32,6 @@ def write_to_jsonl(status, primary_source, title, results):
     with open(os.path.join(RAW_DATA_DIR, title), 'a', encoding="utf-8") as f:
         f.write(json.dumps(data_to_write, ensure_ascii=False) + "\n")
 
-
 # NOTE: Done for now ☑️ (don't forget to change if needed)
 def backup_google_hotels():
     run_input = {
@@ -125,19 +124,45 @@ def backup_google_trends():
             }
         )
 
+# NOTE: DON'T FORGET TO NOT EXPOSE YOUR .ENV AGAIN
+# TODO: THIS NEEDS TO OUTPUT EACH FLIGHT TO A JSONL LINE
+# CHECK HOTEL EXAMPLE JSONL
+# THIS IS THE PRIMARY FUNCTION, DUM
+def primary_google_flights():
+    try:
+        data = client_serpApi.search({
+            "engine": "google_flights",
+            "hl": "en",
+            "gl": "ph",
+            "departure_id": "MNL",
+            "arrival_id": "BCD",
+            "outbound_date": dateTimeTommorow,
+            "currency": "PHP",
+            "type": "2",
+            "travel_class": "1",
+            "adults": "1",
+            "sort_by": "2"
+        })
+        
+        # TODO: SELECTIVELY INGEST ONLY RESULTS. REFERENCE PRIMARY HOTEL KEEP IN MIND [] and {}
+        # THIS IS THE PRIMARY FUNCTION, DUM
+        has_error = "error" in data
+        # results_state = data.get("search_information", {}).get("flight_results_State")
+        has_flights = "best_flights" in data or "other_flights" in data
 
-def primary_google_trends():
-    results = client_serpApi.search({
-        "engine": "google_trends",
-        "q": "masskara",
-        "data_type": "TIMESERIES",
-        "hl": "en",
-        "geo": "PH",
-        "tz": "-480",
-        "date": "now 1-d"
-    })
+        if not has_error and has_flights:
+            flights = data.get("best_flights", []) + data.get("other_flights", [])
+            for flight in flights:
+                write_to_jsonl("success", True,  f'google_flights.jsonl', flight)
 
-    write_to_json(f'google_trends_{dateTimeTommorow}.json', results)
+        else:
+            write_to_jsonl("error", True, f'google_flights.jsonl', 
+                {
+                    "outbound_date": dateTimeTommorow,
+                }
+            )
+    except:
+        backup_google_flights()
 
 # NOTE: LEFT .env EXPOSED, CURRENTLY USELESS—NO CREDITS LEFT
 def primary_google_hotels():
@@ -179,47 +204,19 @@ def primary_google_hotels():
     except:
         backup_google_hotels()
 
-# NOTE: DON'T FORGET TO NOT EXPOSE YOUR .ENV AGAIN
-# TODO: THIS NEEDS TO OUTPUT EACH FLIGHT TO A JSONL LINE
-# CHECK HOTEL EXAMPLE JSONL
-# THIS IS THE PRIMARY FUNCTION, DUM
-def primary_google_flights():
-    try:
-        data = client_serpApi.search({
-            "engine": "google_flights",
-            "hl": "en",
-            "gl": "ph",
-            "departure_id": "MNL",
-            "arrival_id": "BCD",
-            "outbound_date": dateTimeTommorow,
-            "currency": "PHP",
-            "type": "2",
-            "travel_class": "1",
-            "adults": "1",
-            "sort_by": "2"
-        })
-        
-        # TODO: SELECTIVELY INGEST ONLY RESULTS. REFERENCE PRIMARY HOTEL KEEP IN MIND [] and {}
-        # THIS IS THE PRIMARY FUNCTION, DUM
-        has_error = "error" in data
-        # results_state = data.get("search_information", {}).get("flight_results_State")
-        has_flights = "best_flights" in data or "other_flights" in data
+def primary_google_trends():
+    results = client_serpApi.search({
+        "engine": "google_trends",
+        "q": "masskara",
+        "data_type": "TIMESERIES",
+        "hl": "en",
+        "geo": "PH",
+        "tz": "-480",
+        "date": "now 1-d"
+    })
 
-        if not has_error and has_flights:
-            flights = data.get("best_flights", []) + data.get("other_flights", [])
-            for flight in flights:
-                write_to_jsonl("success", True,  f'google_flights.jsonl', flight)
-
-        else:
-            write_to_jsonl("error", True, f'google_flights.jsonl', 
-                {
-                    "outbound_date": dateTimeTommorow,
-                }
-            )
-    except:
-        backup_google_flights()
-
-        
+    write_to_json(f'google_trends_{dateTimeTommorow}.json', results)
+    
 
 
 if __name__ == "__main__":
