@@ -40,26 +40,26 @@ All ingestion scripts are placed under the `scripts/ingest.py` under `ingest()` 
 ### Fallback Source 1 (Hotel)
 - Name: APIFY - Google Hotels & Vacation Scraper - Most Comprehensive
 - URL: https://console.apify.com/actors/H1scmbaCSREtaQDQU
-- Format: jsonl
-- Coverage: hotel prices
+- Format: JSONL
+- Coverage: hotel prices, date
 - Why it could still work: directly scrapes Google Hotel
 - Known limitations: $5 Free limit. ~$0.1/1k Hotels
 
 ### Fallback Source 2 (Flight)
 - Name: RapidAPI Google Flight API
-- URL: https://rapidapi.com/DataCrawler/api/google-flights2/playground/
-- Format: JSON
-- Coverage: flight prices
+- URL: https://console.apify.com/actors/1dYHRKkEBHBPd0JM7
+- Format: JSONL
+- Coverage: flight prices, date
 - Why it could still work: directly scrapes google flights
-- Known limitations: 150 free requests per month, community-maintained scrapers
+- Known limitations: $5 Free limit. ~$30/1000 Pages
 
 ### Fallback Source 3 (Trend)
 - Name: RapidAPI Trendly API
-- URL: https://rapidapi.com/odlica-odlica-default/api/trendly/playground
-- Format: json
-- Coverage: interest over time metric
+- URL: https://console.apify.com/actors/nWhM7vTPu16lcwuIg/
+- Format: JSONL
+- Coverage: interest over time metric, date
 - Why it could still work: directly scrapes Google Trends interest over time results
-- Known limitations: 50 free requests per month, community-maintained scrapers
+- Known limitations: $5 Free limit. ~$2/1k Results
 
 <!-- ## Likely Data Source
 This builder will explore and integrate the following data endpoints:
