@@ -38,7 +38,7 @@ All ingestion scripts are placed under the `scripts/ingest.py` under `ingest()` 
 - Known limitations: free tier is limited to 250 request per month (should need around 90)
 
 ### Fallback Source 1 (Hotel)
-- Name: APIFY - Google Hotels & Vacation Scraper - Most Comprehensive
+- Name: kaix/google-hotels-scraper
 - URL: https://console.apify.com/actors/H1scmbaCSREtaQDQU
 - Format: JSONL
 - Coverage: hotel prices, date
@@ -46,7 +46,7 @@ All ingestion scripts are placed under the `scripts/ingest.py` under `ingest()` 
 - Known limitations: $5 Free limit. ~$0.1/1k Hotels
 
 ### Fallback Source 2 (Flight)
-- Name: RapidAPI Google Flight API
+- Name: johnvc/Google-Flights-Data-Scraper-Flight-and-Price-Search
 - URL: https://console.apify.com/actors/1dYHRKkEBHBPd0JM7
 - Format: JSONL
 - Coverage: flight prices, date
@@ -54,7 +54,7 @@ All ingestion scripts are placed under the `scripts/ingest.py` under `ingest()` 
 - Known limitations: $5 Free limit. ~$30/1000 Pages
 
 ### Fallback Source 3 (Trend)
-- Name: RapidAPI Trendly API
+- Name: data_xplorer/google-trends-fast-scraper
 - URL: https://console.apify.com/actors/nWhM7vTPu16lcwuIg/
 - Format: JSONL
 - Coverage: interest over time metric, date
