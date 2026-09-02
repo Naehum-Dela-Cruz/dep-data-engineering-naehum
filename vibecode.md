@@ -1,5 +1,6 @@
 Add festival-target ingestion, fix backup fallback recursion, fix primary
-trends bug, bring primary sources back online with festival coverage
+trends bug, bring primary sources back online with festival coverage,
+collapse festival queries to cut API/token usage 4x
 
 FEATURES
 - Add backup_google_flights_festival() and backup_google_hotels_festival():
@@ -9,13 +10,9 @@ FEATURES
   so one bad day doesn't kill the other three.
 - Add primary_google_flights_festival() and primary_google_hotels_festival()
   now that SerpApi credits have reset. Mirrors the backup_*_festival()
-  loop-over-FESTIVAL_DATES pattern. Fallback on failure is COARSE: any
-  exception mid-loop falls back to re-running the entire
-  backup_google_*_festival() sweep, not just the date that failed — a
-  failure on date 3 of 4 wastes the primary credits already spent on
-  dates 1-2 and re-queries all 4 dates via backup. Acceptable for
-  vibecode phase given call volume; tighten to per-date fallback on
-  manual refactor.
+  loop-over-dates pattern. Fallback on failure is COARSE: any exception
+  mid-loop falls back to re-running the entire backup_google_*_festival()
+  sweep, not just the date that failed.
 - write_to_jsonl() now takes an explicit collection_mode param:
   "rolling" (existing day-ahead baseline queries) vs "festival_target"
   (fixed-date queries). Both still land in the SAME file per category
@@ -32,6 +29,34 @@ FEATURES
   both primary and backup for the same category, that double-writes
   rolling/festival data every run. Flip back to backup-only if SerpApi
   credits run out again before Oct 11.
+
+QUERY VOLUME REDUCTION (latest change)
+- FESTIVAL_DATES (a 4-date list: Oct 9, 10, 11, 12) replaced with two
+  single-value constants:
+    FESTIVAL_FLIGHT_ARRIVAL = "2026-10-09"
+    FESTIVAL_HOTEL_CHECKIN  = "2026-10-09"
+    FESTIVAL_HOTEL_CHECKOUT = "2026-10-13"
+- backup_google_flights_festival() / primary_google_flights_festival():
+  collapsed from a 4-iteration loop (1 call per festival date) to a
+  single call querying only FESTIVAL_FLIGHT_ARRIVAL.
+- backup_google_hotels_festival() / primary_google_hotels_festival():
+  collapsed from 4 one-night stay queries (Oct 9->10, 10->11, 11->12,
+  12->13) to a single 4-night stay query (Oct 9->13).
+- Net effect: festival-target calls per run dropped from 8 (4 flights +
+  4 hotels) to 2 (1 flight + 1 hotel) — a 4x cut in that portion of
+  Apify/SerpApi usage per run. Was necessary: Apify flight actor budget
+  was already sitting around $4.15/$5 free tier after only a couple of
+  runs at the old volume, nowhere near enough runway to reach Oct 11 on
+  a daily cron.
+- TRADE-OFF, explicit and deliberate, not a bug: you can no longer see
+  which single day/night within the festival window drives a price
+  surge hardest. Flights now only ever answer "what does the opening-day
+  arrival cost." Hotels now answer "what does the whole 4-night stay
+  cost" (one blended rate), not a per-night breakdown. If a per-day
+  surge question comes up later (e.g. "did the Saturday of the festival
+  spike harder than the Thursday lead-in"), this data can't answer it —
+  would need to reintroduce a date list and go back to looping, at the
+  cost of the credits saved here.
 
 BUG FIXES
 - backup_google_hotels() except block called primary_google_flights()
@@ -89,7 +114,10 @@ NOT DONE / TODO FOR MANUAL REFACTOR
   collection_mode?" guard before running the actor call, to save API
   credits if nothing else.
 - primary_*_festival() fallback grain is coarse (see FEATURES note above)
-  — whole-sweep fallback, not per-date. Fine for now, revisit later.
+  — whole-sweep fallback, not per-date. Less relevant now that each
+  festival function is down to a single call anyway, but still worth
+  knowing: a failure still falls back to the FULL backup sweep, there's
+  no partial-success state to preserve since there's only one call.
 - `requests` import is unused.
 - Still worth eventually splitting write logic so schema differences
   between primary (SerpApi) and backup (Apify) payloads are reconciled
@@ -100,3 +128,7 @@ NOT DONE / TODO FOR MANUAL REFACTOR
 - Stray leftover file: google_hotel.jsonl (singular) still exists from
   before the filename-consistency fix — dead data, not read by current
   code, safe to archive/delete whenever you're cleaning up the raw dir.
+- If per-day/per-night festival granularity is ever needed again,
+  reintroduce a FESTIVAL_DATES-style list and loop in the four
+  backup/primary festival functions — the collapse to single-query
+  constants above is what to revert.

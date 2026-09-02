@@ -20,20 +20,7 @@ dateTimeDayAfterTommorow = (datetime.now() + timedelta(days=2)).strftime("%Y-%m-
 
 # MassKara Festival major-event window. Hardcoded for this year's run —
 # if you reuse this script next year, update these dates.
-#
-# NOTE: was originally 4 separate dates (Oct 9-12), queried once per date per
-# category per run -> 4x the Apify/SerpApi calls of everything else combined.
-# Collapsed to single-query targets to cut query volume:
-#   - flights: track arrival on the festival's opening day only.
-#   - hotels: track one multi-night stay spanning the whole window, instead
-#     of 4 separate one-night stays.
-# Trade-off, on purpose: you lose the ability to see which single night/day
-# within the festival surges hardest -- you only get "the trip as a whole."
-# If token/credit budget loosens up later, per-day granularity can come back
-# by reintroducing a FESTIVAL_DATES list and looping again.
-FESTIVAL_FLIGHT_ARRIVAL = "2026-10-09"
-FESTIVAL_HOTEL_CHECKIN = "2026-10-09"
-FESTIVAL_HOTEL_CHECKOUT = "2026-10-13"
+FESTIVAL_DATES = ["2026-10-09", "2026-10-10", "2026-10-11", "2026-10-12"]
 
 client_serpApi = serpapi.Client(api_key=os.getenv('SERPAPI_API_KEY'))
 client_Apify = ApifyClient(os.getenv('APIFY_API_KEY'))
@@ -205,104 +192,90 @@ def backup_google_trends():
 
 def backup_google_flights_festival():
     """
-    Single query per run: tracks the flight arriving on the festival's
-    opening day (FESTIVAL_FLIGHT_ARRIVAL) only. Previously looped over 4
-    separate arrival dates (1 call each) -- collapsed to 1 call to cut
-    Apify usage 4x. lead_time_days can still be derived in Phase 3 as
-    (target_date - dateTime_collected).
+    Re-queries each MassKara event date (Oct 9-12) every day this script runs.
+    lead_time_days = (target_date - dateTime_collected) can be derived in
+    Phase 3 straight from the fields written here.
+    Each date's actor call is wrapped individually so one bad day doesn't
+    take down the other three.
     """
-    try:
-        run_input = {
-            "arrival_id": "BCD",
-            "currency": "PHP",
-            "departure_id": "MNL",
-            "exclude_basic": False,
-            "fetch_booking_options": False,
-            "gl": "ph",
-            "hl": "en",
-            "outbound_date": FESTIVAL_FLIGHT_ARRIVAL,
-        }
+    for target_date in FESTIVAL_DATES:
+        try:
+            run_input = {
+                "arrival_id": "BCD",
+                "currency": "PHP",
+                "departure_id": "MNL",
+                "exclude_basic": False,
+                "fetch_booking_options": False,
+                "gl": "ph",
+                "hl": "en",
+                "outbound_date": target_date,
+            }
 
-        run = client_Apify.actor("1dYHRKkEBHBPd0JM7").call(run_input=run_input)
+            run = client_Apify.actor("1dYHRKkEBHBPd0JM7").call(run_input=run_input)
 
-        dataset_id = run.default_dataset_id
-        hasResults = False
-        if dataset_id:
-            for results in client_Apify.dataset(dataset_id).iterate_items():
-                for flight in results.get("all_flights", []):
-                    hasResults = True
-                    write_to_jsonl(
-                        "success", False, "festival_target", "google_flights.jsonl",
-                        {**flight, "target_date": FESTIVAL_FLIGHT_ARRIVAL},
-                    )
-        if not hasResults:
+            dataset_id = run.default_dataset_id
+            hasResults = False
+            if dataset_id:
+                for results in client_Apify.dataset(dataset_id).iterate_items():
+                    for flight in results.get("all_flights", []):
+                        hasResults = True
+                        write_to_jsonl(
+                            "success", False, "festival_target", "google_flights.jsonl",
+                            {**flight, "target_date": target_date},
+                        )
+            if not hasResults:
+                write_to_jsonl(
+                    "noResults", False, "festival_target", "google_flights.jsonl",
+                    {"outbound_date": target_date, "target_date": target_date},
+                )
+        except Exception as e:
             write_to_jsonl(
-                "noResults", False, "festival_target", "google_flights.jsonl",
-                {"outbound_date": FESTIVAL_FLIGHT_ARRIVAL, "target_date": FESTIVAL_FLIGHT_ARRIVAL},
+                "ingestion_totalFail", False, "festival_target", "google_flights.jsonl",
+                {"outbound_date": target_date, "target_date": target_date, "error": str(e)},
             )
-    except Exception as e:
-        write_to_jsonl(
-            "ingestion_totalFail", False, "festival_target", "google_flights.jsonl",
-            {"outbound_date": FESTIVAL_FLIGHT_ARRIVAL, "target_date": FESTIVAL_FLIGHT_ARRIVAL, "error": str(e)},
-        )
 
 
 def backup_google_hotels_festival():
     """
-    Single query per run: one stay spanning the whole festival window
-    (FESTIVAL_HOTEL_CHECKIN -> FESTIVAL_HOTEL_CHECKOUT). Previously looped
-    over 4 separate one-night stays (1 call each) -- collapsed to 1 call to
-    cut Apify usage 4x. Trade-off: you get one blended rate for the whole
-    stay, not a per-night breakdown -- can't tell which night is driving a
-    surge anymore. See the FESTIVAL_* constants note above if you need that
-    granularity back later.
+    Re-queries a one-night stay for each night of the festival window
+    (check-in Oct 9, 10, 11, 12 -> check-out the following day) every day
+    this script runs, so nightly rate can be tracked at shrinking lead times.
     """
-    try:
-        run_input = {
-            "adults": 1,
-            "currency": "PHP",
-            "rooms": 1,
-            "searches": [
-                {
-                    "location": "Bacolod",
-                    "checkInDate": FESTIVAL_HOTEL_CHECKIN,
-                    "checkOutDate": FESTIVAL_HOTEL_CHECKOUT,
-                }
-            ],
-            "sortBy": "relevance",
-            "type": "hotels",
-        }
+    for check_in in FESTIVAL_DATES:
+        check_out = (datetime.strptime(check_in, "%Y-%m-%d") + timedelta(days=1)).strftime("%Y-%m-%d")
+        try:
+            run_input = {
+                "adults": 1,
+                "currency": "PHP",
+                "rooms": 1,
+                "searches": [
+                    {"location": "Bacolod", "checkInDate": check_in, "checkOutDate": check_out}
+                ],
+                "sortBy": "relevance",
+                "type": "hotels",
+            }
 
-        run = client_Apify.actor("H1scmbaCSREtaQDQU").call(run_input=run_input)
+            run = client_Apify.actor("H1scmbaCSREtaQDQU").call(run_input=run_input)
 
-        dataset_id = run.default_dataset_id
-        hasResults = False
-        if dataset_id:
-            for results in client_Apify.dataset(dataset_id).iterate_items():
-                hasResults = True
+            dataset_id = run.default_dataset_id
+            hasResults = False
+            if dataset_id:
+                for results in client_Apify.dataset(dataset_id).iterate_items():
+                    hasResults = True
+                    write_to_jsonl(
+                        "success", False, "festival_target", "google_hotels.jsonl",
+                        {**results, "target_date": check_in},
+                    )
+            if not hasResults:
                 write_to_jsonl(
-                    "success", False, "festival_target", "google_hotels.jsonl",
-                    {**results, "target_date": FESTIVAL_HOTEL_CHECKIN},
+                    "noResults", False, "festival_target", "google_hotels.jsonl",
+                    {"checkInDate": check_in, "checkOutDate": check_out, "target_date": check_in},
                 )
-        if not hasResults:
+        except Exception as e:
             write_to_jsonl(
-                "noResults", False, "festival_target", "google_hotels.jsonl",
-                {
-                    "checkInDate": FESTIVAL_HOTEL_CHECKIN,
-                    "checkOutDate": FESTIVAL_HOTEL_CHECKOUT,
-                    "target_date": FESTIVAL_HOTEL_CHECKIN,
-                },
+                "ingestion_totalFail", False, "festival_target", "google_hotels.jsonl",
+                {"checkInDate": check_in, "checkOutDate": check_out, "target_date": check_in, "error": str(e)},
             )
-    except Exception as e:
-        write_to_jsonl(
-            "ingestion_totalFail", False, "festival_target", "google_hotels.jsonl",
-            {
-                "checkInDate": FESTIVAL_HOTEL_CHECKIN,
-                "checkOutDate": FESTIVAL_HOTEL_CHECKOUT,
-                "target_date": FESTIVAL_HOTEL_CHECKIN,
-                "error": str(e),
-            },
-        )
 
 
 # =========================================================================
@@ -446,80 +419,77 @@ def primary_google_trends():
 # =========================================================================
 
 def primary_google_flights_festival():
-    """Single query: arrival on FESTIVAL_FLIGHT_ARRIVAL only (see note above FESTIVAL_* constants)."""
     try:
-        data = client_serpApi.search({
-            "engine": "google_flights",
-            "hl": "en",
-            "gl": "ph",
-            "departure_id": "MNL",
-            "arrival_id": "BCD",
-            "outbound_date": FESTIVAL_FLIGHT_ARRIVAL,
-            "currency": "PHP",
-            "type": "2",
-            "travel_class": "1",
-            "adults": "1",
-            "sort_by": "2",
-        })
+        for target_date in FESTIVAL_DATES:
+            data = client_serpApi.search({
+                "engine": "google_flights",
+                "hl": "en",
+                "gl": "ph",
+                "departure_id": "MNL",
+                "arrival_id": "BCD",
+                "outbound_date": target_date,
+                "currency": "PHP",
+                "type": "2",
+                "travel_class": "1",
+                "adults": "1",
+                "sort_by": "2",
+            })
 
-        has_error = "error" in data
-        has_flights = "best_flights" in data or "other_flights" in data
+            has_error = "error" in data
+            has_flights = "best_flights" in data or "other_flights" in data
 
-        if not has_error and has_flights:
-            flights = data.get("best_flights", []) + data.get("other_flights", [])
-            for flight in flights:
+            if not has_error and has_flights:
+                flights = data.get("best_flights", []) + data.get("other_flights", [])
+                for flight in flights:
+                    write_to_jsonl(
+                        "success", True, "festival_target", "google_flights.jsonl",
+                        {**flight, "target_date": target_date},
+                    )
+            else:
                 write_to_jsonl(
-                    "success", True, "festival_target", "google_flights.jsonl",
-                    {**flight, "target_date": FESTIVAL_FLIGHT_ARRIVAL},
+                    "error", True, "festival_target", "google_flights.jsonl",
+                    {"outbound_date": target_date, "target_date": target_date},
                 )
-        else:
-            write_to_jsonl(
-                "error", True, "festival_target", "google_flights.jsonl",
-                {"outbound_date": FESTIVAL_FLIGHT_ARRIVAL, "target_date": FESTIVAL_FLIGHT_ARRIVAL},
-            )
     except Exception as e:
         print(f"!!! primary_google_flights_festival() error ({e}), switching to backup !!!")
         backup_google_flights_festival()
 
 
 def primary_google_hotels_festival():
-    """Single query: one stay spanning FESTIVAL_HOTEL_CHECKIN -> FESTIVAL_HOTEL_CHECKOUT (see note above FESTIVAL_* constants)."""
     try:
-        data = client_serpApi.search({
-            "engine": "google_hotels",
-            "q": "Bacolod Hotels",
-            "hl": "en",
-            "gl": "ph",
-            "check_in_date": FESTIVAL_HOTEL_CHECKIN,
-            "check_out_date": FESTIVAL_HOTEL_CHECKOUT,
-            "currency": "PHP",
-            "adults": "1",
-        })
+        for check_in in FESTIVAL_DATES:
+            check_out = (datetime.strptime(check_in, "%Y-%m-%d") + timedelta(days=1)).strftime("%Y-%m-%d")
+            data = client_serpApi.search({
+                "engine": "google_hotels",
+                "q": "Bacolod Hotels",
+                "hl": "en",
+                "gl": "ph",
+                "check_in_date": check_in,
+                "check_out_date": check_out,
+                "currency": "PHP",
+                "adults": "1",
+            })
 
-        has_error = "error" in data
-        has_hotels = "properties" in data
+            has_error = "error" in data
+            has_hotels = "properties" in data
 
-        if not has_error and has_hotels:
-            for hotel in data.get("properties", []):
+            if not has_error and has_hotels:
+                for hotel in data.get("properties", []):
+                    write_to_jsonl(
+                        "success", True, "festival_target", "google_hotels.jsonl",
+                        {
+                            "hotel_name": hotel.get("name", "Unknown Hotel"),
+                            "lowest_Rate": (hotel.get("rate_per_night") or {}).get("lowest", "N/A"),
+                            "check_in": check_in,
+                            "check_out": check_out,
+                            "target_date": check_in,
+                        },
+                    )
+            else:
                 write_to_jsonl(
-                    "success", True, "festival_target", "google_hotels.jsonl",
-                    {
-                        "hotel_name": hotel.get("name", "Unknown Hotel"),
-                        "lowest_Rate": (hotel.get("rate_per_night") or {}).get("lowest", "N/A"),
-                        "check_in": FESTIVAL_HOTEL_CHECKIN,
-                        "check_out": FESTIVAL_HOTEL_CHECKOUT,
-                        "target_date": FESTIVAL_HOTEL_CHECKIN,
-                    },
+                    "error", True, "festival_target", "google_hotels.jsonl",
+                    {"check_in_date": check_in, "check_out_date": check_out, "target_date": check_in},
                 )
-        else:
-            write_to_jsonl(
-                "error", True, "festival_target", "google_hotels.jsonl",
-                {
-                    "check_in_date": FESTIVAL_HOTEL_CHECKIN,
-                    "check_out_date": FESTIVAL_HOTEL_CHECKOUT,
-                    "target_date": FESTIVAL_HOTEL_CHECKIN,
-                },
-            )
     except Exception as e:
         print(f"!!! primary_google_hotels_festival() error ({e}), switching to backup !!!")
         backup_google_hotels_festival()
