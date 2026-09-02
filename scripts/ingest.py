@@ -535,7 +535,6 @@ if __name__ == "__main__":
     primary_google_hotels()
     primary_google_flights()
     primary_google_trends()
-
     primary_google_flights_festival()
     primary_google_hotels_festival()
 
