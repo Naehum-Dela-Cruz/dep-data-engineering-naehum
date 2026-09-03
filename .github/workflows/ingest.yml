@@ -2,14 +2,14 @@ name: Scheduled Data Ingestion
 
 on:
   schedule:
-    # Runs daily at 00:00 UTC (8:00 AM UTC+8 / PHT)
+    # Runs daily at 00:00 PHT
     # Adjust cron schedule to match your preferred frequency:
     # ┌───────────── minute (0 - 59)
     # │ ┌───────────── hour (0 - 23)
     # │ │ ┌───────────── day of the month (1 - 31)
     # │ │ │ ┌───────────── month (1 - 12)
     # │ │ │ │ ┌───────────── day of the week (0 - 6) (Sunday to Saturday)
-    - cron: "0 16 * * *"
+    - cron: "17 16 * * *"
   workflow_dispatch: # Allows manual trigger from the GitHub Actions tab
 
 permissions:

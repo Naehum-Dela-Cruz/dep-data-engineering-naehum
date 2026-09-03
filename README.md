@@ -16,7 +16,7 @@ The main metrics this builder wishes to track are categorized into four distinct
 - `trends_velocity`: The week-over-week percentage increase/decrease in Google Trend's Interest Over Time value for relevant keywords.
 
 #### 3. Flight Metrics
-- `travel_lead_time`: The number of days remaining until the festival peak before Manila-to-Bacolod (MNL-BCD) plane ticket prices spike past a dynamic multiplier threshold (e.g., greater than 1.5x of the off-season baseline price).
+- `travel_lead_time`: The number of days remaining until the festival peak before Manila-to-Bacolod (MNL-BCD) plane ticket prices spike past a dynamic multiplier threshold (e.g., greater than 1.5x of the average off-season rolling price).
 - `travel_cooldown_time`: The number of days post-festival before MNL-BCD plane ticket prices drop back down below the baseline threshold.
 - `travel_price_velocity`: The week-over-week percentage change in minimum and median MNL-BCD flight costs.
 
@@ -66,6 +66,21 @@ This builder will explore and integrate the following data endpoints:
 *   **Google Flights Pricing:** Timestamps, and price metrics extracted via **https://serpapi.com** free-tier.
 *   **Google Hotels Pricing:** Timestamps, and price metrics extracted via **https://serpapi.com** free-tier.
 *   **Google Trends Interest Over Time:** Timestamps, and interest metrics extracted via **https://serpapi.com** free-tier. -->
+
+## Processed Data Plan
+
+### Hotels Data
+- Name: processed_google_hotel.jsonl
+- Grain: one row = one hotel listing
+- Primary key : 'processed_hotel_id'
+
+### Important Columns 
+<!-- check in and check out date should be the same for non-rolling dates -->
+| processed_hotel_id | date_collected | check_in | check_out | hotel_name | price |
+|--------------------|----------------|----------|-----------|------------|-------|
+
+### Related Tables or Files
+- <table_name>: joins on <join_key>
 
 ## Possible Final Dashboard
 The presentation layer will be built as a single-page application divided into three clear analytical modules:
