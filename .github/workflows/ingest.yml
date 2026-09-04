@@ -9,7 +9,7 @@ on:
     # │ │ ┌───────────── day of the month (1 - 31)
     # │ │ │ ┌───────────── month (1 - 12)
     # │ │ │ │ ┌───────────── day of the week (0 - 6) (Sunday to Saturday)
-    - cron: "7 18 * * *"
+    - cron: "20 18 * * *"
   workflow_dispatch: # Allows manual trigger from the GitHub Actions tab
 
 permissions:
