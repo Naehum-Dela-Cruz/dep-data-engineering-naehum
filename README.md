@@ -7,9 +7,26 @@ This builder wants to answer: "Is there a correlation between an uptick in Googl
 This project is for budget-conscious travelers looking to be able to get ahead of the prices; business owners wanting to make informed data-driven descisions in the face of a potential surge in tourism; and other researchers looking into a similar or related topic.
 
 ## KPIs or Key Metrics
-The main metrics this builder wishes to track are categorized into four distinct layers:
+The main metrics this builder wishes to track are categorized into three distinct layers:
 
-#### 1. General Analytics
+#### 1. Public Demand & Search Metrics (Google Trends)
+-`Peak Search Index (0-100)`: The maximum search volume score registered leading up to the festival, indicating the highest point of public curiosity. This is NOT the actual number of searches as Google Trends Interest Over Time (IOT) data scales on 0-100 with 100 being the highest number of searches and the rest being scaled relative to that peak.
+
+-`Interest Velocity (Week-over-Week)`: The percentage change in search volume betweeen consecutive weeks to identify sudden flection points or viral spikes.
+
+-`Cumulative Search Volume`: The area under the curve (total sum of search values) over the pre-festival tracking window to measure total sustained interest.
+
+#### 2. Price Surge & Inflation Metrics (Flights & Hotels)
+-`Festival Price Premium`: The percentage difference between average MNL-BCD flight ticket prices or hotel room rates during the festival traget dates for October 9-13 versus standard baseline periods gathered beforehand from the rolling price record.
+
+-`Minimum Price Escalation`: Track how the lowest available one-way flight price shifts as the collection date gets closer to October 9, and then past it with rolling dates once the event has ended.
+
+#### 3. Correlation & Timing Metrics
+-`Cross-Correlation Coefficient`: A statistical measure (Spearman's) evaluating how closely fluctuations in Google Trends scores track with flight and hotel price jumps. 
+
+-`Lag Time to Surge (Lead Time)`: The time gap (in days) between an intial spike in search interest and the subsequent upward movement in airfares and accomodation rates. Look at it in day-level shifts (e.g., does a spike in Google Trends on Day T trigger a price jump on Day T+2 or T+3?)—people rarely search for a festival term and book a flight within the exact same hour; there is usually a consideration window.
+
+<!-- #### 1. General Analytics
 - `trends_price_correlation`: The calculated statistical correlation coefficient between trends velocity and the median pricing of accommodations and flights.
 
 #### 2. Trends Metrics
@@ -18,7 +35,7 @@ The main metrics this builder wishes to track are categorized into four distinct
 #### 3. Flight Metrics
 - `travel_lead_time`: The number of days remaining until the festival peak before Manila-to-Bacolod (MNL-BCD) plane ticket prices spike past a dynamic multiplier threshold (e.g., greater than 1.5x of the average off-season rolling price).
 - `travel_cooldown_time`: The number of days post-festival before MNL-BCD plane ticket prices drop back down below the baseline threshold.
-- `travel_price_velocity`: The week-over-week percentage change in minimum and median MNL-BCD flight costs.
+- `travel_price_velocity`: The week-over-week percentage change in minimum and median MNL-BCD flight costs. -->
 
 #### 4. Hotel Metrics
 - `hotel_lead_time`: The number of days remaining until the festival peak before Bacolod City accommodation and hotel booking prices spike past a baseline threshold.
@@ -98,6 +115,6 @@ The presentation layer will be built as a single-page application divided into t
 
 - As MassKara is usually held in October, this builder hopes to have already collected (Phase 2) and cleaned (Phase 3) data ranging as far back as August.
 
-- This builder would've liked to do an analysis of the previous MassKara festival to contrast with the upcoming one, but SerpApi's Google Hotels and Google Flights scraper cannot view historical prices. 
+- This builder would've liked to do an analysis of the previous MassKara festival to contrast with the upcoming one, but SerpApi's Google Hotels and Google Flights scraper cannot view historical prices. (even tho the `vs. same period previous year` feature is in the page)
 
 <!-- - This builder doesn't like being completely at the mercy of SerpApi. Alternative sources would be appreciated for redundancy. -->
