@@ -35,12 +35,12 @@ The main metrics this builder wishes to track are categorized into three distinc
 #### 3. Flight Metrics
 - `travel_lead_time`: The number of days remaining until the festival peak before Manila-to-Bacolod (MNL-BCD) plane ticket prices spike past a dynamic multiplier threshold (e.g., greater than 1.5x of the average off-season rolling price).
 - `travel_cooldown_time`: The number of days post-festival before MNL-BCD plane ticket prices drop back down below the baseline threshold.
-- `travel_price_velocity`: The week-over-week percentage change in minimum and median MNL-BCD flight costs. -->
+- `travel_price_velocity`: The week-over-week percentage change in minimum and median MNL-BCD flight costs.
 
 #### 4. Hotel Metrics
 - `hotel_lead_time`: The number of days remaining until the festival peak before Bacolod City accommodation and hotel booking prices spike past a baseline threshold.
 - `hotel_cooldown_time`: The number of days post-festival before BCD hotel booking prices stabilize below the surge threshold.
-- `hotel_price_velocity`: The week-over-week percentage change in nightly hotel rates across listed Bacolod city accommodations.
+- `hotel_price_velocity`: The week-over-week percentage change in nightly hotel rates across listed Bacolod city accommodations. -->
 
 ## Data Source Notes
 
