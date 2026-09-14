@@ -86,18 +86,92 @@ This builder will explore and integrate the following data endpoints:
 
 ## Processed Data Plan
 
-### Hotels Data
-- Name: processed_google_hotel.jsonl
-- Grain: one row = one hotel listing
-- Primary key : 'processed_hotel_id'
+### Storage Architecture
+- **Raw Layer (`data/raw/`)**: Append-only JSON Lines (`.jsonl`). Retains raw API responses from SerpApi and Apify fallbacks.
+- **Processed Layer (`data/processed/`)**: Structured tabular files (`.parquet` or `.csv`). Columns are strictly typed, unnested, deduplicated, and currency symbols (`₱`) or epochs are parsed into native numbers and dates.
 
-### Important Columns 
-<!-- check in and check out date should be the same for non-rolling dates -->
-| processed_hotel_id | date_collected | check_in | check_out | hotel_name | price |
-|--------------------|----------------|----------|-----------|------------|-------|
+---
 
-### Related Tables or Files
-- <table_name>: joins on <join_key>
+### Table 1: Processed Hotels (`processed_hotels`)
+- **Grain:** One row = one hotel rate quote scraped on a specific collection date for a specific stay window.
+- **Primary Key:** Composite (`date_collected`, `collection_mode`, `hotel_name`, `check_in_date`)
+
+| Column | Meaning | Expected Type | Example |
+|---|---|---|---|
+| `record_id` | Unique MD5 hash of (date_collected, collection_mode, hotel_name, check_in_date) | `VARCHAR` | `"h_a8f9c12e..."` |
+| `date_collected` | Date the data was collected | `DATE` (`YYYY-MM-DD`) | `2026-09-08` |
+| `collection_mode` | Mode of scrape: `"rolling"` (baseline) vs `"festival_target"` (MassKara stay) | `VARCHAR` | `"festival_target"` |
+| `hotel_name` | Cleaned name of the accommodation | `VARCHAR` | `"Park Inn by Radisson Bacolod"` |
+| `check_in_date` | Check-in date for the booking | `DATE` (`YYYY-MM-DD`) | `2026-10-09` |
+| `check_out_date` | Check-out date for the booking | `DATE` (`YYYY-MM-DD`) | `2026-10-13` |
+| `num_nights` | Length of stay in nights (`check_out_date` - `check_in_date`) | `INTEGER` | `4` |
+| `price_php` | Total or nightly quote in Philippine Pesos (numeric, stripped of symbols) | `FLOAT` | `7402.0` |
+| `lead_time_days` | Booking lead time (`check_in_date` - `date_collected`) | `INTEGER` | `31` |
+| `is_primary_source` | Whether record came from SerpApi (`TRUE`) or Apify (`FALSE`) | `BOOLEAN` | `TRUE` |
+
+---
+
+### Table 2: Processed Flights (`processed_flights`)
+- **Grain:** One row = one flight option (MNL -> BCD) scraped on a specific collection date for a specific departure date.
+- **Primary Key:** Composite (`date_collected`, `collection_mode`, `flight_number`, `departure_time`)
+
+| Column | Meaning | Expected Type | Example |
+|---|---|---|---|
+| `record_id` | Unique MD5 hash of (date_collected, collection_mode, flight_number, departure_time) | `VARCHAR` | `"f_c3b8e91d..."` |
+| `date_collected` | Date the scraper executed | `DATE` (`YYYY-MM-DD`) | `2026-09-08` |
+| `collection_mode` | Mode of scrape: `"rolling"` vs `"festival_target"` | `VARCHAR` | `"festival_target"` |
+| `target_travel_date` | Date of departure | `DATE` (`YYYY-MM-DD`) | `2026-10-09` |
+| `origin_airport` | Origin IATA airport code | `VARCHAR(3)` | `"MNL"` |
+| `destination_airport` | Destination IATA airport code | `VARCHAR(3)` | `"BCD"` |
+| `airline` | Operating airline name | `VARCHAR` | `"Cebu Pacific"` |
+| `flight_number` | Flight identifier code | `VARCHAR` | `"5J 475"` |
+| `departure_time` | Scheduled local departure timestamp | `DATETIME` | `2026-10-09 17:25:00` |
+| `arrival_time` | Scheduled local arrival timestamp | `DATETIME` | `2026-10-09 18:50:00` |
+| `duration_minutes` | Total flight duration in minutes | `INTEGER` | `85` |
+| `price_php` | One-way ticket price in PHP | `FLOAT` | `2396.0` |
+| `lead_time_days` | Advance booking lead time (`target_travel_date` - `date_collected`) | `INTEGER` | `31` |
+| `is_primary_source` | Whether record came from SerpApi (`TRUE`) or Apify (`FALSE`) | `BOOLEAN` | `TRUE` |
+
+---
+
+### Table 3: Processed Google Trends (`processed_trends`)
+- **Grain:** One row = search interest score for a single date within a given collection snapshot.
+- **Primary Key:** Composite (`date_collected`, `interest_date`, `keyword`)
+
+| Column | Meaning | Expected Type | Example |
+|---|---|---|---|
+| `date_collected` | Date this 3-month trend batch was pulled | `DATE` (`YYYY-MM-DD`) | `2026-09-08` |
+| `interest_date` | Date the search interest refers to | `DATE` (`YYYY-MM-DD`) | `2026-09-05` |
+| `keyword` | Search keyword queried | `VARCHAR` | `"Masskara"` |
+| `interest_index` | Normalized search volume index (0–100 scale) | `INTEGER` | `84` |
+| `is_primary_source` | SerpApi (`TRUE`) or Apify (`FALSE`) | `BOOLEAN` | `TRUE` |
+
+---
+
+### Table 4: Analytical Mart / Aggregated Summary (`daily_market_summary`)
+*(Feeds the final dashboard & correlation analysis directly)*
+- **Grain:** One row = one observation date (`date_collected`).
+- **Primary Key:** `date_collected`
+
+| Column | Meaning | Expected Type | Source / Calculation |
+|---|---|---|---|
+| `date_collected` | Observation date | `DATE` | Join key across all tables |
+| `days_to_festival` | Days remaining until MassKara opening (Oct 9, 2026) | `INTEGER` | `DATE('2026-10-09') - date_collected` |
+| `current_trend_index` | Most recent search interest score available on this day | `INTEGER` | From `processed_trends` |
+| `trend_wow_velocity` | Week-over-week percentage change in search interest | `FLOAT` | `(trend_t - trend_t-7) / trend_t-7` |
+| `flight_fest_min_price` | Lowest MNL-BCD opening-day flight fare quoted on this day | `FLOAT` | Min from `processed_flights` (`festival_target`) |
+| `flight_fest_med_price` | Median MNL-BCD opening-day flight fare quoted on this day | `FLOAT` | Median from `processed_flights` (`festival_target`) |
+| `flight_baseline_med_price`| Median off-season rolling flight price quoted on this day | `FLOAT` | Median from `processed_flights` (`rolling`) |
+| `flight_price_premium` | Flight surge premium ratio vs baseline | `FLOAT` | `flight_fest_med_price / flight_baseline_med_price` |
+| `hotel_fest_min_price` | Lowest 4-night stay quote recorded on this day | `FLOAT` | Min from `processed_hotels` (`festival_target`) |
+| `hotel_fest_med_price` | Median 4-night stay quote recorded on this day | `FLOAT` | Median from `processed_hotels` (`festival_target`) |
+| `hotel_baseline_med_price` | Median off-season rolling hotel rate quoted on this day | `FLOAT` | Median from `processed_hotels` (`rolling`) |
+| `hotel_price_premium` | Hotel surge premium ratio vs baseline | `FLOAT` | `hotel_fest_med_price / hotel_baseline_med_price` |
+
+### Relationships & Joins
+- **Entity Tables to Analytical Summary:** Aggregated by `date_collected`.
+- **Target vs. Baseline Comparison:** Join on `date_collected` comparing rows where `collection_mode = 'festival_target'` vs `collection_mode = 'rolling'`.
+
 
 ## Possible Final Dashboard
 The presentation layer will be built as a single-page application divided into three clear analytical modules:
