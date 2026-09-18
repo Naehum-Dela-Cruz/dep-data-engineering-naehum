@@ -2,7 +2,7 @@ name: Scheduled Data Transformation
 
 on:
   schedule:
-    - cron: "20 19 * * *" # Runs 1 hour after ingestion
+    - cron: "20 22 * * *" # Runs 4 hours after ingestion
   workflow_dispatch:      # Allows manual run from GitHub UI
 
 permissions:
