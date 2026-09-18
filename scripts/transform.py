@@ -12,6 +12,41 @@ RAW_DIR = BASE_DIR / "data" / "raw"
 PROCESSED_DIR = BASE_DIR / "data" / "processed"
 ANALYSIS_DIR = PROCESSED_DIR / "masskara" / "analysis"
 
+def validate_processed_data(df_flights, df_hotels, df_trends, master_df):
+    """
+    Week 11: Data Quality & Integrity Validation Rules.
+    Raises AssertionError if any quality gate is breached.
+    """
+    print("\n--- Running Data Quality Validation Checks ---")
+
+    # 1. Uniqueness and Null Checks on Primary Keys
+    assert master_df["date_collected"].isna().sum() == 0, "DATA QUALITY ERROR: date_collected contains nulls in master_df!"
+    assert master_df["date_collected"].nunique() == len(master_df), "DATA QUALITY ERROR: Duplicate date_collected found in master_df!"
+
+    # 2. Value Range & Boundary Checks
+    # Google Trends index must be bounded between 0 and 100
+    assert (master_df["trend_search_score"] >= 0).all() and (master_df["trend_search_score"] <= 100).all(), \
+        "DATA QUALITY ERROR: trend_search_score outside valid Google Trends range [0, 100]!"
+
+    # Prices must never be negative or zero
+    assert (master_df["flight_fest_min_price"] > 0).all(), "DATA QUALITY ERROR: Found non-positive festival flight fare!"
+    assert (master_df["flight_rolling_min_price"] > 0).all(), "DATA QUALITY ERROR: Found non-positive rolling flight fare!"
+    assert (master_df["hotel_fest_min_price"] > 0).all(), "DATA QUALITY ERROR: Found non-positive festival hotel rate!"
+
+    # 3. Categorical Validity in Entity Tables
+    valid_modes = {"festival_target", "rolling"}
+    flight_modes = set(df_flights["collection_mode"].dropna().unique())
+    hotel_modes = set(df_hotels["collection_mode"].dropna().unique())
+    assert flight_modes.issubset(valid_modes), f"DATA QUALITY ERROR: Unexpected collection_mode in flights: {flight_modes - valid_modes}"
+    assert hotel_modes.issubset(valid_modes), f"DATA QUALITY ERROR: Unexpected collection_mode in hotels: {hotel_modes - valid_modes}"
+
+    # 4. Lead Time Sanity
+    assert (master_df["days_to_festival"] >= 0).all(), "DATA QUALITY ERROR: Negative days_to_festival before festival start!"
+
+    # 5. Non-Empty Output Check
+    assert len(master_df) > 0, "DATA QUALITY ERROR: master_df has 0 rows!"
+
+    print("All validation checks passed successfully! (Data is healthy and valid)")
 
 def extract_flight_leg_info(row):
     flights_data = row.get("flights")
@@ -150,6 +185,8 @@ def build_master_dataset():
     dates = pd.to_datetime(master_df["date_collected"])
     festival_start = pd.to_datetime("2026-10-09")
     master_df["days_to_festival"] = (festival_start - dates).dt.days
+
+    validate_processed_data(df_flights, df_hotels, df_trends, master_df)
 
     out_file = ANALYSIS_DIR / "master.csv"
     master_df.to_csv(out_file, index=False)

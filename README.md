@@ -190,6 +190,25 @@ This builder will explore and integrate the following data endpoints:
 - **Entity Tables to Analytical Summary:** Aggregated by `date_collected`.
 - **Target vs. Baseline Comparison:** Join on `date_collected` comparing rows where `collection_mode = 'festival_target'` vs `collection_mode = 'rolling'`.
 
+## Data Quality, Validation & Reproducibility (Week 11)
+
+### Cleaning Decisions Log
+| Issue / Raw State | Action Taken | Rationale |
+|---|---|---|
+| **Nested Flight Legs (`flights`)** | Unnested first flight leg into explicit columns (`airline`, `flight_number`, departure/arrival airport & times). | Tabular models cannot query nested JSON lists; separating legs allows airline pricing breakdowns. |
+| **Hotel Rates as Currency Strings (`"₱1,211"`)** | Stripped `₱`, commas, and whitespace using regex `r"[^\d.]"`, then cast to `float`. | Financial metrics (min, mean, median, velocity) require native numeric types. |
+| **Missing `target_date` in Rolling Scrapes** | Kept as `NaN` / empty for `rolling` rows, populated only for `festival_target`. | Rolling scrapes measure the next-day baseline and have no fixed October target date. Preserving `NaN` prevents false grouping. |
+| **Multi-Leg Flight Blobs (`booking_token`, `airline_logo`)** | Dropped from processed output. | Token payloads and SVG URLs add noise and bloated file size without analytical value for price surge modeling. |
+| **Unequal Time Horizons Across Sources** | Merged on `date_collected` using `inner` for flights/trends and `left` for hotels. | Trend data extends back to June, but flight/hotel scrapers only started September 2. Restricting the master mart to active scraper observation dates eliminates 90+ days of empty price rows. |
+
+### Validation Rules in Pipeline (`scripts/transform.py`)
+1. **Primary Key Integrity**: `date_collected` has zero nulls (`isna().sum() == 0`) and is 100% unique (`nunique() == len(df)`).
+2. **Domain Range Boundaries**:
+   - `trend_search_score` is strictly asserted to fall within `[0, 100]`.
+   - All flight fares and hotel nightly rates must be strictly positive (`> 0`).
+3. **Category Integrity**: `collection_mode` must only ever contain `festival_target` or `rolling`.
+4. **Lead Time Sanity**: `days_to_festival` must remain positive (`>= 0`) leading up to October 9, 2026.
+5. **Idempotence & Reproducibility**: Running `python scripts/transform.py` multiple times on identical raw inputs produces the exact same deterministic dataset without row duplications or side effects.
 
 ## Possible Final Dashboard
 The presentation layer will be built as a single-page application divided into three clear analytical modules:
