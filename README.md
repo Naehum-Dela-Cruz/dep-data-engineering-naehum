@@ -6,6 +6,35 @@ This builder wants to answer: "Is there a correlation between an uptick in Googl
 ## Audience
 This project is for budget-conscious travelers looking to be able to get ahead of the prices; business owners wanting to make informed data-driven descisions in the face of a potential surge in tourism; and other researchers looking into a similar or related topic.
 
+## How To Run
+Run these commands from the repository root.
+
+### 1. Install dependencies
+```powershell
+pip install -r requirements.txt
+```
+### 2. Configure API credentials
+Create a .env file in the project root:
+```
+SERPAPI_API_KEY=your_serpapi_key
+APIFY_API_KEY=your_apify_key
+```
+### 3. Run The Full Pipeline
+No ingestion (use stored data) (Recommended):
+```
+python scripts/run_pipeline.py
+```
+With Ingestion (get latest data):
+```
+python scripts/run_pipeline.py --with-ingest
+```
+### (Optional) Run individual scripts
+```
+python scripts/ingest.py
+python scripts/transform.py
+python scripts/run_sql_analysis.py
+```
+
 ## KPIs or Key Metrics
 The main metrics this builder wishes to track are categorized into three distinct layers:
 
