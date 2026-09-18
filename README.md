@@ -12,19 +12,19 @@ The main metrics this builder wishes to track are categorized into three distinc
 #### 1. Public Demand & Search Metrics (Google Trends)
 -`Peak Search Index (0-100)`: The maximum search volume score registered leading up to the festival, indicating the highest point of public curiosity. This is NOT the actual number of searches as Google Trends Interest Over Time (IOT) data scales on 0-100 with 100 being the highest number of searches and the rest being scaled relative to that peak.
 
--`Interest Velocity (Week-over-Week)`: The percentage change in search volume betweeen consecutive weeks to identify sudden flection points or viral spikes.
+-`Interest Velocity (Week-over-Week)`: The percentage change in search volume between consecutive weeks to identify sudden inflection points or viral spikes.
 
 -`Cumulative Search Volume`: The area under the curve (total sum of search values) over the pre-festival tracking window to measure total sustained interest.
 
 #### 2. Price Surge & Inflation Metrics (Flights & Hotels)
--`Festival Price Premium`: The percentage difference between average MNL-BCD flight ticket prices or hotel room rates during the festival traget dates for October 9-13 versus standard baseline periods gathered beforehand from the rolling price record.
+-`Festival Price Premium`: The percentage difference between average MNL-BCD flight ticket prices or hotel room rates during the festival target dates for October 9-13 versus standard baseline periods gathered beforehand from the rolling price record.
 
 -`Minimum Price Escalation`: Track how the lowest available one-way flight price shifts as the collection date gets closer to October 9, and then past it with rolling dates once the event has ended.
 
 #### 3. Correlation & Timing Metrics
 -`Cross-Correlation Coefficient`: A statistical measure (Spearman's) evaluating how closely fluctuations in Google Trends scores track with flight and hotel price jumps. 
 
--`Lag Time to Surge (Lead Time)`: The time gap (in days) between an intial spike in search interest and the subsequent upward movement in airfares and accomodation rates. Look at it in day-level shifts (e.g., does a spike in Google Trends on Day T trigger a price jump on Day T+2 or T+3?)—people rarely search for a festival term and book a flight within the exact same hour; there is usually a consideration window.
+-`Lag Time to Surge (Lead Time)`: The time gap (in days) between an initial spike in search interest and the subsequent upward movement in airfares and accommodation rates. Look at it in day-level shifts (e.g., does a spike in Google Trends on Day T trigger a price jump on Day T+2 or T+3?)—people rarely search for a festival term and book a flight within the exact same hour; there is usually a consideration window.
 
 <!-- #### 1. General Analytics
 - `trends_price_correlation`: The calculated statistical correlation coefficient between trends velocity and the median pricing of accommodations and flights.
@@ -44,7 +44,10 @@ The main metrics this builder wishes to track are categorized into three distinc
 
 ## Data Source Notes
 
-All ingestion scripts are placed under the `scripts/ingest.py` under `ingest()` function. To run the script, use the command `python scripts/ingest.py`.
+All data ingestion and transformation pipelines are located under `scripts/`:
+- **Ingestion**: `python scripts/ingest.py` (pulls raw data into `data/raw/`)
+- **Transformation & Mart Building**: `python scripts/transform.py` (cleans raw data and produces the analytical master dataset in `data/processed/masskara/analysis/master.csv`)
+- **Automation**: Both pipelines are scheduled via GitHub Actions (`.github/workflows/ingest.yml` daily at 18:20 UTC, and `.github/workflows/transform.yml` at 22:20 UTC).
 
 ### Primary Source
 - Name: SERP API
@@ -148,25 +151,40 @@ This builder will explore and integrate the following data endpoints:
 
 ---
 
-### Table 4: Analytical Mart / Aggregated Summary (`daily_market_summary`)
+### Table 4: Analytical Mart / Aggregated Summary (`data/processed/masskara/analysis/master.csv`)
 *(Feeds the final dashboard & correlation analysis directly)*
 - **Grain:** One row = one observation date (`date_collected`).
 - **Primary Key:** `date_collected`
 
 | Column | Meaning | Expected Type | Source / Calculation |
 |---|---|---|---|
-| `date_collected` | Observation date | `DATE` | Join key across all tables |
+| `date_collected` | Observation / scrape execution date | `DATE` (`YYYY-MM-DD`) | Join key across daily tables |
 | `days_to_festival` | Days remaining until MassKara opening (Oct 9, 2026) | `INTEGER` | `DATE('2026-10-09') - date_collected` |
-| `current_trend_index` | Most recent search interest score available on this day | `INTEGER` | From `processed_trends` |
-| `trend_wow_velocity` | Week-over-week percentage change in search interest | `FLOAT` | `(trend_t - trend_t-7) / trend_t-7` |
-| `flight_fest_min_price` | Lowest MNL-BCD opening-day flight fare quoted on this day | `FLOAT` | Min from `processed_flights` (`festival_target`) |
-| `flight_fest_med_price` | Median MNL-BCD opening-day flight fare quoted on this day | `FLOAT` | Median from `processed_flights` (`festival_target`) |
-| `flight_baseline_med_price`| Median off-season rolling flight price quoted on this day | `FLOAT` | Median from `processed_flights` (`rolling`) |
-| `flight_price_premium` | Flight surge premium ratio vs baseline | `FLOAT` | `flight_fest_med_price / flight_baseline_med_price` |
-| `hotel_fest_min_price` | Lowest 4-night stay quote recorded on this day | `FLOAT` | Min from `processed_hotels` (`festival_target`) |
-| `hotel_fest_med_price` | Median 4-night stay quote recorded on this day | `FLOAT` | Median from `processed_hotels` (`festival_target`) |
-| `hotel_baseline_med_price` | Median off-season rolling hotel rate quoted on this day | `FLOAT` | Median from `processed_hotels` (`rolling`) |
-| `hotel_price_premium` | Hotel surge premium ratio vs baseline | `FLOAT` | `hotel_fest_med_price / hotel_baseline_med_price` |
+| `trend_search_score` | Search interest score for MassKara on this day | `INTEGER` | Max value from `cleaned_trends.csv` |
+| `trend_velocity_7d` | 7-day week-over-week percentage change in search interest | `FLOAT` | `pct_change(periods=7)` |
+| `trend_score_lag_1d` | Search interest score lagged by 1 day | `FLOAT` | `shift(1)` on `trend_search_score` |
+| `trend_score_lag_2d` | Search interest score lagged by 2 days | `FLOAT` | `shift(2)` on `trend_search_score` |
+| `trend_score_lag_3d` | Search interest score lagged by 3 days | `FLOAT` | `shift(3)` on `trend_search_score` |
+| `flight_fest_min_price` | Lowest MNL-BCD opening-day flight fare quoted on this day | `FLOAT` | Min from `cleaned_flights` (`festival_target`) |
+| `flight_fest_median_price` | Median MNL-BCD opening-day flight fare quoted on this day | `FLOAT` | Median from `cleaned_flights` (`festival_target`) |
+| `flight_fest_mean_price` | Mean MNL-BCD opening-day flight fare quoted on this day | `FLOAT` | Mean from `cleaned_flights` (`festival_target`) |
+| `flight_fest_quote_count` | Number of festival flight quotes recorded on this day | `INTEGER` | Count from `cleaned_flights` (`festival_target`) |
+| `flight_rolling_min_price` | Lowest off-season baseline flight price quoted on this day | `FLOAT` | Min from `cleaned_flights` (`rolling`) |
+| `flight_rolling_median_price` | Median off-season baseline flight price quoted on this day | `FLOAT` | Median from `cleaned_flights` (`rolling`) |
+| `flight_rolling_mean_price` | Mean off-season baseline flight price quoted on this day | `FLOAT` | Mean from `cleaned_flights` (`rolling`) |
+| `flight_rolling_quote_count` | Number of rolling flight quotes recorded on this day | `INTEGER` | Count from `cleaned_flights` (`rolling`) |
+| `flight_price_premium` | Flight surge premium ratio vs rolling baseline | `FLOAT` | `flight_fest_median_price / flight_rolling_median_price` |
+| `flight_median_change_1d` | Day-over-day shift in festival median flight price | `FLOAT` | `diff(1)` on `flight_fest_median_price` |
+| `hotel_fest_min_price` | Lowest 4-night stay quote recorded on this day | `FLOAT` | Min from `cleaned_hotels` (`festival_target`) |
+| `hotel_fest_median_price` | Median 4-night stay quote recorded on this day | `FLOAT` | Median from `cleaned_hotels` (`festival_target`) |
+| `hotel_fest_mean_price` | Mean 4-night stay quote recorded on this day | `FLOAT` | Mean from `cleaned_hotels` (`festival_target`) |
+| `hotel_fest_quote_count` | Number of festival hotel quotes recorded on this day | `INTEGER` | Count from `cleaned_hotels` (`festival_target`) |
+| `hotel_rolling_min_price` | Lowest off-season baseline hotel rate quoted on this day | `FLOAT` | Min from `cleaned_hotels` (`rolling`) |
+| `hotel_rolling_median_price` | Median off-season baseline hotel rate quoted on this day | `FLOAT` | Median from `cleaned_hotels` (`rolling`) |
+| `hotel_rolling_mean_price` | Mean off-season baseline hotel rate quoted on this day | `FLOAT` | Mean from `cleaned_hotels` (`rolling`) |
+| `hotel_rolling_quote_count` | Number of rolling hotel quotes recorded on this day | `INTEGER` | Count from `cleaned_hotels` (`rolling`) |
+| `hotel_price_premium` | Hotel surge premium ratio vs rolling baseline | `FLOAT` | `hotel_fest_median_price / hotel_rolling_median_price` |
+| `hotel_median_change_1d` | Day-over-day shift in festival median hotel price | `FLOAT` | `diff(1)` on `hotel_fest_median_price` |
 
 ### Relationships & Joins
 - **Entity Tables to Analytical Summary:** Aggregated by `date_collected`.
