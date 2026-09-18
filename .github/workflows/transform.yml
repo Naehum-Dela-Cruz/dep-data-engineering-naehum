@@ -1,0 +1,47 @@
+name: Scheduled Data Transformation
+
+on:
+  schedule:
+    - cron: "20 19 * * *" # Runs 1 hour after ingestion
+  workflow_dispatch:      # Allows manual run from GitHub UI
+
+permissions:
+  contents: write
+
+jobs:
+  transform:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pandas
+
+      - name: Run transformation pipeline
+        run: |
+          python scripts/transform.py
+
+      - name: Commit and push processed data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          
+          git add data/processed/
+          
+          if git diff --staged --quiet; then
+            echo "No new processed data changes to commit."
+          else
+            git commit -m "chore(data): automated transform $(date -u +'%Y-%m-%d %H:%M:%S UTC') [skip ci]"
+            git pull --rebase origin main
+            git push origin main
+          fi
