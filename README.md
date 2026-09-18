@@ -119,105 +119,159 @@ This builder will explore and integrate the following data endpoints:
 ## Processed Data Plan
 
 ### Storage Architecture
-- **Raw Layer (`data/raw/`)**: Append-only JSON Lines (`.jsonl`). Retains raw API responses from SerpApi and Apify fallbacks.
-- **Processed Layer (`data/processed/`)**: Structured tabular files (`.parquet` or `.csv`). Columns are strictly typed, unnested, deduplicated, and currency symbols (`₱`) or epochs are parsed into native numbers and dates.
 
----
+```text
+data/raw/*.jsonl
+        |
+        v
+`transform.py`
+        |
+        +-- `cleaned_flights.csv`
+        +-- `cleaned_hotels.csv`
+        +-- `cleaned_trends.csv`
+        +-- `master.csv`
+```
 
-### Table 1: Processed Hotels (`processed_hotels`)
-- **Grain:** One row = one hotel rate quote scraped on a specific collection date for a specific stay window.
-- **Primary Key:** Composite (`date_collected`, `collection_mode`, `hotel_name`, `check_in_date`)
+### Processed Flights
 
-| Column | Meaning | Expected Type | Example |
-|---|---|---|---|
-| `record_id` | Unique MD5 hash of (date_collected, collection_mode, hotel_name, check_in_date) | `VARCHAR` | `"h_a8f9c12e..."` |
-| `date_collected` | Date the data was collected | `DATE` (`YYYY-MM-DD`) | `2026-09-08` |
-| `collection_mode` | Mode of scrape: `"rolling"` (baseline) vs `"festival_target"` (MassKara stay) | `VARCHAR` | `"festival_target"` |
-| `hotel_name` | Cleaned name of the accommodation | `VARCHAR` | `"Park Inn by Radisson Bacolod"` |
-| `check_in_date` | Check-in date for the booking | `DATE` (`YYYY-MM-DD`) | `2026-10-09` |
-| `check_out_date` | Check-out date for the booking | `DATE` (`YYYY-MM-DD`) | `2026-10-13` |
-| `num_nights` | Length of stay in nights (`check_out_date` - `check_in_date`) | `INTEGER` | `4` |
-| `price_php` | Total or nightly quote in Philippine Pesos (numeric, stripped of symbols) | `FLOAT` | `7402.0` |
-| `lead_time_days` | Booking lead time (`check_in_date` - `date_collected`) | `INTEGER` | `31` |
-| `is_primary_source` | Whether record came from SerpApi (`TRUE`) or Apify (`FALSE`) | `BOOLEAN` | `TRUE` |
+File: `data/processed/cleaned_flights.csv`
 
----
+- **Grain:** One row per flight option collected on a specific date.
+- **Identifier:** The combination of `datetime_collected`, `collection_mode`, `flight_number`, and `departure_time`.
+- **Purpose:** Stores cleaned MNL-to-BCD flight quotes.
 
-### Table 2: Processed Flights (`processed_flights`)
-- **Grain:** One row = one flight option (MNL -> BCD) scraped on a specific collection date for a specific departure date.
-- **Primary Key:** Composite (`date_collected`, `collection_mode`, `flight_number`, `departure_time`)
+| Column | Meaning |
+|---|---|
+| `datetime_collected` | Date the quote was collected |
+| `status` | Ingestion result, such as `success` |
+| `primary_source` | Whether the quote came from SerpApi |
+| `collection_mode` | `rolling` baseline or `festival_target` |
+| `total_duration` | Total flight duration in minutes |
+| `price` | One-way fare in PHP |
+| `type` | Flight type, such as one-way |
+| `target_date` | Festival target travel date, when applicable |
+| `airline` | Airline name |
+| `flight_number` | Flight identifier |
+| `airplane` | Aircraft type |
+| `travel_class` | Cabin class |
+| `departure_airport` | Origin airport code |
+| `departure_time` | Scheduled departure timestamp |
+| `arrival_airport` | Destination airport code |
+| `arrival_time` | Scheduled arrival timestamp |
+| `leg_duration` | Duration of the first flight leg |
 
-| Column | Meaning | Expected Type | Example |
-|---|---|---|---|
-| `record_id` | Unique MD5 hash of (date_collected, collection_mode, flight_number, departure_time) | `VARCHAR` | `"f_c3b8e91d..."` |
-| `date_collected` | Date the scraper executed | `DATE` (`YYYY-MM-DD`) | `2026-09-08` |
-| `collection_mode` | Mode of scrape: `"rolling"` vs `"festival_target"` | `VARCHAR` | `"festival_target"` |
-| `target_travel_date` | Date of departure | `DATE` (`YYYY-MM-DD`) | `2026-10-09` |
-| `origin_airport` | Origin IATA airport code | `VARCHAR(3)` | `"MNL"` |
-| `destination_airport` | Destination IATA airport code | `VARCHAR(3)` | `"BCD"` |
-| `airline` | Operating airline name | `VARCHAR` | `"Cebu Pacific"` |
-| `flight_number` | Flight identifier code | `VARCHAR` | `"5J 475"` |
-| `departure_time` | Scheduled local departure timestamp | `DATETIME` | `2026-10-09 17:25:00` |
-| `arrival_time` | Scheduled local arrival timestamp | `DATETIME` | `2026-10-09 18:50:00` |
-| `duration_minutes` | Total flight duration in minutes | `INTEGER` | `85` |
-| `price_php` | One-way ticket price in PHP | `FLOAT` | `2396.0` |
-| `lead_time_days` | Advance booking lead time (`target_travel_date` - `date_collected`) | `INTEGER` | `31` |
-| `is_primary_source` | Whether record came from SerpApi (`TRUE`) or Apify (`FALSE`) | `BOOLEAN` | `TRUE` |
+### Processed Hotels
 
----
+File: `data/processed/cleaned_hotels.csv`
 
-### Table 3: Processed Google Trends (`processed_trends`)
-- **Grain:** One row = search interest score for a single date within a given collection snapshot.
-- **Primary Key:** Composite (`date_collected`, `interest_date`, `keyword`)
+- **Grain:** One row per hotel quote collected for a specific stay window.
+- **Identifier:** The combination of `datetime_collected`, `collection_mode`, `hotel_name`, and `check_in`.
+- **Purpose:** Stores cleaned Bacolod hotel rates.
 
-| Column | Meaning | Expected Type | Example |
-|---|---|---|---|
-| `date_collected` | Date this 3-month trend batch was pulled | `DATE` (`YYYY-MM-DD`) | `2026-09-08` |
-| `interest_date` | Date the search interest refers to | `DATE` (`YYYY-MM-DD`) | `2026-09-05` |
-| `keyword` | Search keyword queried | `VARCHAR` | `"Masskara"` |
-| `interest_index` | Normalized search volume index (0–100 scale) | `INTEGER` | `84` |
-| `is_primary_source` | SerpApi (`TRUE`) or Apify (`FALSE`) | `BOOLEAN` | `TRUE` |
+| Column | Meaning |
+|---|---|
+| `datetime_collected` | Date the quote was collected |
+| `status` | Ingestion result |
+| `primary_source` | Whether the quote came from SerpApi |
+| `collection_mode` | `rolling` baseline or `festival_target` |
+| `hotel_name` | Accommodation name |
+| `lowest_rate` | Original hotel rate string |
+| `check_in` | Stay check-in date |
+| `check_out` | Stay check-out date |
+| `target_date` | Festival target date, when applicable |
+| `price_php` | Cleaned numeric hotel price in PHP |
 
----
+### Processed Google Trends
 
-### Table 4: Analytical Mart / Aggregated Summary (`data/processed/masskara/analysis/master.csv`)
-*(Feeds the final dashboard & correlation analysis directly)*
-- **Grain:** One row = one observation date (`date_collected`).
-- **Primary Key:** `date_collected`
+File: `data/processed/cleaned_trends.csv`
 
-| Column | Meaning | Expected Type | Source / Calculation |
-|---|---|---|---|
-| `date_collected` | Observation / scrape execution date | `DATE` (`YYYY-MM-DD`) | Join key across daily tables |
-| `days_to_festival` | Days remaining until MassKara opening (Oct 9, 2026) | `INTEGER` | `DATE('2026-10-09') - date_collected` |
-| `trend_search_score` | Search interest score for MassKara on this day | `INTEGER` | Max value from `cleaned_trends.csv` |
-| `trend_velocity_7d` | 7-day week-over-week percentage change in search interest | `FLOAT` | `pct_change(periods=7)` |
-| `trend_score_lag_1d` | Search interest score lagged by 1 day | `FLOAT` | `shift(1)` on `trend_search_score` |
-| `trend_score_lag_2d` | Search interest score lagged by 2 days | `FLOAT` | `shift(2)` on `trend_search_score` |
-| `trend_score_lag_3d` | Search interest score lagged by 3 days | `FLOAT` | `shift(3)` on `trend_search_score` |
-| `flight_fest_min_price` | Lowest MNL-BCD opening-day flight fare quoted on this day | `FLOAT` | Min from `cleaned_flights` (`festival_target`) |
-| `flight_fest_median_price` | Median MNL-BCD opening-day flight fare quoted on this day | `FLOAT` | Median from `cleaned_flights` (`festival_target`) |
-| `flight_fest_mean_price` | Mean MNL-BCD opening-day flight fare quoted on this day | `FLOAT` | Mean from `cleaned_flights` (`festival_target`) |
-| `flight_fest_quote_count` | Number of festival flight quotes recorded on this day | `INTEGER` | Count from `cleaned_flights` (`festival_target`) |
-| `flight_rolling_min_price` | Lowest off-season baseline flight price quoted on this day | `FLOAT` | Min from `cleaned_flights` (`rolling`) |
-| `flight_rolling_median_price` | Median off-season baseline flight price quoted on this day | `FLOAT` | Median from `cleaned_flights` (`rolling`) |
-| `flight_rolling_mean_price` | Mean off-season baseline flight price quoted on this day | `FLOAT` | Mean from `cleaned_flights` (`rolling`) |
-| `flight_rolling_quote_count` | Number of rolling flight quotes recorded on this day | `INTEGER` | Count from `cleaned_flights` (`rolling`) |
-| `flight_price_premium` | Flight surge premium ratio vs rolling baseline | `FLOAT` | `flight_fest_median_price / flight_rolling_median_price` |
-| `flight_median_change_1d` | Day-over-day shift in festival median flight price | `FLOAT` | `diff(1)` on `flight_fest_median_price` |
-| `hotel_fest_min_price` | Lowest 4-night stay quote recorded on this day | `FLOAT` | Min from `cleaned_hotels` (`festival_target`) |
-| `hotel_fest_median_price` | Median 4-night stay quote recorded on this day | `FLOAT` | Median from `cleaned_hotels` (`festival_target`) |
-| `hotel_fest_mean_price` | Mean 4-night stay quote recorded on this day | `FLOAT` | Mean from `cleaned_hotels` (`festival_target`) |
-| `hotel_fest_quote_count` | Number of festival hotel quotes recorded on this day | `INTEGER` | Count from `cleaned_hotels` (`festival_target`) |
-| `hotel_rolling_min_price` | Lowest off-season baseline hotel rate quoted on this day | `FLOAT` | Min from `cleaned_hotels` (`rolling`) |
-| `hotel_rolling_median_price` | Median off-season baseline hotel rate quoted on this day | `FLOAT` | Median from `cleaned_hotels` (`rolling`) |
-| `hotel_rolling_mean_price` | Mean off-season baseline hotel rate quoted on this day | `FLOAT` | Mean from `cleaned_hotels` (`rolling`) |
-| `hotel_rolling_quote_count` | Number of rolling hotel quotes recorded on this day | `INTEGER` | Count from `cleaned_hotels` (`rolling`) |
-| `hotel_price_premium` | Hotel surge premium ratio vs rolling baseline | `FLOAT` | `hotel_fest_median_price / hotel_rolling_median_price` |
-| `hotel_median_change_1d` | Day-over-day shift in festival median hotel price | `FLOAT` | `diff(1)` on `hotel_fest_median_price` |
+- **Grain:** One row per Google Trends observation date within an ingestion snapshot.
+- **Identifier:** The combination of `datetime_collected`, `timestamp`, and `collection_mode`.
+- **Purpose:** Stores cleaned Google Trends interest values for `Masskara`.
 
-### Relationships & Joins
-- **Entity Tables to Analytical Summary:** Aggregated by `date_collected`.
-- **Target vs. Baseline Comparison:** Join on `date_collected` comparing rows where `collection_mode = 'festival_target'` vs `collection_mode = 'rolling'`.
+| Column | Meaning |
+|---|---|
+| `datetime_collected` | Date the trends data was collected |
+| `status` | Ingestion result |
+| `primary_source` | Whether the data came from SerpApi |
+| `collection_mode` | Trends collection mode |
+| `timestamp` | Date represented by the trends observation |
+| `value` | Google Trends interest index from 0 to 100 |
+
+### Analytical Master Dataset
+
+File: `data/processed/masskara/analysis/master.csv`
+
+- **Grain:** One row per observation date.
+- **Primary key:** `date_collected`.
+- **Purpose:** Combines trends, flight, and hotel metrics for analysis.
+
+The master dataset contains:
+
+- Daily Google Trends search scores
+- Festival and rolling flight price summaries
+- Festival and rolling hotel price summaries
+- Flight and hotel price premiums
+- Seven-day trends velocity
+- One-, two-, and three-day trends lags
+- One-day flight and hotel price changes
+- Days remaining until the festival
+
+## Cleaning Decisions
+
+| Raw issue | Cleaning action | Result |
+|---|---|---|
+| Nested flight legs | Extracted the first flight leg into separate columns | Airline, airports, times, and duration can be analyzed as normal columns |
+| Currency strings such as `₱1,211` | Removed currency symbols and commas, then converted to numeric values | Stored as `price_php` |
+| Invalid numeric values | Converted with `pd.to_numeric(..., errors="coerce")` | Invalid values become `NaN` and are excluded from aggregate calculations |
+| Missing festival target dates in rolling records | Preserved as empty values | Rolling records remain distinguishable from festival-target records |
+| Raw flight metadata not needed for price analysis | Removed nested blobs such as `flights`, `booking_token`, and `airline_logo` | Processed files remain smaller and easier to query |
+| Different source date ranges | Joined trends with flight observations using an inner join | The master dataset contains dates with active flight and trend observations |
+
+## Validation and Reproducibility
+
+Validation is implemented in `scripts/transform.py`.
+
+The transformation checks that:
+
+- The master dataset is not empty.
+- `date_collected` contains no null values.
+- `date_collected` is unique in the master dataset.
+- Google Trends scores are within the range 0 to 100.
+- Festival and rolling prices are positive when present.
+- `collection_mode` contains only `rolling` or `festival_target`.
+- `days_to_festival` is not negative.
+- The same raw input produces the same processed output when the transform script is run repeatedly.
+
+Expected missing values include:
+
+- `target_date` for rolling records
+- Initial lag values for the first one to three observation dates
+- Initial seven-day velocity values
+- Price fields when a source returns no usable quote
+
+## SQL Analysis
+
+SQL analysis is documented in `scripts/queries.sql` and executed by:
+
+```powershell
+python run_sql_analysis.py
+```
+
+The queries answer these business questions:
+
+1. What is the difference between festival and rolling flight and hotel prices?
+2. How do festival flight prices change as the travel date approaches?
+3. How does Google Trends search interest align with festival flight prices?
+4. Which airline offers the lowest festival flight prices?
+
+The SQL runner refreshes:
+
+```text
+`masskara.db`
+```
+
+and prints the query results in the terminal.
 
 ## Data Quality, Validation & Reproducibility (Week 11)
 
