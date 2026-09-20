@@ -717,3 +717,41 @@ datetime_collected,status,primary_source,collection_mode,hotel_name,lowest_rate,
 2026-09-18,success,True,festival_target,Sugarland Hotel,"₱3,242",2026-10-09,2026-10-13,2026-10-09,3242.0
 2026-09-18,success,True,festival_target,Negrense Suites,"₱1,232",2026-10-09,2026-10-13,2026-10-09,1232.0
 2026-09-18,success,True,festival_target,722 Metropolis Tower Unit 212,"₱1,960",2026-10-09,2026-10-13,2026-10-09,1960.0
+2026-09-19,success,True,rolling,Seda Capitol Central,"₱4,073",2026-09-20,2026-09-21,,4073.0
+2026-09-19,success,True,rolling,Park Inn by Radisson Bacolod,"₱4,357",2026-09-20,2026-09-21,,4357.0
+2026-09-19,success,True,rolling,Stonehill Suites,"₱3,356",2026-09-20,2026-09-21,,3356.0
+2026-09-19,success,True,rolling,Go Hotels Plus Bacolod,"₱1,414",2026-09-20,2026-09-21,,1414.0
+2026-09-19,success,True,rolling,Circle Inn - Hotel & Suites (Bacolod),"₱1,561",2026-09-20,2026-09-21,,1561.0
+2026-09-19,success,True,rolling,The Henry Hotel Roost Bacolod,"₱2,638",2026-09-20,2026-09-21,,2638.0
+2026-09-19,success,True,rolling,L'Fisher Hotel,"₱4,363",2026-09-20,2026-09-21,,4363.0
+2026-09-19,success,True,rolling,Citadines Bacolod City,"₱3,544",2026-09-20,2026-09-21,,3544.0
+2026-09-19,success,True,rolling,Acacia Hotel Bacolod,"₱2,521",2026-09-20,2026-09-21,,2521.0
+2026-09-19,success,True,rolling,AVENUE SUITES HOTEL,"₱1,820",2026-09-20,2026-09-21,,1820.0
+2026-09-19,success,True,rolling,Sugarland Hotel,"₱2,567",2026-09-20,2026-09-21,,2567.0
+2026-09-19,success,True,rolling,The Suites at Calle Nueva,"₱1,422",2026-09-20,2026-09-21,,1422.0
+2026-09-19,success,True,rolling,UrbanView @ Lacson Street Bacolod City by RedDoorz,"₱1,249",2026-09-20,2026-09-21,,1249.0
+2026-09-19,success,True,rolling,Kasa Boutique Hotel Bacolod,"₱1,448",2026-09-20,2026-09-21,,1448.0
+2026-09-19,success,True,rolling,Planta Hotel & Residences,"₱1,833",2026-09-20,2026-09-21,,1833.0
+2026-09-19,success,True,rolling,Bacolod Business Inn,"₱1,541",2026-09-20,2026-09-21,,1541.0
+2026-09-19,success,True,rolling,North Tourist Inn,"₱1,538",2026-09-20,2026-09-21,,1538.0
+2026-09-19,success,True,rolling,Ong Bun Pension House – Bacolod,₱785,2026-09-20,2026-09-21,,785.0
+2026-09-19,success,True,festival_target,Go Hotels Plus Bacolod,"₱1,182",2026-10-09,2026-10-13,2026-10-09,1182.0
+2026-09-19,success,True,festival_target,Seda Capitol Central,"₱4,175",2026-10-09,2026-10-13,2026-10-09,4175.0
+2026-09-19,success,True,festival_target,Citadines Bacolod City,"₱3,490",2026-10-09,2026-10-13,2026-10-09,3490.0
+2026-09-19,success,True,festival_target,L'Fisher Hotel,"₱4,076",2026-10-09,2026-10-13,2026-10-09,4076.0
+2026-09-19,success,True,festival_target,AVENUE SUITES HOTEL,"₱1,978",2026-10-09,2026-10-13,2026-10-09,1978.0
+2026-09-19,success,True,festival_target,Park Inn by Radisson Bacolod,"₱7,402",2026-10-09,2026-10-13,2026-10-09,7402.0
+2026-09-19,success,True,festival_target,Bacolod Business Inn,"₱1,605",2026-10-09,2026-10-13,2026-10-09,1605.0
+2026-09-19,success,True,festival_target,MO2 Westown Hotel,"₱2,048",2026-10-09,2026-10-13,2026-10-09,2048.0
+2026-09-19,success,True,festival_target,UrbanView @ Lacson Street Bacolod City by RedDoorz,"₱1,634",2026-10-09,2026-10-13,2026-10-09,1634.0
+2026-09-19,success,True,festival_target,Goldenfield Kundutel Hotel,"₱1,967",2026-10-09,2026-10-13,2026-10-09,1967.0
+2026-09-19,success,True,festival_target,Sanctuary Transient House,₱784,2026-10-09,2026-10-13,2026-10-09,784.0
+2026-09-19,success,True,festival_target,Stonehill Suites,N/A,2026-10-09,2026-10-13,2026-10-09,
+2026-09-19,success,True,festival_target,GT Hotel Bacolod,"₱1,827",2026-10-09,2026-10-13,2026-10-09,1827.0
+2026-09-19,success,True,festival_target,Central Block Inn,"₱4,300",2026-10-09,2026-10-13,2026-10-09,4300.0
+2026-09-19,success,True,festival_target,Acacia Hotel Bacolod,"₱5,136",2026-10-09,2026-10-13,2026-10-09,5136.0
+2026-09-19,success,True,festival_target,The Suites at Calle Nueva,"₱1,380",2026-10-09,2026-10-13,2026-10-09,1380.0
+2026-09-19,success,True,festival_target,Maharlika City Inn,"₱1,534",2026-10-09,2026-10-13,2026-10-09,1534.0
+2026-09-19,success,True,festival_target,LOPEZ LUX @Mesavirre Bacolod,"₱2,856",2026-10-09,2026-10-13,2026-10-09,2856.0
+2026-09-19,success,True,festival_target,722 Metropolis Tower Unit 212,"₱1,960",2026-10-09,2026-10-13,2026-10-09,1960.0
+2026-09-19,success,True,festival_target,Sweet Escape Upper Penthouse One Regis - Studio Apartment,"₱2,084",2026-10-09,2026-10-13,2026-10-09,2084.0
