@@ -29,9 +29,16 @@ With Ingestion (get latest data):
 python scripts/run_pipeline.py --with-ingest
 ```
 ### (Optional) Run individual scripts
+#### Ingestion
 ```
 python scripts/ingest.py
+```
+#### Transformation
+```
 python scripts/transform.py
+```
+#### Analysis
+```
 python scripts/run_sql_analysis.py
 ```
 
@@ -255,7 +262,7 @@ Expected missing values include:
 SQL analysis is documented in `scripts/queries.sql` and executed by:
 
 ```powershell
-python run_sql_analysis.py
+python scripts/run_sql_analysis.py
 ```
 
 The queries answer these business questions:
