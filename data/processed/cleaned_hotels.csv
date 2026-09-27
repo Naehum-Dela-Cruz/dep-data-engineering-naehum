@@ -995,3 +995,41 @@ datetime_collected,status,primary_source,collection_mode,hotel_name,lowest_rate,
 2026-09-25,success,True,festival_target,11th Street Bed & Breakfast,"₱1,776",2026-10-09,2026-10-13,2026-10-09,1776.0
 2026-09-25,success,True,festival_target,One Bedroom Condo Suite in Bacolod City,"₱1,621",2026-10-09,2026-10-13,2026-10-09,1621.0
 2026-09-25,success,True,festival_target,One bedroom Condo Suite in Bacolod City,"₱2,170",2026-10-09,2026-10-13,2026-10-09,2170.0
+2026-09-26,success,True,rolling,Park Inn by Radisson Bacolod,"₱4,836",2026-09-27,2026-09-28,,4836.0
+2026-09-26,success,True,rolling,Sugarland Hotel,"₱2,596",2026-09-27,2026-09-28,,2596.0
+2026-09-26,success,True,rolling,Planta Hotel & Residences,"₱1,571",2026-09-27,2026-09-28,,1571.0
+2026-09-26,success,True,rolling,L'Fisher Hotel,"₱4,130",2026-09-27,2026-09-28,,4130.0
+2026-09-26,success,True,rolling,Seda Capitol Central,"₱4,424",2026-09-27,2026-09-28,,4424.0
+2026-09-26,success,True,rolling,AVENUE SUITES HOTEL,"₱2,002",2026-09-27,2026-09-28,,2002.0
+2026-09-26,success,True,rolling,Go Hotels Plus Bacolod,"₱1,378",2026-09-27,2026-09-28,,1378.0
+2026-09-26,success,True,rolling,Hometown Hotel Bacolod - Lacson,"₱1,000",2026-09-27,2026-09-28,,1000.0
+2026-09-26,success,True,rolling,The Henry Hotel Roost Bacolod,"₱2,620",2026-09-27,2026-09-28,,2620.0
+2026-09-26,success,True,rolling,Citadines Bacolod City,"₱3,897",2026-09-27,2026-09-28,,3897.0
+2026-09-26,success,True,rolling,Bacolod Business Inn,"₱1,540",2026-09-27,2026-09-28,,1540.0
+2026-09-26,success,True,rolling,UrbanView @ Lacson Street Bacolod City by RedDoorz,"₱1,249",2026-09-27,2026-09-28,,1249.0
+2026-09-26,success,True,rolling,MO2 Westown Hotel,"₱1,936",2026-09-27,2026-09-28,,1936.0
+2026-09-26,success,True,rolling,WESTOWN HOTEL MANDALAGAN,"₱1,590",2026-09-27,2026-09-28,,1590.0
+2026-09-26,success,True,rolling,GT Hotel Bacolod,"₱1,939",2026-09-27,2026-09-28,,1939.0
+2026-09-26,success,True,rolling,11th Street Bed & Breakfast,"₱1,410",2026-09-27,2026-09-28,,1410.0
+2026-09-26,success,True,rolling,Real Suites,"₱2,200",2026-09-27,2026-09-28,,2200.0
+2026-09-26,success,True,rolling,Circle Inn - Hotel & Suites (Bacolod),"₱1,990",2026-09-27,2026-09-28,,1990.0
+2026-09-26,success,True,festival_target,Seda Capitol Central,"₱4,181",2026-10-09,2026-10-13,2026-10-09,4181.0
+2026-09-26,success,True,festival_target,AVENUE SUITES HOTEL,"₱1,891",2026-10-09,2026-10-13,2026-10-09,1891.0
+2026-09-26,success,True,festival_target,Park Inn by Radisson Bacolod,"₱7,403",2026-10-09,2026-10-13,2026-10-09,7403.0
+2026-09-26,success,True,festival_target,Go Hotels Plus Bacolod,"₱1,334",2026-10-09,2026-10-13,2026-10-09,1334.0
+2026-09-26,success,True,festival_target,Citadines Bacolod City,"₱4,401",2026-10-09,2026-10-13,2026-10-09,4401.0
+2026-09-26,success,True,festival_target,L'Fisher Hotel,"₱4,600",2026-10-09,2026-10-13,2026-10-09,4600.0
+2026-09-26,success,True,festival_target,Sukro,"₱1,833",2026-10-09,2026-10-13,2026-10-09,1833.0
+2026-09-26,success,True,festival_target,Circle Inn - Hotel & Suites (Bacolod),"₱2,340",2026-10-09,2026-10-13,2026-10-09,2340.0
+2026-09-26,success,True,festival_target,Acacia Hotel Bacolod,"₱3,179",2026-10-09,2026-10-13,2026-10-09,3179.0
+2026-09-26,success,True,festival_target,Bacolod Business Inn,"₱1,604",2026-10-09,2026-10-13,2026-10-09,1604.0
+2026-09-26,success,True,festival_target,Check Inn Bacolod by RedDoorz,"₱1,757",2026-10-09,2026-10-13,2026-10-09,1757.0
+2026-09-26,success,True,festival_target,ASIA JEM HOTEL - BACOLOD CITY,"₱1,960",2026-10-09,2026-10-13,2026-10-09,1960.0
+2026-09-26,success,True,festival_target,11th Street Bed & Breakfast,"₱1,776",2026-10-09,2026-10-13,2026-10-09,1776.0
+2026-09-26,success,True,festival_target,Negrense Suites,"₱1,229",2026-10-09,2026-10-13,2026-10-09,1229.0
+2026-09-26,success,True,festival_target,WESTOWN HOTEL MANDALAGAN,"₱1,696",2026-10-09,2026-10-13,2026-10-09,1696.0
+2026-09-26,success,True,festival_target,RedDoorz near New Government Center,"₱1,006",2026-10-09,2026-10-13,2026-10-09,1006.0
+2026-09-26,success,True,festival_target,Sugarland Hotel,"₱3,154",2026-10-09,2026-10-13,2026-10-09,3154.0
+2026-09-26,success,True,festival_target,Goldenfield Kundutel Hotel,"₱1,872",2026-10-09,2026-10-13,2026-10-09,1872.0
+2026-09-26,success,True,festival_target,One bedroom Condo Suite in Bacolod City,"₱2,170",2026-10-09,2026-10-13,2026-10-09,2170.0
+2026-09-26,success,True,festival_target,Donser Studio - Studio,"₱1,685",2026-10-09,2026-10-13,2026-10-09,1685.0
