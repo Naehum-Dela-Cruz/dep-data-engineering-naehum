@@ -1033,3 +1033,41 @@ datetime_collected,status,primary_source,collection_mode,hotel_name,lowest_rate,
 2026-09-26,success,True,festival_target,Goldenfield Kundutel Hotel,"₱1,872",2026-10-09,2026-10-13,2026-10-09,1872.0
 2026-09-26,success,True,festival_target,One bedroom Condo Suite in Bacolod City,"₱2,170",2026-10-09,2026-10-13,2026-10-09,2170.0
 2026-09-26,success,True,festival_target,Donser Studio - Studio,"₱1,685",2026-10-09,2026-10-13,2026-10-09,1685.0
+2026-09-27,success,True,rolling,Planta Hotel & Residences,"₱1,571",2026-09-28,2026-09-29,,1571.0
+2026-09-27,success,True,rolling,Seda Capitol Central,"₱4,114",2026-09-28,2026-09-29,,4114.0
+2026-09-27,success,True,rolling,Go Hotels Plus Bacolod,"₱1,448",2026-09-28,2026-09-29,,1448.0
+2026-09-27,success,True,rolling,AVENUE SUITES HOTEL,"₱1,820",2026-09-28,2026-09-29,,1820.0
+2026-09-27,success,True,rolling,The Henry Hotel Roost Bacolod,"₱2,619",2026-09-28,2026-09-29,,2619.0
+2026-09-27,success,True,rolling,Park Inn by Radisson Bacolod,"₱5,888",2026-09-28,2026-09-29,,5888.0
+2026-09-27,success,True,rolling,Bacolod Business Inn,"₱1,540",2026-09-28,2026-09-29,,1540.0
+2026-09-27,success,True,rolling,Sugarland Hotel,"₱2,596",2026-09-28,2026-09-29,,2596.0
+2026-09-27,success,True,rolling,L'Fisher Hotel,"₱4,145",2026-09-28,2026-09-29,,4145.0
+2026-09-27,success,True,rolling,Acacia Hotel Bacolod,"₱3,096",2026-09-28,2026-09-29,,3096.0
+2026-09-27,success,True,rolling,11th Street Bed & Breakfast,"₱1,410",2026-09-28,2026-09-29,,1410.0
+2026-09-27,success,True,rolling,GT Hotel Bacolod,"₱1,939",2026-09-28,2026-09-29,,1939.0
+2026-09-27,success,True,rolling,UrbanView @ Lacson Street Bacolod City by RedDoorz,"₱1,573",2026-09-28,2026-09-29,,1573.0
+2026-09-27,success,True,rolling,Hometown Hotel Bacolod - Lacson,"₱1,239",2026-09-28,2026-09-29,,1239.0
+2026-09-27,success,True,rolling,WESTOWN HOTEL MANDALAGAN,"₱1,590",2026-09-28,2026-09-29,,1590.0
+2026-09-27,success,True,rolling,Negrense Suites,₱896,2026-09-28,2026-09-29,,896.0
+2026-09-27,success,True,rolling,The Inns By The Oriental,"₱1,771",2026-09-28,2026-09-29,,1771.0
+2026-09-27,success,True,rolling,Citadines Bacolod City,"₱4,393",2026-09-28,2026-09-29,,4393.0
+2026-09-27,success,True,rolling,Studio Type Condo with Pool & Garden Facilities,"₱1,477",2026-09-28,2026-09-29,,1477.0
+2026-09-27,success,True,rolling,"Everything you need, right here—in Premium quality","₱2,044",2026-09-28,2026-09-29,,2044.0
+2026-09-27,success,True,festival_target,722 Metropolis Tower Unit 212,"₱1,960",2026-10-09,2026-10-13,2026-10-09,1960.0
+2026-09-27,success,True,festival_target,CozyCondo@Ibiza 3N Olvera Residences CamellaManors,"₱1,260",2026-10-09,2026-10-13,2026-10-09,1260.0
+2026-09-27,success,True,festival_target,The Crib 2 - One-Bedroom Apartment,"₱1,674",2026-10-09,2026-10-13,2026-10-09,1674.0
+2026-09-27,success,True,festival_target,Condo with direct access to shopping mall in Bacolod City,"₱2,783",2026-10-09,2026-10-13,2026-10-09,2783.0
+2026-09-27,success,True,festival_target,One bedroom Condo Suite in Bacolod City,"₱2,272",2026-10-09,2026-10-13,2026-10-09,2272.0
+2026-09-27,success,True,festival_target,Donser Studio - Studio,"₱1,688",2026-10-09,2026-10-13,2026-10-09,1688.0
+2026-09-27,success,True,festival_target,Skymagz 812 at Cityscape Residences,"₱1,970",2026-10-09,2026-10-13,2026-10-09,1970.0
+2026-09-27,success,True,festival_target,Aure Haven - Studio with Ocean View,"₱2,092",2026-10-09,2026-10-13,2026-10-09,2092.0
+2026-09-27,success,True,festival_target,Cozy condo in Bacolod City - Studio,"₱2,003",2026-10-09,2026-10-13,2026-10-09,2003.0
+2026-09-27,success,True,festival_target,The Upperroom @Real Suites,"₱1,622",2026-10-09,2026-10-13,2026-10-09,1622.0
+2026-09-27,success,True,festival_target,Comfy Posh Condo in City Center by 13K Residences,"₱2,103",2026-10-09,2026-10-13,2026-10-09,2103.0
+2026-09-27,success,True,festival_target,Amaia Steps Condo 1 bedroom ocean view,"₱1,412",2026-10-09,2026-10-13,2026-10-09,1412.0
+2026-09-27,success,True,festival_target,Nehemiah Suites - Studio with Pool View,"₱2,108",2026-10-09,2026-10-13,2026-10-09,2108.0
+2026-09-27,success,True,festival_target,Sweet Escape Upper Penthouse One Regis - Studio Apartment,"₱2,281",2026-10-09,2026-10-13,2026-10-09,2281.0
+2026-09-27,success,True,festival_target,Unit 1109 Cityscape Residences - Studio Apartment with Sea View,"₱2,594",2026-10-09,2026-10-13,2026-10-09,2594.0
+2026-09-27,success,True,festival_target,Minimalist Apartment 5 - Nato’s Residences,"₱1,572",2026-10-09,2026-10-13,2026-10-09,1572.0
+2026-09-27,success,True,festival_target,Le Chateau Residences - Two-Bedroom Apartment,"₱1,872",2026-10-09,2026-10-13,2026-10-09,1872.0
+2026-09-27,success,True,festival_target,The Gemini Studio - One-Bedroom Apartment,"₱2,213",2026-10-09,2026-10-13,2026-10-09,2213.0
