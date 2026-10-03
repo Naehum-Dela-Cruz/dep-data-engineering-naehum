@@ -1225,3 +1225,43 @@ datetime_collected,status,primary_source,collection_mode,hotel_name,lowest_rate,
 2026-10-01,success,True,festival_target,Suntal Residences,"₱1,800",2026-10-09,2026-10-13,2026-10-09,1800.0
 2026-10-01,success,True,festival_target,The Crib 2 - One-Bedroom Apartment,"₱1,676",2026-10-09,2026-10-13,2026-10-09,1676.0
 2026-10-01,success,True,festival_target,722 Metropolis Tower Unit 212,"₱1,960",2026-10-09,2026-10-13,2026-10-09,1960.0
+2026-10-02,success,True,rolling,Park Inn by Radisson Bacolod,"₱4,322",2026-10-03,2026-10-04,,4322.0
+2026-10-02,success,True,rolling,AVENUE SUITES HOTEL,"₱1,948",2026-10-03,2026-10-04,,1948.0
+2026-10-02,success,True,rolling,MO2 Westown Hotel,"₱1,936",2026-10-03,2026-10-04,,1936.0
+2026-10-02,success,True,rolling,Go Hotels Plus Bacolod,"₱1,766",2026-10-03,2026-10-04,,1766.0
+2026-10-02,success,True,rolling,Seda Capitol Central,"₱4,170",2026-10-03,2026-10-04,,4170.0
+2026-10-02,success,True,rolling,Bacolod Business Inn,"₱1,596",2026-10-03,2026-10-04,,1596.0
+2026-10-02,success,True,rolling,Circle Inn - Hotel & Suites (Bacolod),"₱1,990",2026-10-03,2026-10-04,,1990.0
+2026-10-02,success,True,rolling,RedDoorz near New Government Center,₱808,2026-10-03,2026-10-04,,808.0
+2026-10-02,success,True,rolling,L'Fisher Hotel,"₱4,410",2026-10-03,2026-10-04,,4410.0
+2026-10-02,success,True,rolling,The Henry Hotel Roost Bacolod,"₱3,000",2026-10-03,2026-10-04,,3000.0
+2026-10-02,success,True,rolling,Sugarland Hotel,"₱2,473",2026-10-03,2026-10-04,,2473.0
+2026-10-02,success,True,rolling,Acacia Hotel Bacolod,"₱3,096",2026-10-03,2026-10-04,,3096.0
+2026-10-02,success,True,rolling,11th Street Bed & Breakfast,"₱1,776",2026-10-03,2026-10-04,,1776.0
+2026-10-02,success,True,rolling,Sukro,"₱1,973",2026-10-03,2026-10-04,,1973.0
+2026-10-02,success,True,rolling,Citadines Bacolod City,"₱4,522",2026-10-03,2026-10-04,,4522.0
+2026-10-02,success,True,rolling,WESTOWN HOTEL MANDALAGAN,"₱1,681",2026-10-03,2026-10-04,,1681.0
+2026-10-02,success,True,rolling,Negrense Suites,"₱1,228",2026-10-03,2026-10-04,,1228.0
+2026-10-02,success,True,rolling,Royal Am Rei Hotel by RedDoorz,"₱1,017",2026-10-03,2026-10-04,,1017.0
+2026-10-02,success,True,rolling,Le Chateau Residences - Deluxe Queen Studio,"₱1,543",2026-10-03,2026-10-04,,1543.0
+2026-10-02,success,True,rolling,Le Chateau Residences - Two-Bedroom Apartment,"₱1,543",2026-10-03,2026-10-04,,1543.0
+2026-10-02,success,True,festival_target,Citadines Bacolod City,"₱3,874",2026-10-09,2026-10-13,2026-10-09,3874.0
+2026-10-02,success,True,festival_target,Seda Capitol Central,"₱5,800",2026-10-09,2026-10-13,2026-10-09,5800.0
+2026-10-02,success,True,festival_target,Bacolod Business Inn,"₱1,529",2026-10-09,2026-10-13,2026-10-09,1529.0
+2026-10-02,success,True,festival_target,Park Inn by Radisson Bacolod,"₱7,398",2026-10-09,2026-10-13,2026-10-09,7398.0
+2026-10-02,success,True,festival_target,AVENUE SUITES HOTEL,"₱3,198",2026-10-09,2026-10-13,2026-10-09,3198.0
+2026-10-02,success,True,festival_target,UrbanView @ Lacson Street Bacolod City by RedDoorz,"₱1,634",2026-10-09,2026-10-13,2026-10-09,1634.0
+2026-10-02,success,True,festival_target,Go Hotels Plus Bacolod,"₱2,495",2026-10-09,2026-10-13,2026-10-09,2495.0
+2026-10-02,success,True,festival_target,L'Fisher Hotel,"₱4,991",2026-10-09,2026-10-13,2026-10-09,4991.0
+2026-10-02,success,True,festival_target,WESTOWN HOTEL MANDALAGAN,"₱1,696",2026-10-09,2026-10-13,2026-10-09,1696.0
+2026-10-02,success,True,festival_target,Sanctuary Transient House,₱784,2026-10-09,2026-10-13,2026-10-09,784.0
+2026-10-02,success,True,festival_target,Stonehill Suites,"₱5,046",2026-10-09,2026-10-13,2026-10-09,5046.0
+2026-10-02,success,True,festival_target,Sugarland Hotel,"₱3,299",2026-10-09,2026-10-13,2026-10-09,3299.0
+2026-10-02,success,True,festival_target,Negrense Suites,"₱1,228",2026-10-09,2026-10-13,2026-10-09,1228.0
+2026-10-02,success,True,festival_target,722 Metropolis Tower Unit 212,"₱1,960",2026-10-09,2026-10-13,2026-10-09,1960.0
+2026-10-02,success,True,festival_target,Check Inn Bacolod by RedDoorz,"₱1,757",2026-10-09,2026-10-13,2026-10-09,1757.0
+2026-10-02,success,True,festival_target,Acacia Hotel Bacolod,"₱5,194",2026-10-09,2026-10-13,2026-10-09,5194.0
+2026-10-02,success,True,festival_target,North Tourist Inn,"₱2,249",2026-10-09,2026-10-13,2026-10-09,2249.0
+2026-10-02,success,True,festival_target,RedDoorz near New Government Center,"₱1,385",2026-10-09,2026-10-13,2026-10-09,1385.0
+2026-10-02,success,True,festival_target,Palmas del Mar Conference Resort Hotel,"₱4,501",2026-10-09,2026-10-13,2026-10-09,4501.0
+2026-10-02,success,True,festival_target,Condo with direct access to shopping mall in Bacolod City,"₱2,730",2026-10-09,2026-10-13,2026-10-09,2730.0
