@@ -35,6 +35,10 @@ FESTIVAL_FLIGHT_ARRIVAL = "2026-10-09"
 FESTIVAL_HOTEL_CHECKIN = "2026-10-09"
 FESTIVAL_HOTEL_CHECKOUT = "2026-10-13"
 
+# True the day after the festival window opens — festival-target queries
+# return nothing useful for past dates, so skip them entirely.
+FESTIVAL_PASSED = datetime.now().date() > datetime.strptime(FESTIVAL_FLIGHT_ARRIVAL, "%Y-%m-%d").date()
+
 client_serpApi = serpapi.Client(api_key=os.getenv('SERPAPI_API_KEY'))
 client_Apify = ApifyClient(os.getenv('APIFY_API_KEY'))
 
@@ -211,6 +215,9 @@ def backup_google_flights_festival():
     Apify usage 4x. lead_time_days can still be derived in Phase 3 as
     (target_date - dateTime_collected).
     """
+    if FESTIVAL_PASSED:
+        print("[festival_target] Festival date has passed — skipping backup_google_flights_festival().")
+        return
     try:
         run_input = {
             "arrival_id": "BCD",
@@ -257,6 +264,9 @@ def backup_google_hotels_festival():
     surge anymore. See the FESTIVAL_* constants note above if you need that
     granularity back later.
     """
+    if FESTIVAL_PASSED:
+        print("[festival_target] Festival date has passed — skipping backup_google_hotels_festival().")
+        return
     try:
         run_input = {
             "adults": 1,
@@ -447,6 +457,9 @@ def primary_google_trends():
 
 def primary_google_flights_festival():
     """Single query: arrival on FESTIVAL_FLIGHT_ARRIVAL only (see note above FESTIVAL_* constants)."""
+    if FESTIVAL_PASSED:
+        print("[festival_target] Festival date has passed — skipping primary_google_flights_festival().")
+        return
     try:
         data = client_serpApi.search({
             "engine": "google_flights",
@@ -484,6 +497,9 @@ def primary_google_flights_festival():
 
 def primary_google_hotels_festival():
     """Single query: one stay spanning FESTIVAL_HOTEL_CHECKIN -> FESTIVAL_HOTEL_CHECKOUT (see note above FESTIVAL_* constants)."""
+    if FESTIVAL_PASSED:
+        print("[festival_target] Festival date has passed — skipping primary_google_hotels_festival().")
+        return
     try:
         data = client_serpApi.search({
             "engine": "google_hotels",
