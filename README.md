@@ -4,7 +4,9 @@
 This builder wants to answer: "Is there a correlation between an uptick in Google Trends' Interest Over Time metric and MNL-BCD flight/BCD hotel price surges leading up to the Bacolod MassKara Festival in October?"
 
 ## Audience
-This project is for budget-conscious travelers looking to be able to get ahead of the prices; business owners wanting to make informed data-driven descisions in the face of a potential surge in tourism; and other researchers looking into a similar or related topic.
+- **Budget-conscious Travelers:** To identify optimal advance-booking windows and avoid peak airfare surges.
+- **Local Bacolod Businesses & Vendors:** To track real-time tourist demand signals, optimizing staffing, inventory, and promotional timing ahead of peak visitor arrival dates.
+- **Data Researchers:** As a reference implementation for cross-correlating search intent with regional travel price metrics.
 
 ## How To Run
 Run these commands from the repository root.
@@ -28,7 +30,8 @@ With Ingestion (get latest data):
 ```
 python scripts/run_pipeline.py --with-ingest
 ```
-### (Optional) Run individual scripts
+<!-- TODO: add the rest -->
+### (Optional) Run individual scripts 
 #### Ingestion
 ```
 python scripts/ingest.py
@@ -235,6 +238,9 @@ The master dataset contains:
 | Raw flight metadata not needed for price analysis | Removed nested blobs such as `flights`, `booking_token`, and `airline_logo` | Processed files remain smaller and easier to query |
 | Different source date ranges | Joined trends with flight observations using an inner join | The master dataset contains dates with active flight and trend observations |
 
+
+<!-- TODO: we made some changes to the transformation since it kept falinging after the target date has passed.
+Recheck that this is up to date: -->
 ## Validation and Reproducibility
 
 Validation is implemented in `scripts/transform.py`.
@@ -280,6 +286,7 @@ The SQL runner refreshes:
 
 and prints the query results in the terminal.
 
+<!-- check if this still corresponds to reality. AFAIK we don't search for multi-leg even raw—this is AI generated so it makes everything suspect -->
 ## Data Quality, Validation & Reproducibility (Week 11)
 
 ### Cleaning Decisions Log
