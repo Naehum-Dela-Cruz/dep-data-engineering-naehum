@@ -5,7 +5,7 @@ This builder wants to answer: "Is there a correlation between an uptick in Googl
 
 ## Audience
 - **Budget-conscious Travelers:** To identify optimal advance-booking windows and avoid peak airfare surges.
-- **Local Bacolod Businesses & Vendors:** To track real-time tourist demand signals, optimizing staffing, inventory, and promotional timing ahead of peak visitor arrival dates.
+- **Local Bacolod Businesses & Vendors:** To track real-time tourist demand signals to be used for data-driven business descisions in anticipation of the event.
 - **Data Researchers:** As a reference implementation for cross-correlating search intent with regional travel price metrics.
 
 ## How To Run
