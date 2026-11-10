@@ -46,6 +46,8 @@ python scripts/run_sql_analysis.py
 ```
 
 ## KPIs or Key Metrics
+#### For Phase 5, this builder has decided on Path B (Advanced EDA & KPIs)
+----
 The main metrics this builder wishes to track are categorized into three distinct layers:
 
 #### 1. Public Demand & Search Metrics (Google Trends)
@@ -285,6 +287,18 @@ The SQL runner refreshes:
 ```
 
 and prints the query results in the terminal.
+
+## Jupyter Notebook Analysis
+All notebooks are found under the `notebooks/`. Jupyter analysis is done sequencially.
+
+- `\dep-data-engineering-naehum\notebooks\week_8_sql.ipynb`
+- `\dep-data-engineering-naehum\notebooks\week_9_pandas_profiling.ipynb`
+- `\dep-data-engineering-naehum\notebooks\week_10_transformations.ipynb`
+- `\dep-data-engineering-naehum\notebooks\week_13_descriptive_stats.ipynb`
+- `\dep-data-engineering-naehum\notebooks\week_14_eda_visualization.ipynb`
+- `\dep-data-engineering-naehum\notebooks\week_15_inference.ipynb`
+- `\dep-data-engineering-naehum\notebooks\week_16_insights.ipynb`
+
 
 <!-- check if this still corresponds to reality. AFAIK we don't search for multi-leg even raw—this is AI generated so it makes everything suspect -->
 ## Data Quality, Validation & Reproducibility (Week 11)
