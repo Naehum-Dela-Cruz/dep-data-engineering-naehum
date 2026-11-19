@@ -289,7 +289,7 @@ The SQL runner refreshes:
 and prints the query results in the terminal.
 
 ## Jupyter Notebook Analysis
-All notebooks are found under the `notebooks/`. Jupyter analysis is done sequencially.
+All notebooks are found under the `notebooks/`. Jupyter analysis is done sequentially.
 
 - `\dep-data-engineering-naehum\notebooks\week_8_sql.ipynb`
 - `\dep-data-engineering-naehum\notebooks\week_9_pandas_profiling.ipynb`
@@ -298,6 +298,8 @@ All notebooks are found under the `notebooks/`. Jupyter analysis is done sequenc
 - `\dep-data-engineering-naehum\notebooks\week_14_eda_visualization.ipynb`
 - `\dep-data-engineering-naehum\notebooks\week_15_inference.ipynb`
 - `\dep-data-engineering-naehum\notebooks\week_16_insights.ipynb`
+- `\dep-data-engineering-naehum\notebooks\week_17_segmentation.ipynb`
+- `\dep-data-engineering-naehum\notebooks\week_18_kpis.ipynb`
 
 
 <!-- check if this still corresponds to reality. AFAIK we don't search for multi-leg even raw—this is AI generated so it makes everything suspect -->
