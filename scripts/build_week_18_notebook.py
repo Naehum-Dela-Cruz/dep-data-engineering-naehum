@@ -51,18 +51,15 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from scipy.stats import spearmanr
 
-# Visualization Styling Configuration
+# Visual configuration
 plt.style.use('seaborn-v0_8-whitegrid' if 'seaborn-v0_8-whitegrid' in plt.style.available else 'default')
 plt.rcParams['font.sans-serif'] = 'DejaVu Sans'
 plt.rcParams['figure.dpi'] = 130
-plt.rcParams['axes.titlesize'] = 12
+plt.rcParams['axes.titlesize'] = 13
 plt.rcParams['axes.titleweight'] = 'bold'
-plt.rcParams['axes.labelsize'] = 10
-plt.rcParams['axes.labelweight'] = 'bold'
-plt.rcParams['xtick.labelsize'] = 9
-plt.rcParams['ytick.labelsize'] = 9
+plt.rcParams['axes.labelsize'] = 11
 
-print("Libraries imported and visual styling initialized.")
+print("Environment initialized with specialized KPI visualization standards.")
 """
 cells.append(nbf.v4.new_code_cell(cell2_code))
 
@@ -73,8 +70,9 @@ cell3_code = """# Load the consolidated master analytical dataset
 df = pd.read_csv('../data/processed/masskara/analysis/master.csv', parse_dates=['date_collected'])
 df = df.sort_values('date_collected').reset_index(drop=True)
 
-# Filter for the pre-festival observation window (days_to_festival >= 0)
-pre_fest = df[df['days_to_festival'] >= 0].copy().reset_index(drop=True)
+# Filter for the pre-festival observation window (days_to_festival > 0)
+# Note: days_to_festival == 0 represents post-festival rolling scrapes, which lack festival flight quotes
+pre_fest = df[df['days_to_festival'] > 0].copy().reset_index(drop=True)
 
 # ---------------------------------------------------------
 # KPI 1: Festival Price Premium Ratio (FPPR in %)
@@ -142,14 +140,14 @@ ax.plot(pre_fest['date_collected'], pre_fest['hotel_fppr_pct'],
 
 # Threshold lines
 ax.axhline(0, color='gray', linestyle='-', linewidth=1, alpha=0.7, label='Baseline Parity (0% Markup)')
-ax.axhline(50, color='#d9534f', linestyle=':', linewidth=1.5, alpha=0.8, label='Severe Surge Threshold (+50%)')
+ax.axhline(20, color='#d9534f', linestyle=':', linewidth=1.5, alpha=0.8, label='Surge Threshold (+20%)')
 
 # Annotation of peak surge
 max_flight_fppr_idx = pre_fest['flight_fppr_pct'].idxmax()
 if pd.notnull(max_flight_fppr_idx):
     peak_date = pre_fest.loc[max_flight_fppr_idx, 'date_collected']
     peak_val = pre_fest.loc[max_flight_fppr_idx, 'flight_fppr_pct']
-    ax.annotate(f'Peak Flight Surge: +{peak_val:.1f}%\\n({peak_date.strftime("%b %d")})',
+    ax.annotate(f'Peak Flight FPPR: +{peak_val:.1f}%\\n({peak_date.strftime("%b %d")})',
                 xy=(peak_date, peak_val), xytext=(peak_date - pd.Timedelta(days=8), peak_val - 15),
                 arrowprops=dict(facecolor='#2b5c8f', shrink=0.08, width=1.5, headwidth=6),
                 fontweight='bold', fontsize=9, bbox=dict(boxstyle="round,pad=0.3", fc="#d8e2dc", alpha=0.9))
@@ -179,8 +177,12 @@ cells.append(nbf.v4.new_code_cell(cell5_code))
 # Cell 6: Markdown - KPI 1 Interpretation
 # ==============================================================================
 cell6_md = """### KPI 1 Key Takeaways
-1. **Severe Sector Asymmetry:** Flight tickets face a dramatic festival markup peaking above $+70\\%$ during the final 7 days, whereas hotel rates exhibit a much flatter, stickier festival markup (median around $+10\\%$ to $+15\\%$).
-2. **Actionable Traveler Threshold:** An FPPR exceeding **$+30\\%$** signals that the festival premium has decoupled from baseline rates. Travelers booking when $\\text{FPPR} < 20\\%$ pay virtually zero event surcharge.
+1. **Divergent Sector Pricing Mechanics:** 
+   - **Hotels command a consistent, positive festival premium:** Median hotel FPPR remains positive across every single cohort (+6.00% in Advance, +10.14% in Mid, +5.29% in Surge, with peaks reaching **+41.16%**). Bacolod hotels price the festival as a premium destination event well in advance.
+   - **Flights trade at a steep advance discount before surging late:** Median flight FPPR is negative during the Advance Window (-29.35%) and Mid Window (-53.88%) because rolling baseline quotes (booking flights for next-day travel) carried severe near-term booking penalties. However, in the final week before MassKara, advance discounts evaporate rapidly and flight FPPR surges from -53.88% up to a peak of **+19.98%**.
+2. **Actionable Traveler Threshold:** 
+   - When Flight $\\text{FPPR} < -20\\%$, travelers enjoy substantial advance-booking savings over typical short-lead travel.
+   - Once Flight $\\text{FPPR}$ crosses above $0\\%$ into positive territory (as observed in the final 7 days), festival tickets become more expensive than standard non-event baseline fares.
 """
 cells.append(nbf.v4.new_markdown_cell(cell6_md))
 
@@ -226,9 +228,9 @@ ax.legend(loc='upper right', frameon=True)
 
 # Annotate the booking cliff
 cliff_point = valid_lbpi[valid_lbpi['days_to_festival'] <= 7].iloc[0]
-ax.annotate('The Booking Cliff:\\nPenalty escalates past 1.8x',
+ax.annotate(f'The Booking Cliff:\\nPenalty escalates to {cliff_point["flight_lbpi"]:.2f}x (Peak: {valid_lbpi["flight_lbpi"].max():.2f}x)',
             xy=(cliff_point['days_to_festival'], cliff_point['flight_lbpi']),
-            xytext=(cliff_point['days_to_festival'] + 6, cliff_point['flight_lbpi'] + 0.35),
+            xytext=(cliff_point['days_to_festival'] + 6, cliff_point['flight_lbpi'] + 0.5),
             arrowprops=dict(facecolor='#9b2226', shrink=0.08, width=1.5, headwidth=6),
             fontweight='bold', fontsize=9, bbox=dict(boxstyle="round,pad=0.3", fc="#fdf0d5", alpha=0.9))
 
@@ -252,9 +254,10 @@ cells.append(nbf.v4.new_code_cell(cell8_code))
 # Cell 9: Markdown - KPI 2 Interpretation
 # ==============================================================================
 cell9_md = """### KPI 2 Key Takeaways
-1. **The 20-Day Golden Window:** In the Advance Window ($>20$ days), $\\text{LBPI} \\approx 1.0\\times$ (median fare ₱2,300–₱2,800).
-2. **The 7-Day Surge Cliff:** Once inside the $\\le 7$-day cutoff, $\\text{LBPI}$ leaps past **$1.6\\times$ to $2.2\\times$**. Budget travelers delaying their booking until the final week incur an average $+80\\%$ to $+120\\%$ monetary penalty.
-3. **Decision Rule for Travelers:** **Hard cutoff at Day 14.** Beyond Day 14, budget inventory evaporates rapidly.
+1. **The 20-Day Golden Window:** In the Advance Window ($>20$ days), $\\text{LBPI} = 1.00\\times$ (with minimal variance, std: $0.016$), anchored to the baseline minimum fare of **₱1,915.00**.
+2. **The 8–20 Day Buffer:** In the Mid Window ($8$–$20$ days), $\\text{LBPI}$ rises modestly to a median of **$1.05\\times$** (range: $1.03\\times$ to $1.47\\times$). Fares remain accessible, but cheap seat availability starts to tighten.
+3. **The 7-Day Surge Cliff:** Once inside the $\\le 7$-day cutoff, $\\text{LBPI}$ jumps dramatically to a median of **$1.74\\times$** and peaks at **$4.74\\times$** (equivalent to fares reaching **₱9,080.00** for the cheapest seat). Budget travelers delaying their booking into the final week incur an average $+74\\%$ to $+374\\%$ monetary penalty.
+4. **Actionable Decision Rule for Travelers:** **Hard booking cutoff at Day 14.** Beyond Day 14, budget saver inventory depletes rapidly and entry-level fares skyrocket.
 """
 cells.append(nbf.v4.new_markdown_cell(cell9_md))
 
@@ -336,9 +339,13 @@ cells.append(nbf.v4.new_code_cell(cell11_code))
 # Cell 12: Markdown - KPI 3 Interpretation
 # ==============================================================================
 cell12_md = """### KPI 3 Key Takeaways
-1. **The 2-Day Transmission Window:** Spearman correlation between search interest and flight pricing strengthens as lag increases from Day 0 ($\\rho \\approx 0.52$) to **Day 2 ($\\rho \\approx 0.58$)**.
-2. **Behavioral Mechanism:** Travelers don't search and purchase on the identical hour. A spike in public curiosity on Day $T$ converts into actual airline basket checks and bookings by Day $T+2$, causing revenue algorithms to mark up remaining seats.
-3. **Vendor Implication:** Bacolod hospitality operators seeing a sudden viral Google Trends spike should adjust staffing and marketing campaigns with a **48-hour forward horizon**.
+1. **Contemporaneous vs. Lagged Correlation:** 
+   - Spearman rank correlation between search interest and flight pricing is strongest at **Day 0 ($\\rho = 0.6103$, $p < 0.001$)**, and remains statistically significant and strong across forward lag windows (**Day 1:** $\\rho = 0.5653$; **Day 2:** $\\rho = 0.5175$; **Day 3:** $\\rho = 0.4996$).
+   - In contrast, hotel pricing exhibits very low, statistically insignificant correlation with Google Trends across all lags ($\\rho = 0.03$ to $0.18$, $p > 0.25$), confirming that hotel rates are pre-set and decoupled from daily search curiosity.
+2. **Behavioral Mechanism:** 
+   - Flight search interest and ticket prices peak together in the final 7–10 days before MassKara. The high contemporaneous correlation reflects convergent consumer urgency: as departure nears, search frequency intensifies while airlines progressively deplete cheaper fare buckets.
+3. **Vendor Implication:** 
+   - Local Bacolod hospitality operators tracking search interest can use sustained high Google Trends scores ($\ge 75$) as a real-time proxy for airfare escalation and peak tourist arrival momentum.
 """
 cells.append(nbf.v4.new_markdown_cell(cell12_md))
 
@@ -426,9 +433,9 @@ A common failure mode in travel analytics is tracking high-visibility vanity num
 
 | Domain | Vanity Metric (What to Avoid) | Flaw / Why It Fails | Actionable Decision KPI (What to Track) | Real Decision Supported |
 | :--- | :--- | :--- | :--- | :--- |
-| **Search Interest** | **Raw Google Trends Score (0–100)** | Measures ephemeral public browsing curiosity; a spike can represent casual news viewing without commercial purchasing intent. | **KPI 3: Lagged Search Elasticity ($\\rho_{2\\text{d}}$)** | Tells vendors whether search curiosity actually converts into hotel bookings within a 48h lead window. |
+| **Search Interest** | **Raw Google Trends Score (0–100)** | Measures ephemeral public browsing curiosity; a spike can represent casual news viewing without commercial purchasing intent. | **KPI 3: Lagged Search Elasticity ($\\rho$)** | Evaluates whether search curiosity coincides with actual travel fare movements across a multi-day horizon. |
 | **Airfare** | **Absolute Spot Flight Fare (₱)** | Conflates macro inflation, day-of-week timing, and fuel surcharges with the actual festival surge. | **KPI 1: Festival Price Premium Ratio (FPPR)** | Isolates the true net festival surcharge relative to a rolling baseline. |
-| **Lead Time** | **Days to Festival (Calendar Count)** | Calendar time is linear, but airline dynamic pricing behavior is non-linear and cliff-based. | **KPI 2: Lead-Time Booking Penalty Index (LBPI)** | Explicitly quantifies the cost multiplier of waiting ($1.0\\times \\to 2.2\\times$), giving a clear financial cutoff date. |
+| **Lead Time** | **Days to Festival (Calendar Count)** | Calendar time is linear, but airline dynamic pricing behavior is non-linear and cliff-based. | **KPI 2: Lead-Time Booking Penalty Index (LBPI)** | Explicitly quantifies the cost multiplier of waiting ($1.00\\times \\to 4.74\\times$), establishing a clear financial cutoff date. |
 | **Inventory** | **Scraper Listing Count (~20 quotes)** | Fixed by SerpApi API pagination settings; does not reflect actual room or seat capacity. | **KPI 4: Flight Daily Surge Velocity ($\\Delta\\text{Flight}_{1\\text{d}}$)** | Detects rapid fare acceleration caused by seat-tier depletion. |
 """
 cells.append(nbf.v4.new_markdown_cell(cell15_md))
@@ -465,20 +472,20 @@ Synthesizing all 5 KPIs leads to concrete operating guidelines for our primary s
 
 ### 1. For Budget-Conscious Travelers
 * **The "Safe Zone" ($> 20$ Days to Festival):**
-  * $\\text{LBPI} \\le 1.15\\times$, $\\text{FPPR} < 20\\%$.
-  * **Action:** Book flights and accommodations in this window. Minimum fares remain near baseline (₱2,300–₱2,800).
+  * $\\text{LBPI} = 1.00\\times$, $\\text{Flight FPPR} \\approx -29\\%$.
+  * **Action:** Book flights and accommodations in this window. Minimum airfares sit at baseline (**₱1,915.00**), capturing maximum advance discounts.
 * **The "Warning Zone" ($8$ to $20$ Days to Festival):**
-  * $\\text{LBPI} \\approx 1.25\\times$ to $1.45\\times$, $\\Delta\\text{Flight}_{1\\text{d}} \\le +₱300$.
-  * **Action:** Finalize tickets immediately. Saver fare tiers are depleting.
+  * $\\text{LBPI} \\approx 1.05\\times$ (up to $1.47\\times$), $\\text{Hotel FPPR} \\approx +10\\%$.
+  * **Action:** Finalize tickets immediately. Saver fare tiers begin depleting, though median flight fares remain stable around ₱2,695.
 * **The "Surge Zone" ($\le 7$ Days to Festival):**
-  * $\\text{LBPI} \\ge 1.60\\times$ (peaking at $2.2\\times$), $\\text{FPPR} > +50\\%$, $\\Delta\\text{Flight}_{1\\text{d}}$ spikes $> +₱1,000$.
-  * **Action:** Avoid booking. If travel is mandatory, consider alternative travel modes (e.g. ferry via Iloilo) to bypass algorithmic airfare ratchets.
+  * $\\text{LBPI} = 1.74\\times$ median (peaking at **$4.74\\times$**), $\\text{Flight FPPR}$ surges up to **$+19.98\\%$**, daily flight velocity spikes up to **+₱4,865.50 overnight**.
+  * **Action:** Avoid booking flights. If travel is mandatory, consider alternative travel modes (e.g. ferry via Iloilo) to bypass extreme late-window airfare surges.
 
 ### 2. For Bacolod Hospitality Vendors & Local Businesses
 * **Search Monitoring Trigger:**
-  * When Google Trends 7-day velocity exceeds $+25\\%$, trigger marketing promotions and lock in minimum stay policies within a **48-hour forward horizon**.
+  * When Google Trends scores cross $\\ge 75$ and contemporaneous flight velocity spikes past $+₱500$/day, trigger staffing expansion and inventory readiness.
 * **Pricing Defense:**
-  * Unlike airlines, hotel median rates remain sticky ($+₱8.51$ daily average change). Operators can afford modest package rate increases without risking occupancy loss because airfare pricing bears the brunt of traveler price resistance.
+  * Hotel rates remain remarkably steady throughout the pre-festival window (median daily change of $-₱18.00$, mean of $+₱16.29$). Because airfare absorbs the overwhelming majority of travel price volatility, accommodation providers can maintain their steady $+6\\%$ to $+10\\%$ festival premium without risking sudden cancellation waves.
 
 ### 3. Definition of Done Verification
 - [x] Defined 5 core KPIs mapping directly to the MassKara travel price surge problem statement.
@@ -505,4 +512,4 @@ client.execute()
 with open(output_path, 'w', encoding='utf-8') as f:
     nbf.write(nb, f)
 
-print(f"Successfully executed and pre-rendered {output_path}!")
+print(f"Successfully executed and updated {output_path} with fresh pre-rendered outputs.")
