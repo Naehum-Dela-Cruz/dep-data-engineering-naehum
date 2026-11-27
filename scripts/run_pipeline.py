@@ -31,8 +31,13 @@ def main():
     )
 
     run_step(
-        "Analysis",
+        "SQL Analysis",
         [sys.executable, "scripts/run_sql_analysis.py"],
+    )
+
+    run_step(
+        "Path B KPI & Segmentation Export",
+        [sys.executable, "scripts/run_path_b_analysis.py"],
     )
 
 

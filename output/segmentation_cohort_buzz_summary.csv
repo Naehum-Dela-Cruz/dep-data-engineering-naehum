@@ -1,0 +1,7 @@
+lead_cohort,search_buzz_tier,observations,flight_median_php,flight_mean_php,hotel_median_php,avg_search_score
+Surge Window (<=7d),High Buzz (>=67),6,4827.0,6158.42,2133.0,84.5
+Surge Window (<=7d),Low Buzz (<67),0,,,,
+Mid Window (8-20d),High Buzz (>=67),10,2695.0,2852.3,1920.0,82.5
+Mid Window (8-20d),Low Buzz (<67),3,2695.0,2694.67,1978.0,57.67
+Advance Window (>20d),High Buzz (>=67),3,2396.0,2398.0,1841.0,78.0
+Advance Window (>20d),Low Buzz (<67),14,2510.5,2525.79,1890.75,53.14

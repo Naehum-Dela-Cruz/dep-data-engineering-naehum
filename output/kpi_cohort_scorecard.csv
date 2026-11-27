@@ -1,0 +1,4 @@
+lead_cohort,observations,avg_days_out,flight_fest_median_php,hotel_fest_median_php,flight_fppr_median_pct,hotel_fppr_median_pct,flight_lbpi_median,flight_lbpi_max,flight_daily_velocity_avg_php,hotel_daily_velocity_avg_php,avg_search_score
+Surge Window (<=7d),6,4.0,4827.0,2133.0,-26.65,5.29,1.74,4.74,1565.83,84.08,84.5
+Mid Window (8-20d),13,14.0,2695.0,1960.0,-53.88,10.14,1.05,1.47,43.38,-6.15,76.77
+Advance Window (>20d),17,29.0,2457.0,1885.0,-29.35,6.0,1.0,1.04,28.81,9.09,57.53

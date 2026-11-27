@@ -23,26 +23,48 @@ APIFY_API_KEY=your_apify_key
 ```
 ### 3. Run The Full Pipeline
 No ingestion (use stored data) (Recommended):
-```
+```powershell
 python scripts/run_pipeline.py
 ```
-With Ingestion (get latest data):
-```
+With ingestion (get latest data):
+```powershell
 python scripts/run_pipeline.py --with-ingest
 ```
-<!-- TODO: add the rest -->
+
+### Project Flow (End-to-End Execution Order)
+1. `python scripts/ingest.py` *(optional via `--with-ingest`)* — pulls raw flights, hotels, and Google Trends JSONL into `data/raw/`.
+2. `python scripts/transform.py` — cleans raw data, runs validation checks, and builds `data/processed/masskara/analysis/master.csv`.
+3. `python scripts/run_sql_analysis.py` — refreshes `masskara.db` and runs SQL business queries (`scripts/queries.sql`).
+4. `python scripts/run_path_b_analysis.py` — computes Path B segmentation and KPI tables and saves reusable outputs to `output/`:
+   - `output/kpi_daily_metrics.csv` (daily FPPR, LBPI, and 1-day price velocities)
+   - `output/kpi_cohort_scorecard.csv` (executive KPI scorecard by lead-time cohort)
+   - `output/kpi_lag_correlation.csv` (0–3 day lagged Spearman correlations)
+   - `output/segmentation_cohort_buzz_summary.csv` (2D Lead-Time Cohort × Search Buzz summary)
+   - `output/figures/*.png` (Week 16 EDA & insight charts)
+5. Stakeholder deliverable: `notebooks/week_19_stakeholder_brief.ipynb` (plain-language 1-page policy brief).
+
+### Path B Assumptions & Limitations
+- **Observational Quotes Only:** Prices come from daily SerpApi/Apify Google Flights and Google Hotels snapshots; they reflect publicly listed quotes rather than actual airline seat counts or hotel room occupancy.
+- **Pagination Ceiling:** Scraper quote counts (~20 results) reflect API pagination limits and are excluded from KPI calculations.
+- **Confounding with Lead Time:** `days_to_festival` acts as a common confounder—search interest and late-stage airfare surges peak together in the final 7 days, so correlation does not imply direct causation.
+- **Sample Size in Surge Window:** The final `<=7d` cohort spans 6 observation days, so medians are prioritized over means to limit outlier skew.
+
 ### (Optional) Run individual scripts 
 #### Ingestion
-```
+```powershell
 python scripts/ingest.py
 ```
 #### Transformation
-```
+```powershell
 python scripts/transform.py
 ```
-#### Analysis
-```
+#### SQL Analysis
+```powershell
 python scripts/run_sql_analysis.py
+```
+#### Path B KPI & Segmentation Export
+```powershell
+python scripts/run_path_b_analysis.py
 ```
 
 ## KPIs or Key Metrics
@@ -241,8 +263,6 @@ The master dataset contains:
 | Different source date ranges | Joined trends with flight observations using an inner join | The master dataset contains dates with active flight and trend observations |
 
 
-<!-- TODO: we made some changes to the transformation since it kept falinging after the target date has passed.
-Recheck that this is up to date: -->
 ## Validation and Reproducibility
 
 Validation is implemented in `scripts/transform.py`.
@@ -289,17 +309,18 @@ The SQL runner refreshes:
 and prints the query results in the terminal.
 
 ## Jupyter Notebook Analysis
-All notebooks are found under the `notebooks/`. Jupyter analysis is done sequentially.
+All notebooks are found under `notebooks/`. Jupyter analysis is done sequentially:
 
-- `\dep-data-engineering-naehum\notebooks\week_8_sql.ipynb`
-- `\dep-data-engineering-naehum\notebooks\week_9_pandas_profiling.ipynb`
-- `\dep-data-engineering-naehum\notebooks\week_10_transformations.ipynb`
-- `\dep-data-engineering-naehum\notebooks\week_13_descriptive_stats.ipynb`
-- `\dep-data-engineering-naehum\notebooks\week_14_eda_visualization.ipynb`
-- `\dep-data-engineering-naehum\notebooks\week_15_inference.ipynb`
-- `\dep-data-engineering-naehum\notebooks\week_16_insights.ipynb`
-- `\dep-data-engineering-naehum\notebooks\week_17_segmentation.ipynb`
-- `\dep-data-engineering-naehum\notebooks\week_18_kpis.ipynb`
+- `notebooks/week_8_sql.ipynb`
+- `notebooks/week_9_pandas_profiling.ipynb`
+- `notebooks/week_10_transformations.ipynb`
+- `notebooks/week_13_descriptive_stats.ipynb`
+- `notebooks/week_14_eda_visualization.ipynb`
+- `notebooks/week_15_inference.ipynb`
+- `notebooks/week_16_insights.ipynb`
+- `notebooks/week_17_segmentation.ipynb`
+- `notebooks/week_18_kpis.ipynb`
+- `notebooks/week_19_stakeholder_brief.ipynb`
 
 
 <!-- check if this still corresponds to reality. AFAIK we don't search for multi-leg even raw—this is AI generated so it makes everything suspect -->
