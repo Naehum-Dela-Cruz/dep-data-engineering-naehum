@@ -322,8 +322,6 @@ All notebooks are found under `notebooks/`. Jupyter analysis is done sequentiall
 - `notebooks/week_18_kpis.ipynb`
 - `notebooks/week_19_stakeholder_brief.ipynb`
 
-
-<!-- check if this still corresponds to reality. AFAIK we don't search for multi-leg even raw—this is AI generated so it makes everything suspect -->
 ## Data Quality, Validation & Reproducibility (Week 11)
 
 ### Cleaning Decisions Log
